@@ -16,7 +16,6 @@ class ExtraEventsSaveHandler extends ScriptedModule {
         isRotateEnabled: true,
         iscamHUDRotateEnabled: true,
         isShakeEnabled: true,
-        isFlashEnabled: true,
         isLyricsEnabled: true,
         isVignEnabled: true
     };
@@ -47,10 +46,6 @@ class ExtraEventsSaveHandler extends ScriptedModule {
                 prefs.createPrefItemCheckbox("Shake Screen Effects", "If disabled, charts with placed shake screen effects will be ignored.", (value:Bool) -> {
                     options.isShakeEnabled = value;
                 }, options.isShakeEnabled);
-
-                prefs.createPrefItemCheckbox("Flash Screen Effects", "If disabled, charts with placed flash screen effects will be ignored.", (value:Bool) -> {
-                    options.isFlashEnabled = value;
-                }, options.isFlashEnabled);
 
                 prefs.createPrefItemCheckbox("Show Lyrics", "If disabled, charts with placed lyrics will be ignored.", (value:Bool) -> {
                     options.isLyricsEnabled = value;
