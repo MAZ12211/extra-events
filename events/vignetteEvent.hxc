@@ -62,7 +62,7 @@ class VignHandler extends ScriptedModule {
       if (FlxG.camera.filters == null) FlxG.camera.filters = [vignFilter];
       else FlxG.camera.filters.push(vignFilter);
     }
-
+	currentIntensity = 0.0; //idk but shows on any song so 0.0
   }
 
   override function onSongRetry(e) {
