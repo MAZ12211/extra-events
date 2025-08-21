@@ -14,7 +14,8 @@ import flixel.util.FlxSave;
 import funkin.modding.module.ModuleHandler;
 import funkin.modding.module.ScriptedModule;
 import funkin.data.event.SongEventRegistry;
-import funkin.save.Save;
+
+import funkin.Preferences;
 
 class CameraFlashFixes extends ScriptedModule {
   var shouldFixFlashEvent:Bool = true;
@@ -43,7 +44,6 @@ class CameraFlashEvent extends ScriptedSongEvent {
   }
 
   public var eventTitle:String = "Extra Events | Camera Flash";
-  public var isEnabled = null;
   /*
   * white = 0xFFFFFFFF
   * red = 0xFFFF0000
@@ -56,9 +56,7 @@ class CameraFlashEvent extends ScriptedSongEvent {
     if (PlayState.instance == null || PlayState.instance.currentStage == null) return;
     if (PlayState.instance.isMinimalMode) return;
 
-    // Save Stuff
-    isEnabled = Save.instance.modOptions.get('extra-events').isFlashEnabled;
-    if (!isEnabled) return; // Check if the option is enabled/disabled every time the event is called
+    if (!Preferences.flashingLights) return;
 
     var duration:Float = data.getFloat('duration') != null ? data.getFloat('duration') : DEFAULT_DURATION;
     var applyToHud:Bool = data.getBool('applyToHud') != null ? data.getBool('applyToHud') : DEFAULT_APPLYTOHUD;
