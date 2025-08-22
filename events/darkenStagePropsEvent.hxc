@@ -42,6 +42,51 @@ class DarkenStagePropsFixes extends ScriptedModule {
   // }
 }
 
+class DarkenEffectHandler extends ScriptedModule {
+  function new() {
+    super("extra-events-darkenEffectHandler", 10);
+  }
+  public var bgSprite:FunkinSprite = null;
+  public var scale:Int = 20;
+  /*
+    * If you think the black square doesn't cover your stage entirely, increase this via
+    * ModuleHandler.getModule(extra-events-darkenEffectHandler').scriptGet('scale') = 50;
+    * in onSongLoaded function I'd say
+  */
+
+  override function onSongLoaded(e) {
+    super.onSongLoaded(e);
+    var bf = PlayState.instance.currentStage.getBoyfriend();
+    var gf = PlayState.instance.currentStage.getGirlfriend();
+    var dad = PlayState.instance.currentStage.getDad();
+    bgSprite = new FunkinSprite(0, 0).makeSolidColor(FlxG.width * scale, FlxG.height * scale, 0xFF000000);
+    bgSprite.screenCenter();
+    bgSprite.scrollFactor.set(0, 0);
+    bgSprite.zIndex = Math.min(bf?.zIndex, gf?.zIndex, dad?.zIndex) - 1;
+    bgSprite.alpha = 1.0;
+    // for (chars in [bf, gf, dad]){
+    //   bgSprite.zIndex -= chars.zIndex;
+    // }
+    PlayState.instance.currentStage.add(bgSprite);
+    PlayState.instance.currentStage.refresh();
+    bgSprite.cameras = [PlayState.instance.camGame];
+    // for (chars in [bf, gf, dad]){
+    //   PlayState.instance.insert(PlayState.instance.members.indexOf(chars) - 1, bgSprite);
+    // }
+
+    // for (stageProp in PlayState.instance.currentStage.members) {
+    //   // Determine if the stage prop is something that should be excluded from darkening.
+    //   if (Std.isOfType(stageProp, StageProp)) {
+    //     if (stageProp.name == "bf" || stageProp.name == "dad" || stageProp.name == "gf" /*This refers to the player.*/){
+    //       // Exclude.
+    //       continue;
+    //     }
+    //   }
+      
+    // }
+  }
+}
+
 class DarkenStagePropsEvent extends ScriptedSongEvent {
   function new() {
     super("extra-events-darkenStagePropsEvent");
@@ -51,11 +96,19 @@ class DarkenStagePropsEvent extends ScriptedSongEvent {
 
   public var DEFAULT_DURATION:Float = 4.0;
   public var DEFAULT_ALPHA:Float = 0.5;
+  
   public var colorTween:FlxTween = null;
 
   override function handleEvent(data):Void {
     if (PlayState.instance == null || PlayState.instance.currentStage == null) return;
     if (PlayState.instance.isMinimalMode) return;
+
+    bgSprite = new FunkinSprite(0, 0).makeSolidColor(FlxG.width * 2, FlxG.height * 2, 0xFF000000);
+    bgSprite.cameras = [PlayState.instance.camGame];
+
+    // Add to playstate
+    PlayState.instance.add(bgSprite);
+    PlayState.instance.refresh();
 
     var duration:Float = data.getFloat('duration') != null ? data.getFloat('duration') : DEFAULT_DURATION;
     var alpha:Float = data.getFloat('alpha') != null ? data.getFloat('alpha') : DEFAULT_ALPHA;
