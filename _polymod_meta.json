@@ -1,8 +1,8 @@
 {
   "title": "Extra Events",
   "description": "Adds more events to experiment with in your charts!\n\nEvents can be disabled/enabled in the options menu.",
-  "api_version": "0.7.3",
-  "mod_version": "1.2.0",
+  "api_version": "0.7.4",
+  "mod_version": "1.2.1",
   "contributors": [
     {"name": "MAZ12211", "role": "Coded everything and did most of the work"},
     {"name": "Psych Ward's base game channels", "role": "Major code help + feedback", "url": "https://discord.gg/psychengine"},
