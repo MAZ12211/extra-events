@@ -17,7 +17,8 @@ class ExtraEventsSaveHandler extends ScriptedModule {
         iscamHUDRotateEnabled: true,
         isShakeEnabled: true,
         isLyricsEnabled: true,
-        isVignEnabled: true
+        isVignEnabled: true,
+        isMidSongCountDownEnabled: true
     };
 
     override function onCreate(e) {
@@ -54,6 +55,10 @@ class ExtraEventsSaveHandler extends ScriptedModule {
                 prefs.createPrefItemCheckbox("Vignette Effects", "If disabled, charts with placed vignette effects will be ignored.", (value:Bool) -> {
                     options.isVignEnabled = value;
                 }, options.isVignEnabled);
+
+                prefs.createPrefItemCheckbox("Mid song countdown", "If disabled, mid-song countdowns will be ignored.", (value:Bool) -> {
+                    options.isMidSongCountDownEnabled = value;
+                }, options.isMidSongCountDownEnabled);
 
 
             }

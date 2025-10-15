@@ -14,12 +14,13 @@ class ExtraEventsNotif extends ScriptedModule {
         });
     }
     var leftWatermarkText:FlxText;
+    var versionText:Float = "1.2.1";
 
 
     override function onStateChangeEnd(e) {
         super.onStateChangeEnd(e);
         if (e.targetState is MainMenuState) {
-            leftWatermarkText = new FlxText(FullScreenScaleMode?.gameNotchSize?.x, FlxG.height - 36, FlxG.width, "Extra Events Detected!", 12);
+            leftWatermarkText = new FlxText(FullScreenScaleMode?.gameNotchSize?.x, FlxG.height - 36, FlxG.width, "Extra Events Detected!" + " V" + versionText, 12);
             leftWatermarkText.zIndex = 100000;
             leftWatermarkText.scrollFactor.set(0, 0);
             leftWatermarkText.setFormat(Paths.font("vcr.ttf"), 16, FlxColor.WHITE, "left", FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
