@@ -56,7 +56,7 @@ class ExtraEventsSaveHandler extends ScriptedModule {
                     options.isVignEnabled = value;
                 }, options.isVignEnabled);
 
-                prefs.createPrefItemCheckbox("Mid song countdown", "If disabled, mid-song countdowns will be ignored.", (value:Bool) -> {
+                prefs.createPrefItemCheckbox("Mid-Song Countdown", "If disabled, mid-song countdowns will be ignored.", (value:Bool) -> {
                     options.isMidSongCountDownEnabled = value;
                 }, options.isMidSongCountDownEnabled);
 

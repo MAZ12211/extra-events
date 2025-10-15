@@ -1,0 +1,270 @@
+import funkin.play.PlayState;
+import funkin.Conductor;
+import flixel.FlxG;
+
+import funkin.play.event.SongEvent;
+import funkin.data.event.SongEventSchema;
+
+import funkin.play.event.ScriptedSongEvent;
+
+import funkin.ui.options.OptionsState;
+import funkin.modding.module.ModuleHandler;
+import funkin.modding.module.Module;
+import funkin.data.event.SongEventRegistry;
+
+import funkin.save.Save;
+import funkin.play.Countdown;
+import funkin.play.CountdownStep;
+import flixel.util.FlxTimer;
+import funkin.data.notestyle.NoteStyleRegistry;
+import funkin.play.notes.notestyle.NoteStyle;
+import flixel.tweens.FlxEase;
+import flixel.tweens.FlxTween;
+import funkin.util.EaseUtil;
+import funkin.audio.FunkinSound;
+import funkin.util.Constants;
+import funkin.modding.events.ScriptEvent;
+
+// Credit goes to ComedyLost (I only did the speed property code + minor bug fixes)
+// Most of the code is copy pasted from Source lol
+
+class CountDownEvent extends ScriptedSongEvent {
+	function new() {
+		super("extra-events-countDownEvent");
+	}
+
+	public var eventTitle:String = "Extra Events | Add CountDown";
+	public var DEFAULT_SOUNDONLY:Bool = false; // no graphics
+	public var DEFAULT_SPEED:Int = 0; // 0 = current BPM, 1 = Half BPM, 2 = Double BPM
+
+	var noteStyle:NoteStyle = null;
+
+	override function handleEvent(data):Void {
+		if (PlayState.instance == null || PlayState.instance.currentStage == null) return;
+		if (PlayState.instance.isMinimalMode) return;
+
+		isEnabled = Save.instance.modOptions.get('extra-events').isMidSongCountDownEnabled;
+		if (!isEnabled) return;
+
+		var soundOnly = data.getBool('soundOnly') != null ? data.getBool('soundOnly') : DEFAULT_SOUNDONLY;
+		var speed = data.getInt('speed') != null ? data.getInt('speed') : DEFAULT_SPEED;
+
+		ModuleHandler.getModule('extra-events-countDownHandler')?.scriptCall("performCountdown", [soundOnly, speed]);
+	}
+
+	public override function getTitle() {
+		return eventTitle;
+	}
+
+	override function getEventSchema(){
+		return [
+			{
+				name: 'soundOnly',
+				title: 'Sound Only',
+				defaultValue: false,
+				type: "bool"
+			},
+	        {
+				name: 'speed',
+				title: 'Speed',
+				defaultValue: 1,
+				type: "enum",
+				keys: [
+					"Double BPM (Fast = 2 beats/8 steps to finish)" => 0,
+					"Normal BPM (Normal = 4 beat/16 steps to finish)" => 1,
+					"Half BPM (Slow = 8 beats/32 steps to finish)" => 2,
+				]
+        	}
+		];
+	}
+}
+
+class EECountdownHandler extends Module {
+	function new() {
+		super("extra-events-countDownHandler", 10);
+	}
+	
+	var noteStyle:NoteStyle;
+
+	var fallbackNoteStyle:Null<NoteStyle>;
+
+	var countdownTimer:FlxTimer = null;
+	var countdownStep(default, null):CountdownStep = CountdownStep.BEFORE;
+
+	function performCountdown(?soundOnly:Bool, ?speed:Int):Void {
+		reset();
+
+		countdownStep = CountdownStep.BEFORE; // Three
+
+		stopCountdown();
+
+		countdownTimer = new FlxTimer();
+		
+		var playSoundOnly = soundOnly ?? false;
+		var soundSpeed = speed ?? 1;
+
+		switch(soundSpeed) {
+			case 0:
+				speed = Conductor.instance.beatLengthMs / 2000; // Fast = 2 beats/8 Steps to finish (treats like you doubled the BPM of the song = faster countdown)
+			case 1:
+				speed = Conductor.instance.beatLengthMs / 1000; // Normal = 4 beat/16 steps to finish
+			case 2:
+				speed = Conductor.instance.beatLengthMs / 500; // Slow = 8 beats/32 steps to finish
+			default:
+				speed = Conductor.instance.beatLengthMs / 1000;
+		}
+		
+		// Do it once to line it up with the event
+		countdownStep = decrement(countdownStep);
+		if (!playSoundOnly) showCountdownGraphic(countdownStep);
+  		playCountdownSound(countdownStep);
+
+		countdownTimer.start(speed / PlayState.instance.playbackRate, function(tmr:FlxTimer) {
+			if (PlayState.instance == null) {
+				tmr.cancel();
+				return;
+			}
+
+			countdownStep = decrement(countdownStep);
+	  
+			// Countdown graphic.
+			if (!playSoundOnly) showCountdownGraphic(countdownStep);
+	  
+			// Countdown sound.
+			playCountdownSound(countdownStep);
+	  
+			// Event handling bullshit.	
+			if (countdownStep < 0) {
+			  stopCountdown();
+			}	  		  
+		}, 4); // 3, 2, 1, GO!, After
+	}
+
+	function fetchNoteStyle(?noteStyleId:String, force:Bool = false):Void {
+		if (noteStyle != null && !force) return;
+	
+		if (noteStyleId == null) noteStyleId = PlayState.instance?.currentChart?.noteStyle;
+	
+		noteStyle = NoteStyleRegistry.instance.fetchEntry(noteStyleId);
+		if (noteStyle == null) noteStyle = NoteStyleRegistry.instance.fetchDefault();
+	}
+	
+	function showCountdownGraphic(index:CountdownStep, ?speed:Int):Void {
+		fetchNoteStyle();
+
+		var countdownSprite = noteStyle.buildCountdownSprite(index);
+		if (countdownSprite == null) return;
+
+		var fadeEase = FlxEase.cubeInOut;
+		if (noteStyle.isCountdownSpritePixel(index)) fadeEase = EaseUtil.stepped(8);
+
+		var showGraphicSpeed = speed ?? 1;
+
+		switch(showGraphicSpeed) {
+			case 0:
+				speed = Conductor.instance.beatLengthMs / 2000; // Fast = 2 beats/8 Steps to finish (treats like you doubled the BPM of the song = faster countdown)
+			case 1:
+				speed = Conductor.instance.beatLengthMs / 1000; // Normal = 4 beat/16 steps to finish
+			case 2:
+				speed = Conductor.instance.beatLengthMs / 500; // Slow = 8 beats/32 steps to finish
+			default:
+				speed = Conductor.instance.beatLengthMs / 1000;
+		}
+
+		// Fade sprite in, then out, then destroy it.
+		FlxTween.tween(countdownSprite, {alpha: 0}, speed / PlayState.instance.playbackRate,
+			{
+				ease: fadeEase,
+				onComplete: function(twn:FlxTween) {
+					countdownSprite.destroy();
+				}
+			});
+
+		countdownSprite.cameras = [PlayState.instance.camHUD];
+		PlayState.instance.add(countdownSprite);
+		countdownSprite.screenCenter();
+
+		var offsets = noteStyle.getCountdownSpriteOffsets(index);
+		countdownSprite.x += offsets[0];
+		countdownSprite.y += offsets[1];
+	}
+
+	/**
+	 * Retrieves the sound file to use for this step of the countdown.
+	 */
+	function playCountdownSound(step:CountdownStep) {
+		fetchNoteStyle();
+		var path = noteStyle.getCountdownSoundPath(step);
+		if (path == null) return null;
+
+		return FunkinSound.playOnce(path, Constants.COUNTDOWN_VOLUME, null, null, true);
+	}
+
+	function decrement(step:CountdownStep) {
+		switch (step) {
+			case CountdownStep.BEFORE:
+				return CountdownStep.THREE;
+			case CountdownStep.THREE:
+				return CountdownStep.TWO;
+			case CountdownStep.TWO:
+				return CountdownStep.ONE;
+			case CountdownStep.ONE:
+				return CountdownStep.GO;
+			case CountdownStep.GO:
+				return CountdownStep.AFTER;
+			default:
+				return CountdownStep.AFTER;
+		}
+	}
+	
+	override function onPause(event) {
+		super.onPause(event);
+		pauseCountdown();
+	}
+
+	override function onResume(event) {
+		super.onResume(event);
+		resumeCountdown();
+	}
+
+	/**
+	 * Pauses the countdown at the current step. You can start it up again later by calling resumeCountdown().
+	 *
+	 * If you want to call this from a module, it's better to use the event system and cancel the onCountdownStep event.
+	 */
+	function pauseCountdown():Void {
+		if (countdownTimer != null && !countdownTimer.finished)
+		{
+			countdownTimer.active = false;
+		}
+	}
+
+	/**
+	 * Resumes the countdown at the current step. Only makes sense if you called pauseCountdown() first.
+	 *
+	 * If you want to call this from a module, it's better to use the event system and cancel the onCountdownStep event.
+	 */
+	function resumeCountdown():Void {
+		if (countdownTimer != null && !countdownTimer.finished)
+		{
+			countdownTimer.active = true;
+		}
+	}
+
+	function onSongRetry() {
+		super.onSongRetry();
+		stopCountdown();
+	}
+
+	function reset() {
+		noteStyle = null;
+	}
+
+	function stopCountdown(){
+		if (countdownTimer != null){
+			countdownTimer.cancel();
+			countdownTimer.destroy();
+			countdownTimer = null;
+		}
+	}
+}
