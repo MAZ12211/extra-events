@@ -32,19 +32,22 @@ class AddLyricsEvent extends ScriptedSongEvent {
 
   public var eventTitle:String = "Extra Events | Add Lyrics";
   public var isEnabled = null;
-  
-  public var lyricObj:FlxText;
 
   public var DEFAULT_TEXT:String = "";
+  public var DEFAULT_TEXT_2ND:String = "";
   public var DEFAULT_FONT:String = "vcr";
+  public var DEFAULT_FONT_2ND:String = "vcr";
   public var DEFAULT_FONTSIZE:Float = 32.0;
+  public var DEFAULT_FONTSIZE_2ND:Float = 32.0;
   public var DEFAULT_COLOR:Int = 12; // White
+  public var DEFAULT_COLOR_2ND:Int = 12; // White
 
   public var DEFAULT_ITALIC:Bool = false;
   public var DEFAULT_BOLD:Bool = false;
   public var DEFAULT_HAS_ANTIALIASING:Bool = false;
   
   public var DEFAULT_ISCENTERED:Bool = false; // No real point in having custom x and y position. ISCENTERED is used for if you want the lyric to be the on the middle of the screen
+  public var DEFAULT_ISCENTERED_2ND:Bool = false;
   public var DEFAULT_OPACITY:Float = 1.0;
   public var DEFAULT_LATTERSPACING:Float = 0.0;
   
@@ -52,32 +55,31 @@ class AddLyricsEvent extends ScriptedSongEvent {
   public var DEFAULT_BORDERSIZE:Float = 1.0; // min is 0 instead of 0.1
 
   public var DEFAULT_ISBEHINDSTRUMLINES:Bool = true;
+  public var DEFAULT_ISBEHINDSTRUMLINES_2ND:Bool = true;
 
   override function handleEvent(data) {
     if (PlayState.instance == null || PlayState.instance.currentStage == null) return;
-
-    // Prevents stacking the current text by deleting the current one
-    if (lyricObj != null) {
-      lyricObj.kill();
-      lyricObj.destroy();
-      lyricObj = null;
-    }
 
     // Save Stuff
     isEnabled = Save.instance.modOptions.get('extra-events').isLyricsEnabled;
     if (!isEnabled) return;
 
     var text:String = data.getString('text') != null ? data.getString('text') : DEFAULT_TEXT;
+    var text2nd:String = data.getString('text2nd') != null ? data.getString('text2nd') : DEFAULT_TEXT_2ND;
     var duration:Float = data.getFloat('duration') != null ? data.getFloat('duration') : 0;
     var font:String = data.getString('font') != null ? data.getString('font') : DEFAULT_FONT;
+    var font2nd:String = data.getString('font2nd') != null ? data.getString('font2nd') : DEFAULT_FONT_2ND;
     var fontSize:Float = data.getFloat('fontSize') != null ? data.getFloat('fontSize') : DEFAULT_FONTSIZE;
+    var fontSize2nd:Float = data.getFloat('fontSize2nd') != null ? data.getFloat('fontSize2nd') : DEFAULT_FONTSIZE_2ND;
     var textColor:Int = data.getInt('textColor') != null ? data.getInt('textColor') : DEFAULT_COLOR;
+    var textColor2nd:Int = data.getInt('textColor2nd') != null ? data.getInt('textColor2nd') : DEFAULT_COLOR_2ND;
     
     var isItalic:Bool = data.getBool('isItalic') != null ? data.getBool('isItalic') : DEFAULT_ITALIC;
     var isBold:Bool = data.getBool('isBold') != null ? data.getBool('isBold') : DEFAULT_BOLD;
     var hasAntiAliasing:Bool = data.getBool('hasAntiAliasing') != null ? data.getBool('hasAntiAliasing') : DEFAULT_HAS_ANTIALIASING;
     
     var isCentered:Bool = data.getBool('isCentered') != null ? data.getBool('isCentered') : DEFAULT_ISCENTERED;
+    var isCentered2nd:Bool = data.getBool('isCentered2nd') != null ? data.getBool('isCentered2nd') : DEFAULT_ISCENTERED_2ND;
     var opacity:Float = data.getFloat('opacity') != null ? data.getFloat('opacity') : DEFAULT_OPACITY;
     var letterSpacing:Float = data.getFloat('letterSpacing') != null ? data.getFloat('letterSpacing') : DEFAULT_LATTERSPACING;
     
@@ -85,94 +87,10 @@ class AddLyricsEvent extends ScriptedSongEvent {
     var borderSize:Float = data.getFloat('borderSize') != null ? data.getFloat('borderSize') : DEFAULT_BORDERSIZE;
 
     var isBehindStrumLines:Bool = data.getBool('isBehindStrumLines') != null ? data.getBool('isBehindStrumLines') : DEFAULT_ISBEHINDSTRUMLINES;
+    var isBehindStrumLines2nd:Bool = data.getBool('isBehindStrumLines2nd') != null ? data.getBool('isBehindStrumLines2nd') : DEFAULT_ISBEHINDSTRUMLINES_2ND;
 
-    // I'm sure they'll have a color picker at some point
-    switch (textColor) {
-      case 0: // Black
-        textColor = 0xFF000000;
-      case 1: // Blue
-        textColor = 0xFF0000FF;
-      case 2: // Brown
-        textColor = 0xFFA52A2A;
-      case 3: // Cyan
-        textColor = 0xFF00FFFF;
-      case 4: // Gray
-        textColor = 0xFF808080;
-      case 5: // Green
-        textColor = 0xFF008000;
-      case 6: // Lime
-        textColor = 0xFF00FF00;
-      case 7: // Magenta
-        textColor = 0xFFFF00FF;
-      case 8: // Orange
-        textColor = 0xFFFFA500;
-      case 9: // Purple
-        textColor = 0xFF800080;
-      case 10: // Red
-        textColor = 0xFFFF0000;
-      case 11: // Transparent
-        textColor = 0x00000000;
-      case 12: // White
-        textColor = 0xFFFFFFFF;
-      case 13: // Yellow
-        textColor = 0xFFFFFF00;
-    }
-
-    switch (textBorderColor) {
-      case 0: // Black
-        textBorderColor = 0xFF000000;
-      case 1: // Blue
-        textBorderColor = 0xFF0000FF;
-      case 2: // Brown
-        textBorderColor = 0xFFA52A2A;
-      case 3: // Cyan
-        textBorderColor = 0xFF00FFFF;
-      case 4: // Gray
-        textBorderColor = 0xFF808080;
-      case 5: // Green
-        textBorderColor = 0xFF008000;
-      case 6: // Lime
-        textBorderColor = 0xFF00FF00;
-      case 7: // Magenta
-        textBorderColor = 0xFFFF00FF;
-      case 8: // Orange
-        textBorderColor = 0xFFFFA500;
-      case 9: // Purple
-        textBorderColor = 0xFF800080;
-      case 10: // Red
-        textBorderColor = 0xFFFF0000;
-      case 11: // Transparent
-        textBorderColor = 0x00000000;
-      case 12: // White
-        textBorderColor = 0xFFFFFFFF;
-      case 13: // Yellow
-        textBorderColor = 0xFFFFFF00;
-    }
-
-    lyricObj = new FlxText(0, 0, FlxG.width);
-    lyricObj.text = text;
-    lyricObj.setFormat(Paths.font(font + ".ttf"), fontSize, textColor, "center", FlxTextBorderStyle.OUTLINE, textBorderColor);
-    lyricObj.borderSize = borderSize;
-    lyricObj.alpha = opacity;
-    lyricObj.letterSpacing = letterSpacing;
-    lyricObj.italic = isItalic;
-    lyricObj.bold = isBold;
-    lyricObj.antialiasing = hasAntiAliasing;
-    lyricObj.cameras = [PlayState.instance.camHUD];
-    lyricObj.screenCenter(isCentered ? 0x11 : 0x01); // I love ternary operators
-    if (!isCentered) lyricObj.y = (Preferences.downscroll ? FlxG.height * 0.2 : FlxG.height * 0.7); // Dynamic positioning
-
-    if (PlayState.instance.opponentStrumline == null) return;
-    for (strumLine in [PlayState.instance.playerStrumline, PlayState.instance.opponentStrumline]) {
-      if (strumLine != null) {
-        PlayState.instance.insert(PlayState.instance.members.indexOf(strumLine) + (!isBehindStrumLines ? 1 : -1), lyricObj); // The best way to handle layering hands down
-      }
-    }
-
-    if (lyricObj.font == null) {
-      trace("Font property is left empty.\nApplying found default font.");
-    }
-
+    ModuleHandler.getModule('extra-events-addLyricsHandler')?.scriptCall("createText", [text, duration, textColor, font, fontSize, isItalic, isBold, hasAntiAliasing, isCentered, opacity, letterSpacing, textBorderColor, borderSize, isBehindStrumLines]);
+    ModuleHandler.getModule('extra-events-addLyricsHandler')?.scriptCall("create2ndText", [text2nd, textColor2nd, font2nd, fontSize2nd, isCentered2nd, isBehindStrumLines2nd]);
   }
 
   public override function getTitle() {
@@ -190,6 +108,12 @@ class AddLyricsEvent extends ScriptedSongEvent {
         name: 'text',
         defaultValue: '',
         title: 'Text',
+        type: "string"
+      },
+      {
+        name: 'text2nd',
+        defaultValue: '',
+        title: 'Text 2',
         type: "string"
       },
       {
@@ -224,8 +148,37 @@ class AddLyricsEvent extends ScriptedSongEvent {
         ]
       },
       {
+        name: 'textColor2nd',
+        title: 'Text 2 Color',
+        defaultValue: 12,
+        type: "enum",
+        keys: [
+          "Black" => 0,
+          "Blue" => 1,
+          "Brown" => 2,
+          "Cyan" => 3,
+          "Gray" => 4,
+          "Green" => 5,
+          "Lime" => 6,
+          "Magenta" => 7,
+          "Orange" => 8,
+          "Purple" => 9,
+          "Red" => 10,
+          "Transparent" => 11,
+          "White" => 12,
+          "Yellow" => 13
+        ]
+      },
+      {
         name: 'font',
         title: 'Font',
+        defaultValue: 'vcr',
+        type: "string",
+        units: '.ttf'
+      },
+      {
+        name: 'font2nd',
+        title: 'Text 2 Font',
         defaultValue: 'vcr',
         type: "string",
         units: '.ttf'
@@ -239,8 +192,22 @@ class AddLyricsEvent extends ScriptedSongEvent {
         type: "float"
       },
       {
+        name: 'fontSize2nd',
+        title: 'Text 2 Font Size',
+        defaultValue: 32,
+        min: 1.0,
+        step: 1.0,
+        type: "float"
+      },
+      {
         name: "isBehindStrumLines",
         title: "Put it behind Strumlines",
+        defaultValue: true,
+        type: "bool"
+      },
+      {
+        name: "isBehindStrumLines2nd",
+        title: "Text 2 | Put it behind Strumlines",
         defaultValue: true,
         type: "bool"
       },
@@ -265,6 +232,12 @@ class AddLyricsEvent extends ScriptedSongEvent {
       {
         name: "isCentered",
         title: "Place in center", /* Imagine if I could explain any of this, base game devs, please, let me add tooltips for these things */
+        defaultValue: false,
+        type: "bool"
+      },
+      {
+        name: "isCentered2nd",
+        title: "Text 2 | Place in center",
         defaultValue: false,
         type: "bool"
       },
@@ -318,4 +291,226 @@ class AddLyricsEvent extends ScriptedSongEvent {
       }
     ];
   }
+}
+
+class addLyricsHandler extends ScriptedModule {
+  function new() {
+    super("extra-events-addLyricsHandler", 30);
+  }
+  public var lyricObj:FlxText = null;
+  public var lyricObj2nd:FlxText = null;
+
+  var lyricObj_YPos_UPSCROLL:Float = FlxG.height * 0.65;
+  var lyricObj_YPos_DNSCROLL:Float = FlxG.height * 0.4;
+  var lyricObj2nd_YPos_UPSCROLL:Float = FlxG.height * 0.7;
+  var lyricObj2nd_YPos_DNSCROLL:Float = FlxG.height * 0.35;
+
+  var isItalicArg = null;
+  var isBoldArg = null;
+  var hasAntiAliasingArg = null;
+  var opacityArg = null;
+  var letterSpacingArg = null;
+  var textBorderColorArg = null;
+  var borderSizeArg = null;
+  
+
+  function createText(?text:String, ?duration:Float = 0, ?textColor:Int, ?font:String, ?fontSize:Float, ?isItalic:Bool, ?isBold:Bool, ?hasAntiAliasing:Bool, ?isCentered:Bool, ?opacity:Float, ?letterSpacing:Float, ?textBorderColor:Int, ?borderSize:Float, ?isBehindStrumLines:Bool) {
+    if (PlayState.instance == null || PlayState.instance.currentStage == null) return;
+    // Prevents stacking the current text by deleting the current one
+    if (lyricObj != null) {
+      lyricObj.kill();
+      lyricObj.destroy();
+      lyricObj = null;
+    }
+
+    var textArg = text ?? DEFAULT_TEXT;
+    var durationArg = duration;
+    var textColorArg = textColor ?? DEFAULT_COLOR;
+    var fontArg = font ?? DEFAULT_FONT;
+    var fontSizeArg = fontSize ?? DEFAULT_FONTSIZE;
+    var isItalicArg = isItalic ?? DEFAULT_ITALIC;
+    var isBoldArg = isBold ?? DEFAULT_BOLD;
+    var hasAntiAliasingArg = hasAntiAliasing ?? DEFAULT_HAS_ANTIALIASING;
+    var isCenteredArg = isCentered ?? DEFAULT_ISCENTERED;
+    var opacityArg = opacity ?? DEFAULT_OPACITY;
+    var letterSpacingArg = letterSpacing ?? DEFAULT_LATTERSPACING;
+    var textBorderColorArg = textBorderColor ?? DEFAULT_BORDERCOLOR;
+    var borderSizeArg = borderSize ?? DEFAULT_BORDERSIZE;
+    var isBehindStrumLinesArg = isBehindStrumLines ?? DEFAULT_ISBEHINDSTRUMLINES;
+
+    // I'm sure they'll have a color picker at some point
+    switch (textColorArg) {
+      case 0: // Black
+        textColorArg = 0xFF000000;
+      case 1: // Blue
+        textColorArg = 0xFF0000FF;
+      case 2: // Brown
+        textColorArg = 0xFFA52A2A;
+      case 3: // Cyan
+        textColorArg = 0xFF00FFFF;
+      case 4: // Gray
+        textColorArg = 0xFF808080;
+      case 5: // Green
+        textColorArg = 0xFF008000;
+      case 6: // Lime
+        textColorArg = 0xFF00FF00;
+      case 7: // Magenta
+        textColorArg = 0xFFFF00FF;
+      case 8: // Orange
+        textColorArg = 0xFFFFA500;
+      case 9: // Purple
+        textColorArg = 0xFF800080;
+      case 10: // Red
+        textColorArg = 0xFFFF0000;
+      case 11: // Transparent
+        textColorArg = 0x00000000;
+      case 12: // White
+        textColorArg = 0xFFFFFFFF;
+      case 13: // Yellow
+        textColorArg = 0xFFFFFF00;
+      default:
+        textColorArg = 0xFFFFFFFF;
+    }
+
+    switch (textBorderColorArg) {
+      case 0: // Black
+        textBorderColorArg = 0xFF000000;
+      case 1: // Blue
+        textBorderColorArg = 0xFF0000FF;
+      case 2: // Brown
+        textBorderColorArg = 0xFFA52A2A;
+      case 3: // Cyan
+        textBorderColorArg = 0xFF00FFFF;
+      case 4: // Gray
+        textBorderColorArg = 0xFF808080;
+      case 5: // Green
+        textBorderColorArg = 0xFF008000;
+      case 6: // Lime
+        textBorderColorArg = 0xFF00FF00;
+      case 7: // Magenta
+        textBorderColorArg = 0xFFFF00FF;
+      case 8: // Orange
+        textBorderColorArg = 0xFFFFA500;
+      case 9: // Purple
+        textBorderColorArg = 0xFF800080;
+      case 10: // Red
+        textBorderColorArg = 0xFFFF0000;
+      case 11: // Transparent
+        textBorderColorArg = 0x00000000;
+      case 12: // White
+        textBorderColorArg = 0xFFFFFFFF;
+      case 13: // Yellow
+        textBorderColorArg = 0xFFFFFF00;
+      default:
+        textBorderColorArg = 0xFF000000;
+    }
+
+    lyricObj = new FlxText(0, 0, FlxG.width);
+    lyricObj.text = textArg;
+    lyricObj.setFormat(Paths.font(fontArg + ".ttf"), fontSizeArg, textColorArg, "center", FlxTextBorderStyle.OUTLINE, textBorderColorArg);
+    lyricObj.borderSize = borderSizeArg;
+    lyricObj.alpha = opacityArg;
+    lyricObj.letterSpacing = letterSpacingArg;
+    lyricObj.italic = isItalicArg;
+    lyricObj.bold = isBoldArg;
+    lyricObj.antialiasing = hasAntiAliasingArg;
+    lyricObj.cameras = [PlayState.instance.camHUD];
+    lyricObj.screenCenter(isCenteredArg ? 0x11 : 0x01); // I love ternary operators
+    if (!isCenteredArg) lyricObj.y = (Preferences.downscroll ? lyricObj_YPos_DNSCROLL : lyricObj_YPos_UPSCROLL); // Dynamic positioning
+
+    if (PlayState.instance.opponentStrumline == null) return;
+    for (strumLine in [PlayState.instance.playerStrumline, PlayState.instance.opponentStrumline]) {
+      if (strumLine != null) {
+        PlayState.instance.insert(PlayState.instance.members.indexOf(strumLine) + (!isBehindStrumLinesArg ? 1 : -1), lyricObj); // The best way to handle layering hands down
+      }
+    }
+
+    if (fontArg == null) {
+      trace("Font property is left empty.\nApplying found default font.");
+    }
+  }
+
+  function create2ndText(?text2:String, ?textColor2:Int, ?font2:String, ?fontSize2:Float, ?isCentered2:Bool, ?isBehindStrumLines2:Bool) {
+    if (PlayState.instance == null || PlayState.instance.currentStage == null) return;
+    // Prevents stacking the current text by deleting the current one
+    if (lyricObj2nd != null) {
+      lyricObj2nd.kill();
+      lyricObj2nd.destroy();
+      lyricObj2nd = null;
+    }
+
+    var textArg2 = text2 ?? DEFAULT_TEXT_2ND;
+    var textColorArg2 = textColor2 ?? DEFAULT_COLOR_2ND;
+    var fontArg2 = font2 ?? DEFAULT_FONT_2ND;
+    var fontSizeArg2 = fontSize2 ?? DEFAULT_FONTSIZE_2ND;
+    var isCenteredArg2 = isCentered2 ?? DEFAULT_ISCENTERED_2ND;
+    var isBehindStrumLinesArg2 = isBehindStrumLines2 ?? DEFAULT_ISBEHINDSTRUMLINES_2ND;
+
+    // I'm sure they'll have a color picker at some point
+    switch (textColorArg2) {
+      case 0: // Black
+        textColorArg2 = 0xFF000000;
+      case 1: // Blue
+        textColorArg2 = 0xFF0000FF;
+      case 2: // Brown
+        textColorArg2 = 0xFFA52A2A;
+      case 3: // Cyan
+        textColorArg2 = 0xFF00FFFF;
+      case 4: // Gray
+        textColorArg2 = 0xFF808080;
+      case 5: // Green
+        textColorArg2 = 0xFF008000;
+      case 6: // Lime
+        textColorArg2 = 0xFF00FF00;
+      case 7: // Magenta
+        textColorArg2 = 0xFFFF00FF;
+      case 8: // Orange
+        textColorArg2 = 0xFFFFA500;
+      case 9: // Purple
+        textColorArg2 = 0xFF800080;
+      case 10: // Red
+        textColorArg2 = 0xFFFF0000;
+      case 11: // Transparent
+        textColorArg2 = 0x00000000;
+      case 12: // White
+        textColorArg2 = 0xFFFFFFFF;
+      case 13: // Yellow
+        textColorArg2 = 0xFFFFFF00;
+      default:
+        textColorArg2 = 0xFFFFFFFF;
+    }
+
+    lyricObj2nd = new FlxText(0, 0, FlxG.width);
+    lyricObj2nd.text = textArg2;
+    lyricObj2nd.setFormat(lyricObj?.font, fontSizeArg2, textColorArg2, "center", FlxTextBorderStyle.OUTLINE, (lyricObj.borderColor != null ? lyricObj.borderColor : 0xFF000000));
+    lyricObj2nd.borderSize = lyricObj?.borderSize;
+    lyricObj2nd.alpha = lyricObj?.alpha;
+    lyricObj2nd.letterSpacing = lyricObj?.letterSpacing;
+    lyricObj2nd.italic = lyricObj?.italic;
+    lyricObj2nd.bold = lyricObj?.bold;
+    lyricObj2nd.antialiasing = lyricObj?.antialiasing;
+    lyricObj2nd.cameras = [PlayState.instance.camHUD];
+    lyricObj2nd.screenCenter(isCenteredArg2 ? 0x11 : 0x01); // I love ternary operators
+    if (!isCenteredArg2) lyricObj2nd.y = (Preferences.downscroll ? lyricObj2nd_YPos_DNSCROLL : lyricObj2nd_YPos_UPSCROLL); // Dynamic positioning
+
+    if (PlayState.instance.opponentStrumline == null) return;
+    for (strumLine in [PlayState.instance.playerStrumline, PlayState.instance.opponentStrumline]) {
+      if (strumLine != null) {
+        PlayState.instance.insert(PlayState.instance.members.indexOf(strumLine) + (!isBehindStrumLinesArg2 ? 1 : -1), lyricObj2nd); // The best way to handle layering hands down
+      }
+    }
+
+    if (fontArg2 == null) {
+      trace("Font property is left empty.\nApplying found default font.");
+    }
+  }
+
+  override function onStepHit(e) {
+    super.onStepHit(e);
+    // updatePosition();
+  }
+
+  // function updatePosition() {
+
+  // }
 }
