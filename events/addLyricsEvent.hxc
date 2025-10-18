@@ -90,7 +90,7 @@ class AddLyricsEvent extends ScriptedSongEvent {
     var isBehindStrumLines2nd:Bool = data.getBool('isBehindStrumLines2nd') != null ? data.getBool('isBehindStrumLines2nd') : DEFAULT_ISBEHINDSTRUMLINES_2ND;
 
     ModuleHandler.getModule('extra-events-addLyricsHandler')?.scriptCall("createText", [text, duration, textColor, font, fontSize, isItalic, isBold, hasAntiAliasing, isCentered, opacity, letterSpacing, textBorderColor, borderSize, isBehindStrumLines]);
-    ModuleHandler.getModule('extra-events-addLyricsHandler')?.scriptCall("create2ndText", [text2nd, textColor2nd, font2nd, fontSize2nd, isCentered2nd, isBehindStrumLines2nd]);
+    if (text2nd != null) ModuleHandler.getModule('extra-events-addLyricsHandler')?.scriptCall("create2ndText", [text2nd, textColor2nd, font2nd, fontSize2nd, isCentered2nd, isBehindStrumLines2nd]);
   }
 
   public override function getTitle() {
@@ -300,10 +300,10 @@ class addLyricsHandler extends ScriptedModule {
   public var lyricObj:FlxText = null;
   public var lyricObj2nd:FlxText = null;
 
-  var lyricObj_YPos_UPSCROLL:Float = FlxG.height * 0.65;
-  var lyricObj_YPos_DNSCROLL:Float = FlxG.height * 0.4;
+  var lyricObj_YPos_UPSCROLL:Float = FlxG.height * 0.65; // OFFSET IS 0.05
+  var lyricObj_YPos_DNSCROLL:Float = FlxG.height * 0.2;
   var lyricObj2nd_YPos_UPSCROLL:Float = FlxG.height * 0.7;
-  var lyricObj2nd_YPos_DNSCROLL:Float = FlxG.height * 0.35;
+  var lyricObj2nd_YPos_DNSCROLL:Float = FlxG.height * 0.25;
 
   var isItalicArg = null;
   var isBoldArg = null;
@@ -416,7 +416,11 @@ class addLyricsHandler extends ScriptedModule {
     lyricObj.antialiasing = hasAntiAliasingArg;
     lyricObj.cameras = [PlayState.instance.camHUD];
     lyricObj.screenCenter(isCenteredArg ? 0x11 : 0x01); // I love ternary operators
-    if (!isCenteredArg) lyricObj.y = (Preferences.downscroll ? lyricObj_YPos_DNSCROLL : lyricObj_YPos_UPSCROLL); // Dynamic positioning
+    if (isCenteredArg) {
+      lyricObj.y += 30;
+    } else {
+      lyricObj.y = (Preferences.downscroll ? lyricObj_YPos_DNSCROLL : lyricObj_YPos_UPSCROLL); // Dynamic positioning
+    }
 
     if (PlayState.instance.opponentStrumline == null) return;
     for (strumLine in [PlayState.instance.playerStrumline, PlayState.instance.opponentStrumline]) {
@@ -482,7 +486,7 @@ class addLyricsHandler extends ScriptedModule {
 
     lyricObj2nd = new FlxText(0, 0, FlxG.width);
     lyricObj2nd.text = textArg2;
-    lyricObj2nd.setFormat(lyricObj?.font, fontSizeArg2, textColorArg2, "center", FlxTextBorderStyle.OUTLINE, (lyricObj.borderColor != null ? lyricObj.borderColor : 0xFF000000));
+    lyricObj2nd.setFormat(Paths.font(fontArg2 + ".ttf"), fontSizeArg2, textColorArg2, "center", FlxTextBorderStyle.OUTLINE, (lyricObj.borderColor != null ? lyricObj.borderColor : 0xFF000000));
     lyricObj2nd.borderSize = lyricObj?.borderSize;
     lyricObj2nd.alpha = lyricObj?.alpha;
     lyricObj2nd.letterSpacing = lyricObj?.letterSpacing;
@@ -491,12 +495,16 @@ class addLyricsHandler extends ScriptedModule {
     lyricObj2nd.antialiasing = lyricObj?.antialiasing;
     lyricObj2nd.cameras = [PlayState.instance.camHUD];
     lyricObj2nd.screenCenter(isCenteredArg2 ? 0x11 : 0x01); // I love ternary operators
-    if (!isCenteredArg2) lyricObj2nd.y = (Preferences.downscroll ? lyricObj2nd_YPos_DNSCROLL : lyricObj2nd_YPos_UPSCROLL); // Dynamic positioning
+    if (isCenteredArg2) {
+      lyricObj2nd.y -= 30;
+    } else {
+      lyricObj2nd.y = (Preferences.downscroll ? lyricObj2nd_YPos_DNSCROLL : lyricObj2nd_YPos_UPSCROLL); // Dynamic positioning
+    }
 
     if (PlayState.instance.opponentStrumline == null) return;
     for (strumLine in [PlayState.instance.playerStrumline, PlayState.instance.opponentStrumline]) {
       if (strumLine != null) {
-        PlayState.instance.insert(PlayState.instance.members.indexOf(strumLine) + (!isBehindStrumLinesArg2 ? 1 : -1), lyricObj2nd); // The best way to handle layering hands down
+        PlayState.instance.insert(PlayState.instance.members.indexOf(strumLine) + (!isBehindStrumLinesArg2 ? 1 : -1), lyricObj2nd);
       }
     }
 
@@ -504,13 +512,4 @@ class addLyricsHandler extends ScriptedModule {
       trace("Font property is left empty.\nApplying found default font.");
     }
   }
-
-  override function onStepHit(e) {
-    super.onStepHit(e);
-    // updatePosition();
-  }
-
-  // function updatePosition() {
-
-  // }
 }
