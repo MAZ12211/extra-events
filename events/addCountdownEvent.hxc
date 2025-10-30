@@ -25,8 +25,7 @@ import funkin.audio.FunkinSound;
 import funkin.util.Constants;
 import funkin.modding.events.ScriptEvent;
 
-// Credit goes to ComedyLost (I only did the speed property code + minor bug fixes)
-// Most of the code is copy pasted from Source lol
+// Credit goes to ComedyLost for making it work mid-song
 
 class CountDownEvent extends ScriptedSongEvent {
 	function new() {
@@ -35,7 +34,8 @@ class CountDownEvent extends ScriptedSongEvent {
 
 	public var eventTitle:String = "Extra Events | Add CountDown";
 	public var DEFAULT_SOUNDONLY:Bool = false; // no graphics
-	public var DEFAULT_SPEED:Int = 0; // 0 = current BPM, 1 = Half BPM, 2 = Double BPM
+	public var DEFAULT_SPEED:Int = 0; // 0 = Double BPM, 1 = Normal BPM, 2 = Half BPM
+	public var DEFAULT_STARTFROM:Int = 0; // the order in which the countdown will start from
 
 	var noteStyle:NoteStyle = null;
 
@@ -48,8 +48,9 @@ class CountDownEvent extends ScriptedSongEvent {
 
 		var soundOnly = data.getBool('soundOnly') != null ? data.getBool('soundOnly') : DEFAULT_SOUNDONLY;
 		var speed = data.getInt('speed') != null ? data.getInt('speed') : DEFAULT_SPEED;
+		var startFrom = data.getInt('startFrom') != null ? data.getInt('startFrom') : DEFAULT_STARTFROM;
 
-		ModuleHandler.getModule('extra-events-countDownHandler')?.scriptCall("performCountdown", [soundOnly, speed]);
+		ModuleHandler.getModule('extra-events-countDownHandler')?.scriptCall("performCountdown", [startFrom, soundOnly, speed]);
 	}
 
 	public override function getTitle() {
@@ -58,6 +59,18 @@ class CountDownEvent extends ScriptedSongEvent {
 
 	override function getEventSchema(){
 		return [
+			{
+				name: 'startFrom',
+				title: 'Start From',
+				defaultValue: 0,
+				type: "enum",
+				keys: [
+					"3 (3-2-1-Go!)" => 0,
+					"2 (2-1-Go!)" => 1,
+					"1 (1-Go!)" => 2,
+					"Go!" => 3
+				]
+			},
 			{
 				name: 'soundOnly',
 				title: 'Sound Only',
@@ -70,16 +83,16 @@ class CountDownEvent extends ScriptedSongEvent {
 				defaultValue: 1,
 				type: "enum",
 				keys: [
-					"Double BPM (Fast = 2 beats/8 steps to finish)" => 0,
-					"Normal BPM (Normal = 4 beat/16 steps to finish)" => 1,
-					"Half BPM (Slow = 8 beats/32 steps to finish)" => 2,
+					"Fast (Double BPM = 2 beats/8 steps to finish)" => 0,
+					"Normal (Normal BPM = 4 beat/16 steps to finish)" => 1,
+					"Slow (Half BPM = 8 beats/32 steps to finish)" => 2,
 				]
         	}
 		];
 	}
 }
 
-class EECountdownHandler extends Module {
+class CountDownHandler extends Module {
 	function new() {
 		super("extra-events-countDownHandler", 10);
 	}
@@ -90,11 +103,25 @@ class EECountdownHandler extends Module {
 
 	var countdownTimer:FlxTimer = null;
 	var countdownStep(default, null):CountdownStep = CountdownStep.BEFORE;
+	var countDownSound:FunkinSound = null;
 
-	function performCountdown(?soundOnly:Bool, ?speed:Int):Void {
+	function performCountdown(?startFrom:Int, ?soundOnly:Bool, ?speed:Int):Void {
 		reset();
 
 		countdownStep = CountdownStep.BEFORE; // Three
+		var startFromArg = startFrom ?? DEFAULT_STARTFROM;
+		switch (startFrom) {
+			case 0:
+				countdownStep = CountdownStep.BEFORE;
+			case 1:
+				countdownStep = CountdownStep.THREE;
+			case 2:
+				countdownStep = CountdownStep.TWO;
+			case 3:
+				countdownStep = CountdownStep.ONE;
+			default:
+				countdownStep = CountdownStep.BEFORE;
+		}
 
 		stopCountdown();
 
@@ -119,25 +146,39 @@ class EECountdownHandler extends Module {
 		if (!playSoundOnly) showCountdownGraphic(countdownStep);
   		playCountdownSound(countdownStep);
 
-		countdownTimer.start(speed / PlayState.instance.playbackRate, function(tmr:FlxTimer) {
-			if (PlayState.instance == null) {
-				tmr.cancel();
-				return;
-			}
+		var numSteps:Int = switch (startFromArg) {
+			case 0: 4; // CountdownStep.BEFORE | 3, 2, 1, Go!
+			case 1: 3; // CountdownStep.THREE | 2, 1, Go!
+			case 2: 2; // CountdownStep.TWO | 1, Go!
+			case 3: 1; // CountdownStep.ONE | Go!
+			default: 4;
+		}
 
-			countdownStep = decrement(countdownStep);
-	  
-			// Countdown graphic.
-			if (!playSoundOnly) showCountdownGraphic(countdownStep);
-	  
-			// Countdown sound.
-			playCountdownSound(countdownStep);
-	  
-			// Event handling bullshit.	
-			if (countdownStep < 0) {
-			  stopCountdown();
-			}	  		  
-		}, 4); // 3, 2, 1, GO!, After
+		if (countdownTimer != null) {
+			countdownTimer.start(speed / PlayState.instance.playbackRate, function(tmr:FlxTimer) {
+				if (PlayState.instance == null) {
+					tmr.cancel();
+					return;
+				}
+
+				countdownStep = decrement(countdownStep);
+
+				// Countdown graphic.
+				if (!playSoundOnly) showCountdownGraphic(countdownStep);
+
+				// Countdown sound.
+				playCountdownSound(countdownStep);
+
+				// Event handling bullshit.
+				if (countdownStep < 0) {
+					stopCountdown();
+				}
+
+			}, numSteps);
+		} else {
+			stopCountdown();
+			countdownTimer = null;
+		}
 	}
 
 	function fetchNoteStyle(?noteStyleId:String, force:Bool = false):Void {
@@ -197,7 +238,10 @@ class EECountdownHandler extends Module {
 		var path = noteStyle.getCountdownSoundPath(step);
 		if (path == null) return null;
 
-		return FunkinSound.playOnce(path, Constants.COUNTDOWN_VOLUME, null, null, true);
+		// Did new funkinSound().playOnce(path, Constants.COUNTDOWN_VOLUME, null, null, true); then spent the next 10 minutes figuring out why it was not working.
+		// least sane coder be like:
+		countDownSound = FunkinSound.playOnce(path, Constants.COUNTDOWN_VOLUME, null, null, true);
+		return countDownSound;
 	}
 
 	function decrement(step:CountdownStep) {
@@ -265,6 +309,12 @@ class EECountdownHandler extends Module {
 			countdownTimer.cancel();
 			countdownTimer.destroy();
 			countdownTimer = null;
+		}
+
+		if (countDownSound != null){
+			countDownSound.stop();
+			countDownSound.destroy();
+			countDownSound = null;
 		}
 	}
 }
