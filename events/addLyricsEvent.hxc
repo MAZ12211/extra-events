@@ -300,10 +300,10 @@ class addLyricsHandler extends ScriptedModule {
   public var lyricObj:FlxText = null;
   public var lyricObj2nd:FlxText = null;
 
-  var lyricObj_YPos_UPSCROLL:Float = FlxG.height * 0.65; // OFFSET IS 0.05
-  var lyricObj_YPos_DNSCROLL:Float = FlxG.height * 0.2;
-  var lyricObj2nd_YPos_UPSCROLL:Float = FlxG.height * 0.7;
-  var lyricObj2nd_YPos_DNSCROLL:Float = FlxG.height * 0.25;
+  var lyricObj_YPos_UPSCROLL:Float = FlxG.height * 0.7; // OFFSET IS 0.05
+  var lyricObj_YPos_DNSCROLL:Float = FlxG.height * 0.25;
+  var lyricObj2nd_YPos_UPSCROLL:Float = FlxG.height * 0.75;
+  var lyricObj2nd_YPos_DNSCROLL:Float = FlxG.height * 0.3;
 
   var isItalicArg = null;
   var isBoldArg = null;
@@ -417,7 +417,12 @@ class addLyricsHandler extends ScriptedModule {
     lyricObj.cameras = [PlayState.instance.camHUD];
     lyricObj.screenCenter(isCenteredArg ? 0x11 : 0x01); // I love ternary operators
     if (isCenteredArg) {
-      lyricObj.y += 30;
+      /**
+        they overlap, It's known, don't worry, I'll get to it in a patch later
+        Your workaround is to get either lyricObj or lyricObj2nd via a module
+        and manually position them yourself
+      **/
+      // lyricObj.y -= 30;
     } else {
       lyricObj.y = (Preferences.downscroll ? lyricObj_YPos_DNSCROLL : lyricObj_YPos_UPSCROLL); // Dynamic positioning
     }
@@ -496,7 +501,7 @@ class addLyricsHandler extends ScriptedModule {
     lyricObj2nd.cameras = [PlayState.instance.camHUD];
     lyricObj2nd.screenCenter(isCenteredArg2 ? 0x11 : 0x01); // I love ternary operators
     if (isCenteredArg2) {
-      lyricObj2nd.y -= 30;
+      // lyricObj2nd.y += 30;
     } else {
       lyricObj2nd.y = (Preferences.downscroll ? lyricObj2nd_YPos_DNSCROLL : lyricObj2nd_YPos_UPSCROLL); // Dynamic positioning
     }
@@ -510,6 +515,22 @@ class addLyricsHandler extends ScriptedModule {
 
     if (fontArg2 == null) {
       trace("Font property is left empty.\nApplying found default font.");
+    }
+  }
+
+  function onSongRetry(e) {
+    super.onSongRetry(e);
+    // prevents a bug where the text stays on-screen if you retry the song
+    if (lyricObj != null) {
+      lyricObj.kill();
+      lyricObj.destroy();
+      lyricObj = null;
+    }
+
+    if (lyricObj2nd != null) {
+      lyricObj2nd.kill();
+      lyricObj2nd.destroy();
+      lyricObj2nd = null;
     }
   }
 }
