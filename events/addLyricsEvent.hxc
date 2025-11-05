@@ -118,7 +118,7 @@ class AddLyricsEvent extends ScriptedSongEvent {
       },
       {
         name: 'duration',
-        title: 'Duration (it is not longer used)',
+        title: 'Duration (no longer used)',
         defaultValue: 0.1,
         step: 1.0,
         min: 0.1,
@@ -416,15 +416,12 @@ class addLyricsHandler extends ScriptedModule {
     lyricObj.antialiasing = hasAntiAliasingArg;
     lyricObj.cameras = [PlayState.instance.camHUD];
     lyricObj.screenCenter(isCenteredArg ? 0x11 : 0x01); // I love ternary operators
-    if (isCenteredArg) {
-      /**
-        they overlap, It's known, don't worry, I'll get to it in a patch later
-        Your workaround is to get either lyricObj or lyricObj2nd via a module
-        and manually position them yourself
-      **/
-      // lyricObj.y -= 30;
-    } else {
+    if (!isCenteredArg || !isCentered) {
       lyricObj.y = (Preferences.downscroll ? lyricObj_YPos_DNSCROLL : lyricObj_YPos_UPSCROLL); // Dynamic positioning
+    } else {
+      if (lyricObj2nd != null && lyricObj2nd.x == ((FlxG.width - lyricObj2nd.width) / 2) && lyricObj2nd.y == ((FlxG.height - lyricObj2nd.height) / 2)) {
+        lyricObj.y -= (lyricObj2nd.height - 5);
+      }
     }
 
     if (PlayState.instance.opponentStrumline == null) return;
@@ -500,10 +497,12 @@ class addLyricsHandler extends ScriptedModule {
     lyricObj2nd.antialiasing = lyricObj?.antialiasing;
     lyricObj2nd.cameras = [PlayState.instance.camHUD];
     lyricObj2nd.screenCenter(isCenteredArg2 ? 0x11 : 0x01); // I love ternary operators
-    if (isCenteredArg2) {
-      // lyricObj2nd.y += 30;
-    } else {
+    if (!isCenteredArg2 || !isCentered2) {
       lyricObj2nd.y = (Preferences.downscroll ? lyricObj2nd_YPos_DNSCROLL : lyricObj2nd_YPos_UPSCROLL); // Dynamic positioning
+    } else {
+      if (lyricObj != null && lyricObj.x == ((FlxG.width - lyricObj.width) / 2) && lyricObj.y == ((FlxG.height - lyricObj.height) / 2)) {
+        lyricObj2nd.y += (lyricObj.height + 5);
+      }
     }
 
     if (PlayState.instance.opponentStrumline == null) return;
