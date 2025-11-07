@@ -109,7 +109,7 @@ class CountDownHandler extends Module {
 		reset();
 
 		countdownStep = CountdownStep.BEFORE; // Three
-		var startFromArg = startFrom ?? DEFAULT_STARTFROM;
+		var startFromArg = startFrom ?? 0;
 		switch (startFrom) {
 			case 0:
 				countdownStep = CountdownStep.BEFORE;

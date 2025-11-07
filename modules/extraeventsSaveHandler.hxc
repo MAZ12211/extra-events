@@ -40,7 +40,7 @@ class ExtraEventsSaveHandler extends ScriptedModule {
                     options.isRotateEnabled = value;
                 }, options.isRotateEnabled);
 
-                prefs.createPrefItemCheckbox("Rotate HUD Effects", "If disabled, a placed camera rotate event in a chart with HUD rotation will be ignored. (this option is ignored if rotate screen effects is disabled)", (value:Bool) -> {
+                prefs.createPrefItemCheckbox("Rotate HUD Effects", "If disabled, charts with placed camera rotate event in a chart with HUD rotation effects will be ignored.\n(this option is ignored if rotate screen effects is disabled)", (value:Bool) -> {
                     options.iscamHUDRotateEnabled = value;
                 }, options.iscamHUDRotateEnabled);
 
