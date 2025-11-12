@@ -24,19 +24,19 @@
       "opponent": "darnell",
       "instrumental": "",
       "altInstrumentals": [      ],
-      "opponentVocals": [
-        "dad"
+	    "opponentVocals": [
+        "darnell"
       ],
       "playerVocals": [
-        "bf"
+        "pico-playable"
       ]
     },
     "stage": "phillyStreetsErect",
     "noteStyle": "funkin",
     "ratings": {
-      "easy": 0,
-      "hard": 0,
-      "normal": 0
+      "easy": 3,
+      "hard": 5,
+      "normal": 4
     },
     "previewStart": 0,
     "previewEnd": 0

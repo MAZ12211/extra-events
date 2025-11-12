@@ -54,5 +54,6 @@
     }
   ],
   "background": "#413CAE",
+  "visible": true,
   "songs": ["ee-darnell-mrk-mix"]
 }
