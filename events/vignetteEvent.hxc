@@ -49,14 +49,14 @@ class VignHandler extends ScriptedModule {
     vignShader = ScriptedFlxRuntimeShader.init('VignEffect');
     vignFilter = new ShaderFilter(vignShader);
     vignShader?.scriptCall("setIntensity", [0.0]);
-    if (!FlxG.camera.filters.contains(vignFilter)) FlxG.camera.filters.push(vignFilter); // Add the shader after the song starts
+    if (!FlxG.camera.filters?.contains(vignFilter)) FlxG.camera.filters?.push(vignFilter); // Add the shader after the song starts
   }
 
   override function onSongRetry(e) {
     super.onSongRetry(e);
 
     if (vignShader != null) {
-      if (FlxG.camera.filters.contains(vignFilter)) FlxG.camera.filters.remove(vignFilter); // Remove the shader when retrying the song (via gameover or pause menu) to avoid stacking
+      if (FlxG.camera.filters?.contains(vignFilter)) FlxG.camera.filters?.remove(vignFilter); // Remove the shader when retrying the song (via gameover or pause menu) to avoid stacking
       vignShader = null;
     }
   }
