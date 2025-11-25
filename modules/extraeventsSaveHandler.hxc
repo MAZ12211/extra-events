@@ -23,11 +23,11 @@ class ExtraEventsSaveHandler extends ScriptedModule {
 
     override function onCreate(e) {
         super.onCreate(e);
-        if (save.modOptions.get('extra-events') == null) {
-            save.modOptions.set('extra-events', options);
-            save.flush();
+        if (save?.modOptions.get('extra-events') == null) {
+            save?.modOptions.set('extra-events', options);
+            save?.flush();
         } else {
-            options = save.modOptions.get('extra-events');
+            options = save?.modOptions.get('extra-events');
         }
     }
 
@@ -63,8 +63,8 @@ class ExtraEventsSaveHandler extends ScriptedModule {
 
             }
         } else {
-            save.modOptions.set('extra-events', options);
-            save.flush();
+            save?.modOptions.set('extra-events', options);
+            save?.flush();
         }
     }
 }

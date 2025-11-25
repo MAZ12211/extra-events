@@ -1,6 +1,6 @@
 {
   "version": "2.2.4",
-  "songName": "Darnell (MRK Mix)",
+  "songName": "Darnell [MRK mix]",
   "artist": "MarkedAman + LeChadeur",
   "charter": "MAZ",
   "divisions": 96,
@@ -12,6 +12,7 @@
     "altVocals": {    }
   },
   "playData": {
+    "album": "mrk-mixes-vol-one",
     "songVariations": [    ],
     "difficulties": [
       "easy",
@@ -24,7 +25,7 @@
       "opponent": "darnell",
       "instrumental": "",
       "altInstrumentals": [      ],
-	    "opponentVocals": [
+      "opponentVocals": [
         "darnell"
       ],
       "playerVocals": [

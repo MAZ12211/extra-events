@@ -1,0 +1,8 @@
+{
+  "version": "1.0.0",
+  "name": "FNF [MRK mixes] vol.1",
+  "artists": ["MarkedAman", "LeChadeur"],
+  "albumArtAsset": "freeplay/albumRoll/mrk-mixes-vol-one",
+  "albumTitleAsset": "freeplay/albumRoll/mrk-mixes-vol-one-text",
+  "albumTitleOffsets": [-20, -10]
+}

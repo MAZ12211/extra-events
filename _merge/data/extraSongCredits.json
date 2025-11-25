@@ -1,0 +1,4 @@
+[
+  {"op": "add", "path": "/songs/-", "value": {"songName": "ee-darnell-mrk-mix", "credits": {"First Placed Note": "2025/11/6"}}},
+  {"op": "add", "path": "/songs/-", "value": {"songName": "ee-south-mrk-mix", "credits": {"First Placed Note": "2025/11/21"}}}
+]

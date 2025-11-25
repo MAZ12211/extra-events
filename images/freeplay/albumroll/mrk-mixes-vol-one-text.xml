@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+Created with Funkin Packer v0.1.3 https://neeeoo.github.io/funkin-packer/
+-->
+<TextureAtlas imagePath="mrk-mixes-vol-one-text.png" width="505" height="150">
+	<SubTexture name="switch0001" x="254" y="1" width="250" height="148" frameX="-14" frameY="-25" frameWidth="275" frameHeight="201"/>
+	<SubTexture name="switch0002" x="254" y="1" width="250" height="148" frameX="-14" frameY="-25" frameWidth="275" frameHeight="201"/>
+	<SubTexture name="switch0003" x="254" y="1" width="250" height="148" frameX="-14" frameY="-25" frameWidth="275" frameHeight="201"/>
+	<SubTexture name="switch0004" x="254" y="1" width="250" height="148" frameX="-14" frameY="-25" frameWidth="275" frameHeight="201"/>
+	<SubTexture name="idle0001" x="1" y="1" width="250" height="148" frameX="-14" frameY="-25" frameWidth="275" frameHeight="201"/>
+	<SubTexture name="idle0002" x="1" y="1" width="250" height="148" frameX="-14" frameY="-25" frameWidth="275" frameHeight="201"/>
+	<SubTexture name="idle0003" x="1" y="1" width="250" height="148" frameX="-14" frameY="-25" frameWidth="275" frameHeight="201"/>
+	<SubTexture name="idle0004" x="1" y="1" width="250" height="148" frameX="-14" frameY="-25" frameWidth="275" frameHeight="201"/>
+	<SubTexture name="idle0005" x="1" y="1" width="250" height="148" frameX="-14" frameY="-25" frameWidth="275" frameHeight="201"/>
+	<SubTexture name="idle0006" x="1" y="1" width="250" height="148" frameX="-14" frameY="-25" frameWidth="275" frameHeight="201"/>
+	<SubTexture name="idle0007" x="1" y="1" width="250" height="148" frameX="-14" frameY="-25" frameWidth="275" frameHeight="201"/>
+	<SubTexture name="idle0008" x="1" y="1" width="250" height="148" frameX="-14" frameY="-25" frameWidth="275" frameHeight="201"/>
+</TextureAtlas>

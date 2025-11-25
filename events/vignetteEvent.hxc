@@ -40,7 +40,6 @@ class VignHandler extends ScriptedModule {
 
   public function new() {
 		super("extra-events-vignHandler", 2);
-    this.active = Save.instance.modOptions.get('extra-events').isVignEnabled;
 	}
 
 	override function onSongStart(e) {

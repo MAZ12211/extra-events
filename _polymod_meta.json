@@ -12,5 +12,8 @@
     {"name": "Denoohay", "role": "Permission to use Spooky Mix's event code in some shape or form\nand a few icons (I was exhausted to do them myself)", "url": "https://x.com/Denoohay"},
     {"name": "Github Contributors", "role": "Made the mod more stable. Shout out to them.", "url": "https://github.com/MAZ12211/extra-events/graphs/contributors"}
   ],
+  "optionalDependencies": {
+    "extra-song-credits": ">=1.0.3"
+  },
   "license": "MIT"
 }
