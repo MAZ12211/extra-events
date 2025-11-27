@@ -105,13 +105,13 @@ class CameraFadeEvent extends ScriptedSongEvent {
     }
 
     if (!applyToHud) {
-      FlxG.camera.fade(color, durSeconds, shouldFadeIn); // Fades camGame
+      FlxG.camera.fade(color, durSeconds / PlayState.instance.playbackRate, shouldFadeIn); // Fades camGame
     } else {
-      PlayState.instance.camHUD?.fade(color, durSeconds, shouldFadeIn); // camHUD (no point in having "toggle both" option since camHUD is above everything)
+      PlayState.instance.camHUD?.fade(color, durSeconds / PlayState.instance.playbackRate, shouldFadeIn); // camHUD (no point in having "toggle both" option since camHUD is above everything)
     }
 
     if (color == 11 || color == 0x00000000 && PlayState.instance.camHUD != null) {
-      FlxTween.tween(PlayState.instance?.camHUD, {alpha: (shouldFadeIn ? 1.0 : 0.00001)}, durSeconds);
+      FlxTween.tween(PlayState.instance?.camHUD, {alpha: (shouldFadeIn ? 1.0 : 0.00001)}, durSeconds / PlayState.instance.playbackRate);
     }
 
   }

@@ -125,7 +125,7 @@ class VignEvent extends ScriptedSongEvent {
             if (easeFunction == null){
               trace("Invalid easing function: " + ease);
             }
-            vignHandler?.scriptCall("createVig", [intensity, durSeconds, easeFunction]);
+            vignHandler?.scriptCall("createVig", [intensity, durSeconds / PlayState.instance.playbackRate, easeFunction]);
       }
 
     }

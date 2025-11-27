@@ -118,7 +118,7 @@ class MovePlayerStrumlineEvent extends ScriptedSongEvent {
           }
 
         if (targetX != currentPSLPosX) {
-          strumlineTwn = FlxTween.tween(PlayState.instance.playerStrumline, {x: targetX}, durSeconds, {ease: easeFunction, onUpdate: function(twn:FlxTween) {
+          strumlineTwn = FlxTween.tween(PlayState.instance.playerStrumline, {x: targetX}, durSeconds / PlayState.instance.playbackRate, {ease: easeFunction, onUpdate: function(twn:FlxTween) {
             // Code snippet by comedylost
             // This fixes the hold note covers being mispositioned (they're still mispositioned sometimes but I'm okay with this)
             for (covers in PlayState.instance.playerStrumline.noteHoldCovers) {

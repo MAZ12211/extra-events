@@ -103,9 +103,9 @@ class CameraFlashEvent extends ScriptedSongEvent {
     }
 
     if (!applyToHud) {
-      FlxG.camera.flash(color, durSeconds);
+      FlxG.camera.flash(color, durSeconds / PlayState.instance.playbackRate);
     } else {
-      PlayState.instance.camHUD?.flash(color, durSeconds);
+      PlayState.instance.camHUD?.flash(color, durSeconds / PlayState.instance.playbackRate);
     }
 
   }

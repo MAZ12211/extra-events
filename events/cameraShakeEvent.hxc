@@ -81,8 +81,8 @@ class CameraShakeEvent extends ScriptedSongEvent {
       return;
     }
 
-    if (intensity_CamGame != 0) FlxG.camera.shake(intensity_CamGame, durSeconds, direction);
-    if (intensity_CamHUD != 0) PlayState.instance.camHUD?.shake(intensity_CamHUD, durSeconds, direction);
+    if (intensity_CamGame != 0) FlxG.camera.shake(intensity_CamGame, durSeconds / PlayState.instance.playbackRate, direction);
+    if (intensity_CamHUD != 0) PlayState.instance.camHUD?.shake(intensity_CamHUD, durSeconds / PlayState.instance.playbackRate, direction);
   }
 
   public override function getTitle() {

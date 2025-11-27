@@ -97,8 +97,8 @@ class CameraRotateEvent extends ScriptedSongEvent {
           if (easeFunction == null){
             // trace("Invalid easing function: " + ease);
           }
-          rotateCamGame(toAngle_camGame, durSeconds, easeFunction);
-          if (Save.instance.modOptions.get('extra-events').iscamHUDRotateEnabled) rotateCamHUD(toAngle_camHUD, durSeconds, easeFunction);
+          rotateCamGame(toAngle_camGame, durSeconds / PlayState.instance.playbackRate, easeFunction);
+          if (Save.instance.modOptions.get('extra-events').iscamHUDRotateEnabled) rotateCamHUD(toAngle_camHUD, durSeconds / PlayState.instance.playbackRate, easeFunction);
     }
     // trace("Angle: " + toAngle + " | Duration: " + duration + " | Easing: " + ease + " | Ease Function: " + easeFunction);
   }
