@@ -32,6 +32,10 @@ class CountDownEvent extends ScriptedSongEvent {
 		super("extra-events-countDownEvent");
 	}
 
+	/**
+	* Adds a countdown with options such as including only the sounds, the speed and the order to start from.
+	**/
+
 	public var eventTitle:String = "Extra Events | Add CountDown";
 	public var DEFAULT_SOUNDONLY:Bool = false; // no graphics
 	public var DEFAULT_SPEED:Int = 0; // 0 = Double BPM, 1 = Normal BPM, 2 = Half BPM
@@ -55,6 +59,10 @@ class CountDownEvent extends ScriptedSongEvent {
 
 	public override function getTitle() {
 		return eventTitle;
+	}
+
+	public override function getIconPath(){
+		return 'ui/chart-editor/events/extra-events-countDownEvent';
 	}
 
 	override function getEventSchema(){

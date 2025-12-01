@@ -1,0 +1,90 @@
+import funkin.play.PlayState;
+import funkin.modding.events.ScriptEvent;
+import funkin.modding.module.Module;
+import funkin.modding.module.ScriptedModule;
+import flixel.tweens.FlxTween;
+
+import openfl.filters.ShaderFilter;
+import funkin.modding.base.ScriptedFlxRuntimeShader;
+import flixel.addons.display.FlxRuntimeShader;
+
+import flixel.FlxG;
+
+import funkin.play.event.SongEvent;
+import funkin.play.event.ScriptedSongEvent;
+import funkin.data.event.SongEventSchema;
+
+import funkin.data.event.SongEventRegistry;
+import funkin.save.Save;
+import funkin.util.FlxTweenUtil;
+
+class VignHandler extends ScriptedModule {
+    public var vignShader:FlxRuntimeShader;
+    public var vignFilter:ShaderFilter;
+
+    public var intensity_tween:FlxTween = null;
+
+    public function new() {
+        super("extra-events-vignHandler", 2);
+        this.active = Save.instance?.modOptions?.get('extra-events')?.isVignEnabled;
+    }
+
+    override function onSongStart(e) {
+        super.onSongStart(e);
+
+        vignShader = ScriptedFlxRuntimeShader.init('VignEffect');
+        vignFilter = new ShaderFilter(vignShader);
+        vignShader?.scriptCall("setIntensity", [0.0]);
+        if (FlxG.camera.filters == null) FlxG.camera.filters = [vignFilter];
+        else FlxG.camera.filters.push(vignFilter);
+        // if (!FlxG.camera.filters?.contains(vignFilter)) FlxG.camera.filters?.push(vignFilter);
+    }
+
+    override function onSongRetry(e) {
+        super.onSongRetry(e);
+
+        if (vignShader != null) {
+            // if (FlxG.camera.filters?.contains(vignFilter)) FlxG.camera.filters?.remove(vignFilter);
+            FlxG.camera.filters?.remove(vignFilter); // Remove the shader when retrying the song (via gameover or pause menu) to avoid stacking
+            vignShader = null;
+        }
+    }
+
+    override function onSongEnd(e) {
+        super.onSongEnd(e);
+
+        if (vignShader != null) {
+            // if (FlxG.camera.filters?.contains(vignFilter)) FlxG.camera.filters?.remove(vignFilter);
+            FlxG.camera.filters?.remove(vignFilter); // Remove the shader when retrying the song (via gameover or pause menu) to avoid stacking
+            vignShader = null;
+        }
+    }
+
+    public function createVig(?intensity:Float, ?duration:Float, ?ease:Null<Float->Float>) {
+        cancelCurrentVigTween();
+
+        var intensityArg = intensity ?? 0.0;
+        var durationArg = duration ?? 0.0;
+        var easeArg = ease ?? "linear";
+
+        intensity_tween = FlxTween.num(vignShader?.scriptGet("uIntensity"), intensity, duration, {ease: ease}, function(value:Float) {
+            vignShader?.scriptCall("setIntensity", [value]);
+        });
+
+    }
+
+    public function cancelCurrentVigTween(){
+        if (vignShader != null){
+            if (intensity_tween != null) intensity_tween.cancel();
+        }
+    }
+
+    override function onPause(e) {
+        FlxTweenUtil?.pauseTween(intensity_tween);
+    }
+
+
+    override function onResume(e) {
+        FlxTweenUtil?.resumeTween(intensity_tween);
+    }
+}

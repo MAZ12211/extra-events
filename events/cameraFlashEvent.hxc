@@ -40,7 +40,7 @@ class CameraFlashFixes extends ScriptedModule {
 class CameraFlashEvent extends ScriptedSongEvent {
   
   function new() {
-      super("extra-events-cameraFlashEvent");
+    super("extra-events-cameraFlashEvent");
   }
 
   public var eventTitle:String = "Extra Events | Camera Flash";
@@ -48,7 +48,7 @@ class CameraFlashEvent extends ScriptedSongEvent {
   * white = 0xFFFFFFFF
   * red = 0xFFFF0000
   */
-  public var DEFAULT_DURATION:Float = 1.0;
+  public var DEFAULT_DURATION:Float = 4.0;
   public var DEFAULT_APPLYTOHUD:Bool = false; // self-explanatory, default to false for players who just want to read the notes like me
   public var DEFAULT_COLOR:Int = 12; // Black
 
@@ -114,12 +114,16 @@ class CameraFlashEvent extends ScriptedSongEvent {
     return eventTitle;
   }
 
+  public override function getIconPath(){
+    return 'ui/chart-editor/events/extra-events-cameraFlashEvent';
+  }
+
   override function getEventSchema(){
     return [
       {
         name: 'duration',
         title: 'Duration',
-        defaultValue: 1.0,
+        defaultValue: 4.0,
         step: 0.5,
         min: 0.5,
         type: "float",

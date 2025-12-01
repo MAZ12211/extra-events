@@ -1,0 +1,50 @@
+import funkin.modding.module.Module;
+import funkin.ui.credits.CreditsDataHandler;
+// Credit goes to Kolo (https://x.com/KoloInDaCrib)
+
+class CreditsModule extends Module 
+{
+    var MOD_CREDITS:Array<CreditsData> = 
+    [
+        {
+            header: "Extra Events Credits",
+            body: 
+            [
+                {line: "MAZ12211 - Coded most events and charted darnell mrk mix and south mrk mix and added events for Monster (charted by Silvagunner)"},
+                {line: "Psych Ward's base game channels - Major code help + feedback\nhttps://discord.gg/psychengine\n\n"},
+                {line: "Funkin's discussions page - Major code help\nhttps://github.com/FunkinCrew/Funkin/discussions\n\n"},
+                {line: "V-Slice Network - Major code help\nhttps://discord.gg/83tbbcZ3uT\n\n"},
+                {line: "Comedy Lost - Major code help\nhttps://gamebanana.com/members/2287198\n\n"},
+                {line: "Denoohay - Permission to use Spooky Mix's event code in some shape or form and a few icons (I was exhausted to do them myself)\nhttps://x.com/Denoohay\n\n"},
+                {line: "Github Contributors (only one lol) - Fixed my oversights lol - https://github.com/MAZ12211/extra-events/graphs/contributors\n\n"}
+            ]
+        },
+        {
+            header: "Songs Used in Extra Events",
+            body: 
+            [
+                {line: "Darnell MRK mix - MarkedAman\nhttps://www.youtube.com/@MarkedAman\n\n"},
+                {line: "Darnell MRK mix Vocal Cover - LeChadeur\nhttps://www.youtube.com/@lechadeur\n\n"},
+                {line: "South MRK mix - MarkedAman\nhttps://www.youtube.com/@MarkedAman\n\n"},
+                {line: "South MRK mix Vocal Cover - LeChadeur\nhttps://www.youtube.com/@lechadeur\n\n"},
+                {line: "Monster - Silvagunner\nhttps://www.youtube.com/@SiIvaGunner\n\n"}
+            ]
+        }
+    ];
+
+    public function new()
+    {
+        super("creditsModule");
+    }
+
+    public function onCreate(event:ScriptEvent)
+    {
+        super.onCreate(event);
+        this.active = false;
+
+        for (i in 0...MOD_CREDITS.length)
+        {
+            CreditsDataHandler.CREDITS_DATA.entries.unshift(MOD_CREDITS[MOD_CREDITS.length - 1 - i]);
+        }
+    }
+}

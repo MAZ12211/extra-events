@@ -26,10 +26,6 @@ class CameraRotateFixes extends ScriptedModule {
   public function new(){
     super('extra-events-cameraRotateFixes');
   }
-  // There was a bug where if the player just happened to restart the song
-  // or died after the camera was rotated, the camera angle wouldn't reset
-  // This is the band-aid solution for it until a way to reset events is found
-
 
   function onGameOver(event:ScriptEvent){
     super.onGameOver(event);

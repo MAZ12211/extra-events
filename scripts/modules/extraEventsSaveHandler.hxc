@@ -1,0 +1,70 @@
+import flixel.FlxG;
+
+import funkin.modding.PolymodErrorHandler;
+
+import funkin.ui.options.OptionsState;
+import funkin.modding.module.ModuleHandler;
+import funkin.modding.module.ScriptedModule;
+import funkin.save.Save;
+
+class ExtraEventsSaveHandler extends ScriptedModule {
+    function new() {
+        super("extra-events-saveHandler", 1);
+    }
+    public var save:Save = Save.instance;
+    public var options:Dynamic = {
+        isRotateEnabled: true,
+        iscamHUDRotateEnabled: true,
+        isShakeEnabled: true,
+        isLyricsEnabled: true,
+        isVignEnabled: true,
+        isMidSongCountDownEnabled: true
+    };
+
+    override function onCreate(e) {
+        super.onCreate(e);
+        if (save?.modOptions.get('extra-events') == null) {
+            save?.modOptions.set('extra-events', options);
+            save?.flush();
+        } else {
+            options = save?.modOptions.get('extra-events');
+        }
+    }
+
+    override function onStateChangeEnd(e) {
+        super.onStateChangeEnd(e);
+        if (Std.isOfType(e.targetState, OptionsState)) {
+            var prefs = e.targetState.optionsCodex.pages.get('preferences'); 
+            if (prefs != null) {
+                prefs.createPrefItemCheckbox("Rotate Screen Effects", "If disabled, charts with placed rotational screen effects will be ignored.", (value:Bool) -> {
+                    options.isRotateEnabled = value;
+                }, options.isRotateEnabled);
+
+                prefs.createPrefItemCheckbox("Rotate HUD Effects", "If disabled, charts with placed camera rotate event in a chart with HUD rotation effects will be ignored.\n(this option is ignored if rotate screen effects is disabled)", (value:Bool) -> {
+                    options.iscamHUDRotateEnabled = value;
+                }, options.iscamHUDRotateEnabled);
+
+                prefs.createPrefItemCheckbox("Shake Screen Effects", "If disabled, charts with placed shake screen effects will be ignored.", (value:Bool) -> {
+                    options.isShakeEnabled = value;
+                }, options.isShakeEnabled);
+
+                prefs.createPrefItemCheckbox("Show Lyrics", "If disabled, charts with placed lyrics will be ignored.", (value:Bool) -> {
+                    options.isLyricsEnabled = value;
+                }, options.isLyricsEnabled);
+
+                prefs.createPrefItemCheckbox("Vignette Effects", "If disabled, charts with placed vignette effects will be ignored.", (value:Bool) -> {
+                    options.isVignEnabled = value;
+                }, options.isVignEnabled);
+
+                prefs.createPrefItemCheckbox("Mid-Song Countdown", "If disabled, mid-song countdowns will be ignored.", (value:Bool) -> {
+                    options.isMidSongCountDownEnabled = value;
+                }, options.isMidSongCountDownEnabled);
+
+
+            }
+        } else {
+            save?.modOptions.set('extra-events', options);
+            save?.flush();
+        }
+    }
+}

@@ -1,0 +1,137 @@
+import flixel.util.FlxTimer;
+import funkin.play.Countdown;
+import funkin.play.song.Song;
+import funkin.play.PlayState;
+import funkin.graphics.FunkinSprite;
+import funkin.audio.FunkinSound;
+import funkin.play.PlayStatePlaylist;
+import flixel.FlxG;
+import flixel.tweens.FlxTween;
+import flixel.tweens.FlxEase;
+import funkin.play.cutscene.VideoCutscene;
+import flixel.text.FlxText;
+import flixel.text.FlxTextBorderStyle;
+import funkin.Highscore;
+import funkin.play.scoring.Scoring;
+
+class SilvaMonsterSongScript extends Song {
+    var hasPlayedCutscene:Bool;
+    var hmmBG:FunkinSprite;
+    var congratsText:FlxText;
+    var messageAR:FlxText;
+    var messageENG:FlxText;
+    var cutsceneSnd:FunkinSound;
+
+    function new(){
+        super("ee-monster"); // you put in the song id here (in this case ee-monster, just like in the files) just so the script knows where you want it to activate
+        hasPlayedCutscene = false;
+    }
+
+    function onSongEnd(e) {
+        super.onSongEnd(e);
+        var shouldPlayCutscene = !PlayStatePlaylist.isStoryMode && !PlayState.instance.isChartingMode && !FlxG.onMobile && !hasPlayedCutscene;
+        /**
+            Only play the cutscene if you're NOT playing the song in story mode (e.g. freeplay),
+            NOT in charting mode,
+            NOT on mobile (leaving it to somebody else, sorry mobile bros),
+            ~~AND got a perfect rank~~ (couldn't get it to work lol),
+            or if you've already played the cutscene (cutscene keeps repeating without that last check sooo)
+        **/
+        
+        if (shouldPlayCutscene) {
+            hasPlayedCutscene = true;
+            e.cancel();
+            startFunnyCutscene(); 
+            /**
+                Skips the fade-to-results-screen transition as a workaround for this (https://postimg.cc/6yRtmrYk)
+                until I get around to it in a feature patch maybe??
+            **/ 
+        } else {
+            e.cancel();
+            new FlxTimer().start(0.00001, timer -> PlayState.instance.endSong(true));
+        }
+    }
+
+    function onCountdownStart(e) {
+        new FlxTimer().start(0.00000000000001, timer -> {
+            Countdown.skipCountdown();
+            /**
+                Skips the initial countdown to make a seamless transition between south mrk mix and monster
+                (also by using the fade cam event)
+            **/ 
+        });
+    }
+
+    function startFunnyCutscene() {
+        PlayState.instance.togglePauseButton();
+        PlayState.instance.isInCutscene = true;
+        PlayState.instance.mayPauseGame = false;
+        PlayState.instance.camCutscene.visible = true;
+        PlayState.instance.camHUD.visible = false;
+        PlayState.instance.camGame?.visible = false;
+
+        hmmBG = FunkinSprite.create(0, 0, "hmm");
+        hmmBG.screenCenter();
+        hmmBG.camera = PlayState.instance.camCutscene;
+        PlayState.instance.add(hmmBG);
+
+        congratsText = new FlxText(0, 0, FlxG.width);
+        congratsText.screenCenter(0x11);
+        congratsText.x += 200;
+        congratsText.y -= 150;
+        congratsText.text = "Congrats\nYou cleared\nExtra Events week!";
+        congratsText.setFormat(Paths.font("times-new-roman-bold.ttf"), 70, 0xffffff, "center");
+        congratsText.camera = PlayState.instance.camCutscene;
+        congratsText.alpha = 0.00001;
+        PlayState.instance.add(congratsText);
+
+        messageAR = new FlxText(0, 5, FlxG.width);
+        messageAR.x = FlxG.width - messageAR.width - 10;
+        messageAR.text = "ًﻻﻭﺃ ﻚﺴﻔﻧ ﺐﺣ";
+        messageAR.setFormat(Paths.font("times-new-roman-bold.ttf"), 50, 0xffffff, "right");
+        messageAR.camera = PlayState.instance.camCutscene;
+        messageAR.alpha = 0.00001;
+        PlayState.instance.add(messageAR);
+
+        messageENG = new FlxText(5, 0, FlxG.width);
+        messageENG.y = FlxG.height - messageENG.height - 40;
+        messageENG.text = "Love Yourself First";
+        messageENG.setFormat(Paths.font("times-new-roman-bold.ttf"), 50, 0xffffff, "left");
+        messageENG.camera = PlayState.instance.camCutscene;
+        messageENG.alpha = 0.00001;
+        PlayState.instance.add(messageENG);
+
+        PlayState.instance.refresh();
+        cutsceneSnd = FunkinSound.playOnce(Paths.sound('subject-name-here'), 1.0);
+
+        new FlxTimer().start(7, function(timer) {
+            FlxTween.tween(congratsText, {alpha: 0.7}, 4);
+            FlxTween.tween(messageAR, {alpha: 0.3}, 8, {startDelay: 2.5, onComplete: function(twn:FlxTween) {
+                FlxTween.tween(PlayState.instance.camCutscene, {zoom: 3}, 2);
+                FlxTween.tween(PlayState.instance.camCutscene.scroll, {x: -350, y: -190}, 2);
+                new FlxTimer().start(1.5, function(timer) {
+                    new FlxTimer().start(0.00001, timer -> PlayState.instance.endSong(true));
+                    cutsceneSnd?.destroy();
+                });
+            }});
+            FlxTween.tween(messageENG, {alpha: 0.3}, 8, {startDelay: 2.5});
+        });
+    }
+
+
+    /**
+    * Don't replay the cutscene between restarts.
+    */
+    function onSongRetry(event:ScriptEvent) {
+        super.onSongRetry(event);
+        hasPlayedCutscene = true;
+    }
+
+   /**
+   * Replay the cutscene after leaving the song.
+   */
+    function onCreate(event:ScriptEvent) {
+        super.onCreate(event);
+        hasPlayedCutscene = false;
+    }
+}

@@ -18,6 +18,8 @@ import funkin.data.event.SongEventRegistry;
 class CameraFadeFixes extends ScriptedModule {
 
   var shouldFixFadeEvent:Bool = true;
+  var camFadeVal = null;
+  var camHUDFadeVal = null;
 
   public function new(){
     super('extra-events-cameraFadeFixes');
@@ -37,6 +39,22 @@ class CameraFadeFixes extends ScriptedModule {
     super.onSongRetry(event);
     if (PlayState.instance.camGame != null && shouldFixFadeEvent) PlayState.instance.camGame.stopFade();
     if (PlayState.instance.camHUD != null && shouldFixFadeEvent) PlayState.instance.camHUD.stopFade();
+  }
+
+  // Prevents the event from running if the game is paused
+  // Credit goes to ComedyLost
+  function onPause(e) {
+    super.onPause(e);
+    camFadeVal = PlayState.instance.camGame._fxFadeDuration ?? null;
+    camHUDFadeVal = PlayState.instance.camHUD._fxFadeDuration ?? null;
+    if (camFadeVal != null || camFadeVal != 0) PlayState.instance?.camGame?._fxFadeDuration = 0;
+    if (camHUDFadeVal != null || camHUDFadeVal != 0) PlayState.instance?.camHUD?._fxFadeDuration = 0;
+  }
+
+  function onResume(e) {
+    super.onResume(e);
+    if (camFadeVal != null || camFadeVal != 0) PlayState.instance?.camGame?._fxFadeDuration = camFadeVal;
+    if (camHUDFadeVal != null || camHUDFadeVal != 0) PlayState.instance?.camHUD?._fxFadeDuration = camHUDFadeVal;
   }
 }
 
@@ -105,8 +123,10 @@ class CameraFadeEvent extends ScriptedSongEvent {
     }
 
     if (!applyToHud) {
+      PlayState.instance.camGame.stopFade();
       FlxG.camera.fade(color, durSeconds / PlayState.instance.playbackRate, shouldFadeIn); // Fades camGame
     } else {
+      PlayState.instance.camHUD?.stopFade();
       PlayState.instance.camHUD?.fade(color, durSeconds / PlayState.instance.playbackRate, shouldFadeIn); // camHUD (no point in having "toggle both" option since camHUD is above everything)
     }
 

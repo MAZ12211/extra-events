@@ -2,21 +2,8 @@ import funkin.play.PlayState;
 import funkin.Conductor;
 import funkin.modding.events.ScriptEvent;
 import funkin.modding.module.Module;
-import funkin.ui.AtlasText;
-import flixel.util.FlxTimer;
-import funkin.graphics.FunkinSprite;
-import funkin.Paths;
-import openfl.utils.Assets;
-import flixel.tweens.FlxTween;
-import flixel.FlxCamera;
 import flixel.tweens.FlxEase;
 import funkin.util.ReflectUtil;
-
-import openfl.filters.ShaderFilter;
-import funkin.modding.base.ScriptedFlxRuntimeShader;
-import flixel.addons.display.FlxRuntimeShader;
-
-import flixel.FlxG;
 
 import funkin.play.event.SongEvent;
 import funkin.play.event.ScriptedSongEvent;
@@ -25,182 +12,135 @@ import funkin.data.event.SongEventSchema;
 
 import funkin.modding.PolymodErrorHandler;
 
-import funkin.ui.options.OptionsState;
-import flixel.util.FlxSave;
 import funkin.modding.module.ModuleHandler;
 import funkin.modding.module.ScriptedModule;
 import funkin.data.event.SongEventRegistry;
 import funkin.save.Save;
 
-class VignHandler extends ScriptedModule {
-  public var vignShader:FlxRuntimeShader;
-  public var vignFilter:ShaderFilter;
-
-  public var intensity_tween:FlxTween = null;
-
-  public function new() {
-		super("extra-events-vignHandler", 2);
-	}
-
-	override function onSongStart(e) {
-    super.onSongStart(e);
-
-    vignShader = ScriptedFlxRuntimeShader.init('VignEffect');
-    vignFilter = new ShaderFilter(vignShader);
-    vignShader?.scriptCall("setIntensity", [0.0]);
-    if (!FlxG.camera.filters?.contains(vignFilter)) FlxG.camera.filters?.push(vignFilter); // Add the shader after the song starts
-  }
-
-  override function onSongRetry(e) {
-    super.onSongRetry(e);
-
-    if (vignShader != null) {
-      if (FlxG.camera.filters?.contains(vignFilter)) FlxG.camera.filters?.remove(vignFilter); // Remove the shader when retrying the song (via gameover or pause menu) to avoid stacking
-      vignShader = null;
-    }
-  }
-
-  public function createVig(?intensity:Float, ?duration:Float, ?ease:Null<Float->Float>) {
-    cancelCurrentVigTween();
-
-    var intensityArg = intensity ?? 0.0;
-    var durationArg = duration ?? 0.0;
-    var easeArg = ease ?? "linear";
-  
-    intensity_tween = FlxTween.num(vignShader?.scriptGet("uIntensity"), intensity, duration, {ease: ease}, function(value:Float) {
-      vignShader?.scriptCall("setIntensity", [value]);
-    });
-
-  }
-  
-  public function cancelCurrentVigTween(){
-    if (vignShader != null){
-      if (intensity_tween != null) intensity_tween.cancel();
-    }
-  }
-  
-}
-
 class VignEvent extends ScriptedSongEvent {
-    function new() {
-      super("extra-events-vignEvent");
-    }
+  function new() {
+    super("extra-events-vignEvent");
+  }
+  
+  /**
+  * Applies a vignette effect over camGame with easings
+  **/
+
+  var vignHandler = null;
+  public var eventTitle:String = "Extra Events | Vignette Effect";
+
+  public var DEFAULT_INTENSITY:Float = 1.0; // min = 1.0, max = 10
+
+  public var DEFAULT_DURATION:Float = 4.0;
+  public var DEFAULT_EASE:String = 'linear';
+
+  override function handleEvent(data:SongEventData) {
+    vignHandler = ModuleHandler.getModule('extra-events-vignHandler');
+
+    if (PlayState.instance == null || PlayState.instance.isMinimalMode) return;
+    if (!Save.instance.modOptions.get('extra-events').isVignEnabled) return;
+
+    var intensity:Float = data.getFloat('intensity') != null ? data.getFloat('intensity') : DEFAULT_INTENSITY;
+    var duration:Float = data.getFloat('duration') != null ? data.getFloat('duration') : DEFAULT_DURATION;
+    var ease:String = data.getString('ease') != null ? data.getString('ease') : DEFAULT_EASE;
     
-    /**
-    * Applies a vignette effect over camGame with easings
-    **/
+    var durSeconds = Conductor.instance.stepLengthMs * duration / 1000;
+    var easeFunction:Null<Float->Float>;
 
-    var vignHandler = null;
-    public var eventTitle:String = "Extra Events | Vignette Effect";
+    if (duration <= 0) {
+      PolymodErrorHandler.showAlert("Event execution error for " + eventTitle, "Duration cannot be less or equal to 0.\nDuration must be greater than 0.");
+      return;
+    }
 
-    public var DEFAULT_INTENSITY:Float = 1.0; // min = 1.0, max = 10
+    switch (ease) {
+        case 'INSTANT': // Cancel the tween here.
+          if (vignHandler?.scriptGet("intensity_tween") != null || vignHandler?.scriptGet("vignShader") != null) vignHandler?.scriptGet("intensity_tween")?.cancel();
+          vignHandler?.scriptGet("vignShader")?.scriptCall("setIntensity", [intensity]);
+        default:
+          easeFunction = ReflectUtil.getAnonymousField(FlxEase, ease);
+          if (easeFunction == null){
+            trace("Invalid easing function: " + ease);
+          }
+          vignHandler?.scriptCall("createVig", [intensity, durSeconds / PlayState.instance.playbackRate, easeFunction]);
+    }
 
-    public var DEFAULT_DURATION:Float = 4.0;
-    public var DEFAULT_EASE:String = 'linear';
+  }
 
-    override function handleEvent(data:SongEventData) {
-      vignHandler = ModuleHandler.getModule('extra-events-vignHandler');
+  public override function getTitle() {
+    return eventTitle;
+  }
 
-      if (PlayState.instance == null || PlayState.instance.isMinimalMode) return;
-      if (!Save.instance.modOptions.get('extra-events').isVignEnabled) return;
+  public override function getIconPath(){
+    return 'ui/chart-editor/events/extra-events-vignEvent';
+  }
 
-      var intensity:Float = data.getFloat('intensity') != null ? data.getFloat('intensity') : DEFAULT_INTENSITY;
-      var duration:Float = data.getFloat('duration') != null ? data.getFloat('duration') : DEFAULT_DURATION;
-      var ease:String = data.getString('ease') != null ? data.getString('ease') : DEFAULT_EASE;
-      
-      var durSeconds = Conductor.instance.stepLengthMs * duration / 1000;
-      var easeFunction:Null<Float->Float>;
-
-      if (duration <= 0) {
-        PolymodErrorHandler.showAlert("Event execution error for " + eventTitle, "Duration cannot be less or equal to 0.\nDuration must be greater than 0.");
-        return;
+  public override function getEventSchema(){
+    return [
+      {
+        name: 'intensity',
+        title: 'Intensity',
+        defaultValue: 1.0,
+        step: 0.5,
+        max: 10.0,
+        min: 0.0,
+        type: "float",
+        units: 'value'
+      },
+      {
+        name: 'duration',
+        title: 'Duration',
+        defaultValue: 4.0,
+        step: 0.5,
+        min: 0.5,
+        type: "float",
+        units: 'steps'
+      },
+      {
+        name: 'ease',
+        title: 'Easing Type',
+        defaultValue: 'linear',
+        type: "enum",
+        keys: [
+          'Linear' => 'linear',
+          'Instant (Ignores Duration)' => 'INSTANT',
+          'Sine In' => 'sineIn',
+          'Sine Out' => 'sineOut',
+          'Sine In/Out' => 'sineInOut',
+          'Quad In' => 'quadIn',
+          'Quad Out' => 'quadOut',
+          'Quad In/Out' => 'quadInOut',
+          'Cube In' => 'cubeIn',
+          'Cube Out' => 'cubeOut',
+          'Cube In/Out' => 'cubeInOut',
+          'Quart In' => 'quartIn',
+          'Quart Out' => 'quartOut',
+          'Quart In/Out' => 'quartInOut',
+          'Quint In' => 'quintIn',
+          'Quint Out' => 'quintOut',
+          'Quint In/Out' => 'quintInOut',
+          'Expo In' => 'expoIn',
+          'Expo Out' => 'expoOut',
+          'Expo In/Out' => 'expoInOut',
+          'Smooth Step In' => 'smoothStepIn',
+          'Smooth Step Out' => 'smoothStepOut',
+          'Smooth Step In/Out' => 'smoothStepInOut',
+          'Smoother Step In' => 'smootherStepIn',
+          'Smoother Step Out' => 'smootherStepOut',
+          'Smoother Step In/Out' => 'smootherStepInOut',
+          'Elastic In' => 'elasticIn',
+          'Elastic Out' => 'elasticOut',
+          'Elastic In/Out' => 'elasticInOut',
+          'Back In' => 'backIn',
+          'Back Out' => 'backOut',
+          'Back In/Out' => 'backInOut',
+          'Bounce In' => 'bounceIn',
+          'Bounce Out' => 'bounceOut',
+          'Bounce In/Out' => 'bounceInOut',
+          'Circ In' => 'circIn',
+          'Circ Out' => 'circOut',
+          'Circ In/Out' => 'circInOut'
+        ]
       }
-
-      switch (ease) {
-          case 'INSTANT': // Cancel the tween here.
-            if (vignHandler?.scriptGet("intensity_tween") != null || vignHandler?.scriptGet("vignShader") != null) vignHandler?.scriptGet("intensity_tween")?.cancel();
-            vignHandler?.scriptGet("vignShader")?.scriptCall("setIntensity", [intensity]);
-          default:
-            easeFunction = ReflectUtil.getAnonymousField(FlxEase, ease);
-            if (easeFunction == null){
-              trace("Invalid easing function: " + ease);
-            }
-            vignHandler?.scriptCall("createVig", [intensity, durSeconds / PlayState.instance.playbackRate, easeFunction]);
-      }
-
-    }
-
-    public override function getTitle() {
-        return eventTitle;
-    }
-
-    public override function getEventSchema(){
-      return [
-        {
-          name: 'intensity',
-          title: 'Intensity',
-          defaultValue: 1.0,
-          step: 0.5,
-          max: 10.0,
-          min: 0.0,
-          type: "float",
-          units: 'value'
-        },
-        {
-          name: 'duration',
-          title: 'Duration',
-          defaultValue: 4.0,
-          step: 0.5,
-          min: 0.5,
-          type: "float",
-          units: 'steps'
-        },
-        {
-          name: 'ease',
-          title: 'Easing Type',
-          defaultValue: 'linear',
-          type: "enum",
-          keys: [
-            'Linear' => 'linear',
-            'Instant (Ignores Duration)' => 'INSTANT',
-            'Sine In' => 'sineIn',
-            'Sine Out' => 'sineOut',
-            'Sine In/Out' => 'sineInOut',
-            'Quad In' => 'quadIn',
-            'Quad Out' => 'quadOut',
-            'Quad In/Out' => 'quadInOut',
-            'Cube In' => 'cubeIn',
-            'Cube Out' => 'cubeOut',
-            'Cube In/Out' => 'cubeInOut',
-            'Quart In' => 'quartIn',
-            'Quart Out' => 'quartOut',
-            'Quart In/Out' => 'quartInOut',
-            'Quint In' => 'quintIn',
-            'Quint Out' => 'quintOut',
-            'Quint In/Out' => 'quintInOut',
-            'Expo In' => 'expoIn',
-            'Expo Out' => 'expoOut',
-            'Expo In/Out' => 'expoInOut',
-            'Smooth Step In' => 'smoothStepIn',
-            'Smooth Step Out' => 'smoothStepOut',
-            'Smooth Step In/Out' => 'smoothStepInOut',
-            'Smoother Step In' => 'smootherStepIn',
-            'Smoother Step Out' => 'smootherStepOut',
-            'Smoother Step In/Out' => 'smootherStepInOut',
-            'Elastic In' => 'elasticIn',
-            'Elastic Out' => 'elasticOut',
-            'Elastic In/Out' => 'elasticInOut',
-            'Back In' => 'backIn',
-            'Back Out' => 'backOut',
-            'Back In/Out' => 'backInOut',
-            'Bounce In' => 'bounceIn',
-            'Bounce Out' => 'bounceOut',
-            'Bounce In/Out' => 'bounceInOut',
-            'Circ In' => 'circIn',
-            'Circ Out' => 'circOut',
-            'Circ In/Out' => 'circInOut'
-          ]
-        }
-      ];
-    }
+    ];
+  }
 }

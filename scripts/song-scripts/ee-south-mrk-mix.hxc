@@ -1,0 +1,103 @@
+import flixel.util.FlxTimer;
+import funkin.play.Countdown;
+import funkin.play.song.Song;
+import funkin.play.PlayState;
+import funkin.graphics.FunkinSprite;
+import funkin.audio.FunkinSound;
+import funkin.play.PlayStatePlaylist;
+import flixel.FlxG;
+import flixel.tweens.FlxTween;
+import flixel.tweens.FlxEase;
+import funkin.play.cutscene.VideoCutscene;
+
+class SouthMRKMixSongScript extends Song {
+    var hasPlayedCutscene:Bool;
+    var hasSongEnded:Bool;
+    var meanWhilemeanWhileBG:FunkinSprite;
+
+    function new(){
+        super("ee-south-mrk-mix"); // targets the song (song id in particular which is named ee-south-mrk-mix in the files)
+        hasPlayedCutscene = false;
+        hasSongEnded = false;
+    }
+
+    function onSongEnd(e) {
+        super.onSongEnd(e);
+        if (!hasSongEnded) {
+            hasSongEnded = true;
+            e.cancel();
+            PlayState.instance?.endSong(true);
+            /**
+                Skips the fade-to-results-screen transition as a workaround for this (https://postimg.cc/6yRtmrYk)
+                until I get around to it in a feature patch maybe??
+            **/ 
+        } else {
+            hasSongEnded = false;
+        }
+    }
+
+    function onCountdownStart(e) {
+        super.onCountdownStart(e);
+
+        hasPlayedCutscene = PlayStatePlaylist.isStoryMode && !PlayState.instance.isChartingMode && !FlxG.onMobile && !hasPlayedCutscene; // I have no idea how mobile stuff work (+ I dislike the platform) so I'm leaving this to pr makers
+
+        if (!hasPlayedCutscene) return;
+
+        hasPlayedCutscene = true;
+        e.cancel();
+        startFunnyCutscene();
+    }
+
+    function startFunnyCutscene() {
+        PlayState.instance.togglePauseButton();
+        PlayState.instance.isInCutscene = true;
+        PlayState.instance.mayPauseGame = false;
+        PlayState.instance.camCutscene.visible = true;
+        meanWhileBG = FunkinSprite.create(0, 0, "meanWhileBG");
+        meanWhileBG.screenCenter();
+        meanWhileBG.camera = PlayState.instance.camCutscene;
+        PlayState.instance.add(meanWhileBG);
+        PlayState.instance.refresh();
+        PlayState.instance.tweenCameraToPosition(PlayState.instance.currentStage.getGirlfriend().cameraFocusPoint.x, PlayState.instance.currentStage.getGirlfriend().cameraFocusPoint.y, 0);
+        PlayState.instance.tweenCameraZoom(0.9, 0);
+        FunkinSound.playOnce(Paths.sound('meanWhile'), 1.0, function() {
+            new FlxTimer().start(0.5, function(tmr) {
+                PlayState.instance.remove(meanWhileBG);
+                
+                FunkinSound.playOnce(Paths.sound('bopeebo-hey'), 1.0);
+                PlayState.instance.currentStage.getBoyfriend().playAnimation('hey');
+                PlayState.instance.currentStage.getGirlfriend().playAnimation('cheer');
+                PlayState.instance.currentStage.getDad().playAnimation('cheer');
+                new FlxTimer().start(1.0, function(tmr) {
+                    PlayState.instance.tweenCameraToPosition(PlayState.instance.currentStage.getDad().cameraFocusPoint.x, PlayState.instance.currentStage.getDad().cameraFocusPoint.y, 2, FlxEase.sineInOut);
+                    PlayState.instance.tweenCameraZoom(1.0, 4);
+                    new FlxTimer().start(0.5, function(tmr) {
+                        PlayState.instance.isInCutscene = false;
+                        PlayState.instance.startCountdown();
+                        PlayState.instance.togglePauseButton(true);
+                        PlayState.instance.mayPauseGame = true;
+                    });
+                });
+            });
+            
+        });
+    }
+
+    /**
+    * Don't replay the cutscene between restarts.
+    */
+    function onSongRetry(event:ScriptEvent) {
+        super.onSongRetry(event);
+        hasPlayedCutscene = true;
+        hasSongEnded = false;
+    }
+
+   /**
+   * Replay the cutscene after leaving the song.
+   */
+    function onCreate(event:ScriptEvent) {
+        super.onCreate(event);
+        hasPlayedCutscene = false;
+        hasSongEnded = false;
+    }
+}

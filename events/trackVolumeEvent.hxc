@@ -64,7 +64,7 @@ class TrackVolumeEvent extends ScriptedSongEvent {
     }
 
     public override function getIconPath(){
-      return 'ui/chart-editor/events/extra-events-trackVolumeEvent';
+        return 'ui/chart-editor/events/extra-events-trackVolumeEvent';
     }
 
     override function getEventSchema(){

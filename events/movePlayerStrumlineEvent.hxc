@@ -148,12 +148,12 @@ class MovePlayerStrumlineEvent extends ScriptedSongEvent {
     if (strumlineTwn != null) strumlineTwn.cancel();
   }
 
-  public override function getIconPath(){
-    return 'ui/chart-editor/events/extra-events-movePlayerStrumlineEvent';
-  }
-
   public override function getTitle() {
     return eventTitle;
+  }
+  
+  public override function getIconPath(){
+    return 'ui/chart-editor/events/extra-events-movePlayerStrumlineEvent';
   }
 
   override function getEventSchema(){
