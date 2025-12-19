@@ -78,7 +78,6 @@ class CameraShakeEvent extends ScriptedSongEvent {
 
     var durSeconds = Conductor.instance.stepLengthMs * duration / 1000;
 
-    // TODO: Direction doesn't work at all..
     if (direction == 0) {
       direction = 0x01;
     } else if (direction == 1) {
