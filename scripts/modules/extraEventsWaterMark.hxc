@@ -9,12 +9,12 @@ import flixel.util.FlxColor;
 
 class ExtraEventsWaterMark extends ScriptedModule {
     function new() {
-        super("extra-events-notif", 100, {
+        super("extra-events-waterMark", 100, {
             state: MainMenuState
         });
     }
     var leftWatermarkText:FlxText;
-    var versionText:Float = "1.2.1";
+    var versionText:Float = "1.3.0";
 
 
     override function onStateChangeEnd(e) {

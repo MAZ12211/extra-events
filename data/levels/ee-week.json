@@ -1,7 +1,7 @@
 {
   "version": "1.0.0",
   "name": "DUE DEBTS",
-  "titleAsset": "storymenu/titles/weekend1",
+  "titleAsset": "storymenu/titles/ee-week",
   "props": [
     {
       "assetPath": "storymenu/props/darnell",

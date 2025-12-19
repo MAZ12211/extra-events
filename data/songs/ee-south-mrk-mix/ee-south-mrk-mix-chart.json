@@ -525,7 +525,7 @@
       "v": {
 	"shouldFadeIn": false,
 	"duration": 0,
-	"applyToHud": false,
+	"applyToHud": true,
 	"color": 0
 }
     }

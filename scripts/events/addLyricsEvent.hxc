@@ -1,0 +1,288 @@
+import funkin.play.PlayState;
+import funkin.Conductor;
+import flixel.FlxG;
+
+import funkin.play.event.SongEvent;
+import funkin.data.event.SongEventSchema;
+
+import funkin.modding.PolymodErrorHandler;
+import funkin.play.event.ScriptedSongEvent;
+
+import funkin.modding.module.ModuleHandler;
+import funkin.modding.module.ScriptedModule;
+import funkin.data.event.SongEventRegistry;
+import funkin.save.Save;
+
+class AddLyricsEvent extends ScriptedSongEvent {
+  function new() {
+    super("extra-events-addLyricsEvent");
+  }
+
+  /**
+  * Adds a lyric text or captions to the song with loads of properties with dynamic positioning (meaning it accounts for if you downscroll enabled or not)
+  * Some of the code is taken or based off of Spooky Mix's lyric event by Denoohay
+  * Some properties are either new, missing, implemented differently, or scrapped intentionally
+  **/
+
+  public var eventTitle:String = "Extra Events | Add Lyrics";
+  public var isEnabled = null;
+
+  public var DEFAULT_TEXT:String = "";
+  public var DEFAULT_TEXT_2ND:String = "";
+  public var DEFAULT_FONT:String = "vcr";
+  public var DEFAULT_FONT_2ND:String = "vcr";
+  public var DEFAULT_FONTSIZE:Float = 32.0;
+  public var DEFAULT_FONTSIZE_2ND:Float = 32.0;
+  public var DEFAULT_COLOR:Int = 12; // White
+  public var DEFAULT_COLOR_2ND:Int = 12; // White
+
+  public var DEFAULT_ITALIC:Bool = false;
+  public var DEFAULT_BOLD:Bool = false;
+  public var DEFAULT_HAS_ANTIALIASING:Bool = false;
+  
+  public var DEFAULT_ISCENTERED:Bool = false; // No real point in having custom x and y position. ISCENTERED is used for if you want the lyric to be the on the middle of the screen
+  public var DEFAULT_ISCENTERED_2ND:Bool = false;
+  public var DEFAULT_OPACITY:Float = 1.0;
+  public var DEFAULT_LATTERSPACING:Float = 0.0;
+  
+  public var DEFAULT_BORDERCOLOR:Int = 0; // Black
+  public var DEFAULT_BORDERSIZE:Float = 1.0; // min is 0 instead of 0.1
+
+  public var DEFAULT_ISBEHINDSTRUMLINES:Bool = true;
+  public var DEFAULT_ISBEHINDSTRUMLINES_2ND:Bool = true;
+
+  override function handleEvent(data) {
+    if (PlayState.instance == null || PlayState.instance.currentStage == null) return;
+
+    // Save Stuff
+    isEnabled = Save.instance.modOptions.get('extra-events').isLyricsEnabled;
+    if (!isEnabled) return;
+
+    var text:String = data.getString('text') != null ? data.getString('text') : DEFAULT_TEXT;
+    var text2nd:String = data.getString('text2nd') != null ? data.getString('text2nd') : DEFAULT_TEXT_2ND;
+    var duration:Float = data.getFloat('duration') != null ? data.getFloat('duration') : 0;
+    var font:String = data.getString('font') != null ? data.getString('font') : DEFAULT_FONT;
+    var font2nd:String = data.getString('font2nd') != null ? data.getString('font2nd') : DEFAULT_FONT_2ND;
+    var fontSize:Float = data.getFloat('fontSize') != null ? data.getFloat('fontSize') : DEFAULT_FONTSIZE;
+    var fontSize2nd:Float = data.getFloat('fontSize2nd') != null ? data.getFloat('fontSize2nd') : DEFAULT_FONTSIZE_2ND;
+    var textColor:Int = data.getInt('textColor') != null ? data.getInt('textColor') : DEFAULT_COLOR;
+    var textColor2nd:Int = data.getInt('textColor2nd') != null ? data.getInt('textColor2nd') : DEFAULT_COLOR_2ND;
+    
+    var isItalic:Bool = data.getBool('isItalic') != null ? data.getBool('isItalic') : DEFAULT_ITALIC;
+    var isBold:Bool = data.getBool('isBold') != null ? data.getBool('isBold') : DEFAULT_BOLD;
+    var hasAntiAliasing:Bool = data.getBool('hasAntiAliasing') != null ? data.getBool('hasAntiAliasing') : DEFAULT_HAS_ANTIALIASING;
+    
+    var isCentered:Bool = data.getBool('isCentered') != null ? data.getBool('isCentered') : DEFAULT_ISCENTERED;
+    var isCentered2nd:Bool = data.getBool('isCentered2nd') != null ? data.getBool('isCentered2nd') : DEFAULT_ISCENTERED_2ND;
+    var opacity:Float = data.getFloat('opacity') != null ? data.getFloat('opacity') : DEFAULT_OPACITY;
+    var letterSpacing:Float = data.getFloat('letterSpacing') != null ? data.getFloat('letterSpacing') : DEFAULT_LATTERSPACING;
+    
+    var textBorderColor:Int = data.getInt('textBorderColor') != null ? data.getInt('textBorderColor') : DEFAULT_BORDERCOLOR;
+    var borderSize:Float = data.getFloat('borderSize') != null ? data.getFloat('borderSize') : DEFAULT_BORDERSIZE;
+
+    var isBehindStrumLines:Bool = data.getBool('isBehindStrumLines') != null ? data.getBool('isBehindStrumLines') : DEFAULT_ISBEHINDSTRUMLINES;
+    var isBehindStrumLines2nd:Bool = data.getBool('isBehindStrumLines2nd') != null ? data.getBool('isBehindStrumLines2nd') : DEFAULT_ISBEHINDSTRUMLINES_2ND;
+
+    ModuleHandler.getModule('extra-events-addLyricsHandler')?.scriptCall("createText", [text, duration, textColor, font, fontSize, isItalic, isBold, hasAntiAliasing, isCentered, opacity, letterSpacing, textBorderColor, borderSize, isBehindStrumLines]);
+    if (text2nd != null) ModuleHandler.getModule('extra-events-addLyricsHandler')?.scriptCall("create2ndText", [text2nd, textColor2nd, font2nd, fontSize2nd, isCentered2nd, isBehindStrumLines2nd]);
+  }
+
+  public override function getTitle() {
+    return eventTitle;
+  }
+
+  public override function getIconPath(){
+    return 'ui/chart-editor/events/extra-events-addLyricsEvent';
+  }
+
+
+  override function getEventSchema(){
+    return [
+      {
+        name: 'text',
+        defaultValue: '',
+        title: 'Text',
+        type: "string"
+      },
+      {
+        name: 'text2nd',
+        defaultValue: '',
+        title: 'Text 2',
+        type: "string"
+      },
+      {
+        name: 'duration',
+        title: 'Duration (no longer used)',
+        defaultValue: 0.1,
+        step: 1.0,
+        min: 0.1,
+        type: "float",
+        units: 'steps'
+      },
+      {
+        name: 'textColor',
+        title: 'Text Color',
+        defaultValue: 12,
+        type: "enum",
+        keys: [
+          "Black" => 0,
+          "Blue" => 1,
+          "Brown" => 2,
+          "Cyan" => 3,
+          "Gray" => 4,
+          "Green" => 5,
+          "Lime" => 6,
+          "Magenta" => 7,
+          "Orange" => 8,
+          "Purple" => 9,
+          "Red" => 10,
+          "Transparent" => 11,
+          "White" => 12,
+          "Yellow" => 13
+        ]
+      },
+      {
+        name: 'textColor2nd',
+        title: 'Text 2 Color',
+        defaultValue: 12,
+        type: "enum",
+        keys: [
+          "Black" => 0,
+          "Blue" => 1,
+          "Brown" => 2,
+          "Cyan" => 3,
+          "Gray" => 4,
+          "Green" => 5,
+          "Lime" => 6,
+          "Magenta" => 7,
+          "Orange" => 8,
+          "Purple" => 9,
+          "Red" => 10,
+          "Transparent" => 11,
+          "White" => 12,
+          "Yellow" => 13
+        ]
+      },
+      {
+        name: 'font',
+        title: 'Font',
+        defaultValue: 'vcr',
+        type: "string",
+        units: '.ttf'
+      },
+      {
+        name: 'font2nd',
+        title: 'Text 2 Font',
+        defaultValue: 'vcr',
+        type: "string",
+        units: '.ttf'
+      },
+      {
+        name: 'fontSize',
+        title: 'Font Size',
+        defaultValue: 32,
+        min: 1.0,
+        step: 1.0,
+        type: "float"
+      },
+      {
+        name: 'fontSize2nd',
+        title: 'Text 2 Font Size',
+        defaultValue: 32,
+        min: 1.0,
+        step: 1.0,
+        type: "float"
+      },
+      {
+        name: "isBehindStrumLines",
+        title: "Put it behind Strumlines",
+        defaultValue: true,
+        type: "bool"
+      },
+      {
+        name: "isBehindStrumLines2nd",
+        title: "Text 2 | Put it behind Strumlines",
+        defaultValue: true,
+        type: "bool"
+      },
+      {
+        name: "isItalic",
+        title: "Italic",
+        defaultValue: false,
+        type: "bool"
+      },
+      {
+        name: "isBold",
+        title: "Bold",
+        defaultValue: false,
+        type: "bool"
+      },
+      {
+        name: "hasAntiAliasing",
+        title: "Anti-Aliasing",
+        defaultValue: false,
+        type: "bool"
+      },
+      {
+        name: "isCentered",
+        title: "Place in center", /* Imagine if I could explain any of this, base game devs, please, let me add tooltips for these things */
+        defaultValue: false,
+        type: "bool"
+      },
+      {
+        name: "isCentered2nd",
+        title: "Text 2 | Place in center",
+        defaultValue: false,
+        type: "bool"
+      },
+      {
+        name: 'opacity',
+        title: 'Opacity',
+        defaultValue: 1.0,
+        step: 0.1,
+        min: 0.1,
+        max: 1.0,
+        type: "float"
+      },
+      {
+        name: 'letterSpacing',
+        title: 'Letter Spacing',
+        defaultValue: 0.0,
+        step: 0.1,
+        min: 0.0,
+        type: "float"
+      },
+      {
+        name: 'textBorderColor',
+        title: 'Text Border Color',
+        defaultValue: 0,
+        type: "enum",
+        keys: [
+          "Black" => 0,
+          "Blue" => 1,
+          "Brown" => 2,
+          "Cyan" => 3,
+          "Gray" => 4,
+          "Green" => 5,
+          "Lime" => 6,
+          "Magenta" => 7,
+          "Orange" => 8,
+          "Purple" => 9,
+          "Red" => 10,
+          "Transparent" => 11,
+          "White" => 12,
+          "Yellow" => 13
+        ]
+      },
+      {
+        name: 'borderSize',
+        title: 'Border Size',
+        defaultValue: 1.25,
+        step: 0.01,
+        min: 0, /*In case someone doesn't want a border like me*/
+        max: 10.0,
+        type: "float"
+      }
+    ];
+  }
+}

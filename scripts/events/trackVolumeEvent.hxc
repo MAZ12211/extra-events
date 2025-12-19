@@ -1,0 +1,90 @@
+import funkin.play.PlayState;
+import funkin.Conductor;
+import flixel.FlxG;
+import flixel.FlxCamera;
+import funkin.modding.PolymodErrorHandler;
+
+import funkin.play.event.SongEvent;
+import funkin.play.event.ScriptedSongEvent;
+
+import funkin.modding.module.ModuleHandler;
+import funkin.modding.module.ScriptedModule;
+import funkin.data.event.SongEventRegistry;
+import funkin.audio.FunkinSound;
+import funkin.modding.events.ScriptEvent;
+
+class TrackVolumeEvent extends ScriptedSongEvent {
+    function new() {
+        super("extra-events-trackVolumeEvent");
+    }
+
+    /**
+    * Adjusts the volume of the player or opponent's's voice, the instrumental, or all three
+    * Some of the code is taken or based off of Spooky Mix's song volume action event by Denoohay
+    **/
+
+    public var eventTitle:String = "Extra Events | Set Track Volume";
+
+    override function handleEvent(data):Void {
+        if (PlayState.instance == null || PlayState.instance.currentStage == null) return;
+        if (PlayState.instance.isMinimalMode) return;
+
+        var track = data.getInt('track');
+        var volume = data.getFloat('volume');
+
+        if (track == null) {
+            PolymodErrorHandler.showAlert("Event execution error for " + eventTitle, "Track not found.");
+            return;
+        }
+
+        switch (track) {
+            case 0:
+                if (PlayState.instance.vocals.getPlayerVoice() != null) {
+                    PlayState.instance.vocals.set_playerVolume(volume);
+                    if (volume == 0) PlayState.instance.vocals.getPlayerVoice().muted = true;
+                    else PlayState.instance.vocals.getPlayerVoice().muted = false;
+                }
+            case 1:
+                if (PlayState.instance.vocals.getOpponentVoice() != null) PlayState.instance.vocals.set_opponentVolume(volume);
+            case 2:
+                if (FlxG.sound.music != null) FlxG.sound.music.volume = volume;
+            case 3:
+                if (PlayState.instance.vocals.getPlayerVoice() != null) {
+                    PlayState.instance.vocals.set_playerVolume(volume);
+                    if (volume == 0) PlayState.instance.vocals.getPlayerVoice().muted = true;
+                    else PlayState.instance.vocals.getPlayerVoice().muted = false;
+                }
+                if (PlayState.instance.vocals.getOpponentVoice() != null) PlayState.instance.vocals.set_opponentVolume(volume);
+                if (FlxG.sound.music != null) FlxG.sound.music.volume = volume;
+        }
+    }
+
+    public override function getTitle() {
+        return eventTitle;
+    }
+
+    public override function getIconPath(){
+        return 'ui/chart-editor/events/extra-events-trackVolumeEvent';
+    }
+
+    override function getEventSchema(){
+        return [
+            {
+                name: "track",
+                title: "Track",
+                defaultValue: 1,
+                type: "enum",
+                keys: ["Player Voice" => 0, "Opponent Voice" => 1, "Instrumental" => 2, "All Tracks" => 3]
+            },
+            {
+                name: 'volume',
+                title: 'Volume Level',
+                defaultValue: 1.0,
+                min: 0.0,
+                max: 1.0,
+                step: 0.1,
+                type: "float"
+            }
+        ];
+    }
+}

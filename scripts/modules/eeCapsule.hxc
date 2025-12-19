@@ -1,0 +1,122 @@
+import funkin.modding.module.Module;
+import flixel.FlxG;
+import funkin.Paths;
+import funkin.ui.freeplay.FreeplayState;
+import funkin.ui.freeplay.SongMenuItem;
+import funkin.audio.FunkinSound;
+import flixel.util.FlxTimer;
+import funkin.PlayerSettings;
+import funkin.util.TouchUtil;
+import funkin.util.SwipeUtil;
+import funkin.modding.PolymodHandler;
+import flixel.animation.FlxAnimationController;
+
+using StringTools;
+
+/*
+	Entirely coded by Comedy Lost and used in a lot of mods too.
+	This one in particular is from Jet Set Funkin By Chazbill
+	https://gamebanana.com/mods/618295
+	Asked Comedy Lost if I could use it lol (picked this one because I thought doyliah's capsule code looked uhh less human readable than this one :])
+*/
+
+class EEFreeplayCapsules extends Module {
+	public function new(){
+		super('ee-freeplay-capsules', 800, {state: FreeplayState});
+	}
+
+	var eeLevels = ['ee-week'];
+
+	var changedCapsules:Array<SongMenuItem>;
+	var changeSelectionCallback:String->Void;
+
+	override function onSubStateOpenEnd(event) {
+		super.onSubStateOpenEnd(event);
+		var state = event.targetState;
+		if (!Std.isOfType(event.targetState, FreeplayState)) return;
+		changedCapsules = [];
+		changeSelectionCallback = state.letterSort.changeSelectionCallback;
+		state.letterSort.changeSelectionCallback = (str) -> {
+			changeSelectionCallback(str);
+			checkCapsules();
+		};
+		var filteredCapsules:Array<SongMenuItem> = FlxG.state.subState.grpCapsules.members.filter(function(cap:SongMenuItem) {
+	   		// Dead capsules are ones which were removed from the list when changing filters.
+			return cap != null && cap.alive && cap.freeplayData != null && eeLevels.contains(cap.freeplayData.levelId);
+	  	});
+		for (capsule in filteredCapsules){
+			if (capsule == null || !capsule.alive) continue;
+
+			changedCapsules.push(capsule); // Push these changed capsules
+			customDisplay(capsule);
+		}	
+	}
+
+	function customDisplay(cap:SongMenuItem) {
+		if (cap?.freeplayData == null) return;
+		cap.weekType.visible = true;
+		cap.weekType.frames = Paths.getSparrowAtlas('freeplay/freeplayCapsule/EXTRA EVENTS text');
+		cap.weekType.animation?.addByPrefix('idle', 'EXTRA EVENTS text', 2, true);
+		cap.weekType.offset.x = 15;
+		cap.weekType.offset.y = -0.5;
+		cap.weekType.scale.set(0.8, 0.8);
+		// Check if ANY loaded/enabled mods contain "mrk" in the file name (i.e. mrkmixeswave1 or mrk-mixes-charted)
+		// The odds of other charters charting the remixes and having the same songName (which results to duplicate songs in the freeplay menu) are kinda big,
+		// so we doin this to make mine easily distinguishable from the others
+		// too lazy to disable it with Monster
+		var hasMrkMod:Bool = false;
+		for (modId in PolymodHandler.loadedModIds) {
+			if (modId != null && modId.toLowerCase().contains("mrk")) { // Check for substring
+				hasMrkMod = true;
+				break;
+			}
+		}
+
+		if (hasMrkMod) {
+			cap.weekType.animation.play('idle');
+		}
+	}
+
+	function checkCapsules(letters:Bool){
+		new FlxTimer().start(0.1, _ -> { // Add a small delay to grab the right capsules
+			while (changedCapsules.length > 0) {
+				var capsule = changedCapsules.shift();
+				//if (capsule == null || !capsule.alive) continue;
+
+				if (capsule.weekType.graphic.key.contains('freeplay/freeplayCapsule/EXTRA EVENTS text')) resetCapsules(capsule);
+			}
+			if (changedCapsules.length != 0) changedCapsules = []; // Clear the array just in case
+			var filteredCapsules:Array<SongMenuItem> = FlxG.state.subState.grpCapsules.members.filter(function(cap:SongMenuItem) {
+	   			// Dead capsules are ones which were removed from the list when changing filters.
+				return cap != null && cap.alive && cap.freeplayData != null && eeLevels.contains(cap.freeplayData.levelId);
+	  		});
+			for (capsule in filteredCapsules){
+				if (capsule == null || !capsule.alive) continue;
+
+				changedCapsules.push(capsule); // Push these changed capsules
+				customDisplay(capsule);
+			}
+		});			
+	}
+
+	// NOTE: YOU SHOULD NOT EDIT ANYTHING BELOW HERE AS IT COULD CAUSE ISSUES WITH RESETTING THE CAPSULES
+	function resetCapsules(cap:SongMenuItem) {
+		if (cap?.freeplayData == null) return;
+		cap.weekType.frames = Paths.getSparrowAtlas('freeplay/freeplayCapsule/weektypes');
+		cap.weekType.animation.addByPrefix('WEEK', 'WEEK text instance 1', 24, false);
+		cap.weekType.animation.addByPrefix('WEEKEND', 'WEEKEND text instance 1', 24, false);
+		cap.checkWeek(cap.freeplayData.data.id);
+	}
+
+	override function onUpdate(event:UpdateScriptEvent) {
+		super.onUpdate(event);
+		var switched = PlayerSettings.player1.controls.UI_LEFT_P || PlayerSettings.player1.controls.UI_RIGHT_P;
+		if (FlxG.state.subState.controls.active && (switched || 
+			TouchUtil.pressAction(FlxG.state.subState.diffSelLeft, FlxG.state.subState.funnyCam, false) || 
+			TouchUtil.pressAction(FlxG.state.subState.diffSelRight, FlxG.state.subState.funnyCam, false) || 
+			SwipeUtil.swipeLeft || SwipeUtil.swipeRight))
+		{
+			checkCapsules();
+		}
+	}
+}

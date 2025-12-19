@@ -546,12 +546,21 @@
 }
     },
     {
+      "t": 24285.7142857143,
+      "e": "extra-events-countDownEvent",
+      "v": {
+	"startFrom": 0,
+	"soundOnly": false,
+	"speed": 0
+}
+    },
+    {
       "t": 25178.5714285714,
       "e": "SetCameraBop",
       "v": {
 	"rate": 4,
 	"offset": 0,
-	"intensity": 1.3
+	"intensity": 1.5
 }
     },
     {
@@ -3347,7 +3356,7 @@
 	"fontSize": 32,
 	"textColor2nd": 10,
 	"duration": 0.1,
-	"textColor": 12,
+	"textColor": 10,
 	"fontSize2nd": 42,
 	"font2nd": "vcr",
 	"isCentered2nd": true,
@@ -3367,13 +3376,49 @@
 }
     },
     {
+      "t": 80000,
+      "e": "extra-events-cameraFadeEvent",
+      "v": {
+	"applyToHud": false,
+	"duration": 0,
+	"shouldFadeIn": false,
+	"color": 0
+}
+    },
+    {
+      "t": 81428.5714285714,
+      "e": "extra-events-addLyricsEvent",
+      "v": {
+	"fontSize": 32,
+	"textColor2nd": 10,
+	"duration": 0.1,
+	"textColor": 10,
+	"fontSize2nd": 42,
+	"font2nd": "vcr",
+	"isCentered2nd": true,
+	"isItalic": false,
+	"textBorderColor": 0,
+	"isBehindStrumLines": true,
+	"text2nd": "",
+	"opacity": 1,
+	"text": "You know that",
+	"borderSize": 1.25,
+	"letterSpacing": 0,
+	"hasAntiAliasing": false,
+	"isCentered": true,
+	"isBehindStrumLines2nd": true,
+	"font": "vcr",
+	"isBold": false
+}
+    },
+    {
       "t": 82142.8571428571,
       "e": "extra-events-addLyricsEvent",
       "v": {
 	"fontSize": 32,
 	"textColor2nd": 12,
 	"duration": 0.1,
-	"textColor": 12,
+	"textColor": 10,
 	"fontSize2nd": 32,
 	"font2nd": "vcr",
 	"isCentered2nd": true,
@@ -3393,10 +3438,24 @@
 }
     },
     {
-      "t": 82857.14,
+      "t": 82321.4285714286,
       "e": "FocusCamera",
       "v": {
-	"char": 0
+	"x": 0,
+	"duration": 0,
+	"y": 0,
+	"char": 0,
+	"ease": "quadIn"
+}
+    },
+    {
+      "t": 82857.1428571429,
+      "e": "extra-events-cameraFadeEvent",
+      "v": {
+	"duration": 0,
+	"applyToHud": false,
+	"shouldFadeIn": true,
+	"color": 0
 }
     },
     {
@@ -4326,6 +4385,32 @@
     },
     {
       "t": 120178.571428571,
+      "e": "extra-events-addLyricsEvent",
+      "v": {
+	"fontSize": 100,
+	"textColor2nd": 12,
+	"duration": 0.1,
+	"textColor": 12,
+	"fontSize2nd": 32,
+	"font2nd": "vcr",
+	"isCentered2nd": false,
+	"isItalic": false,
+	"textBorderColor": 0,
+	"isBehindStrumLines": true,
+	"text2nd": "",
+	"opacity": 0.7,
+	"text": "Watch",
+	"borderSize": 0,
+	"letterSpacing": 0,
+	"hasAntiAliasing": true,
+	"isCentered": true,
+	"isBehindStrumLines2nd": true,
+	"font": "BBHBartle-Regular",
+	"isBold": false
+}
+    },
+    {
+      "t": 120178.571428571,
       "e": "extra-events-cameraFadeEvent",
       "v": {
 	"shouldFadeIn": false,
@@ -4335,36 +4420,10 @@
 }
     },
     {
-      "t": 120178.571428571,
-      "e": "extra-events-addLyricsEvent",
-      "v": {
-	"fontSize": 32,
-	"textColor2nd": 12,
-	"duration": 0.1,
-	"textColor": 12,
-	"fontSize2nd": 32,
-	"font2nd": "vcr",
-	"isCentered2nd": false,
-	"isItalic": false,
-	"textBorderColor": 0,
-	"isBehindStrumLines": true,
-	"text2nd": "",
-	"opacity": 1,
-	"text": "Watch",
-	"borderSize": 1.25,
-	"letterSpacing": 0,
-	"hasAntiAliasing": false,
-	"isCentered": true,
-	"isBehindStrumLines2nd": true,
-	"font": "vcr",
-	"isBold": false
-}
-    },
-    {
       "t": 120357.142857143,
       "e": "extra-events-addLyricsEvent",
       "v": {
-	"fontSize": 32,
+	"fontSize": 100,
 	"textColor2nd": 12,
 	"duration": 0.1,
 	"textColor": 12,
@@ -4375,14 +4434,14 @@
 	"textBorderColor": 0,
 	"isBehindStrumLines": true,
 	"text2nd": "",
-	"opacity": 1,
+	"opacity": 0.7,
 	"text": "Watch these",
-	"borderSize": 1.25,
+	"borderSize": 0,
 	"letterSpacing": 0,
-	"hasAntiAliasing": false,
+	"hasAntiAliasing": true,
 	"isCentered": true,
 	"isBehindStrumLines2nd": true,
-	"font": "vcr",
+	"font": "BBHBartle-Regular",
 	"isBold": false
 }
     },
@@ -4390,7 +4449,7 @@
       "t": 120535.714285714,
       "e": "extra-events-addLyricsEvent",
       "v": {
-	"fontSize": 32,
+	"fontSize": 100,
 	"textColor2nd": 12,
 	"duration": 0.1,
 	"textColor": 12,
@@ -4401,14 +4460,14 @@
 	"textBorderColor": 0,
 	"isBehindStrumLines": true,
 	"text2nd": "",
-	"opacity": 1,
+	"opacity": 0.7,
 	"text": "Watch these ashes",
-	"borderSize": 1.25,
+	"borderSize": 0,
 	"letterSpacing": 0,
-	"hasAntiAliasing": false,
+	"hasAntiAliasing": true,
 	"isCentered": true,
 	"isBehindStrumLines2nd": true,
-	"font": "vcr",
+	"font": "BBHBartle-Regular",
 	"isBold": false
 }
     },
@@ -5085,59 +5144,69 @@
       "t": 125357.142857143,
       "e": "extra-events-addLyricsEvent",
       "v": {
-	"fontSize": 32,
-	"textColor2nd": 12,
+	"fontSize": 100,
+	"textColor2nd": 10,
 	"duration": 0.1,
 	"textColor": 12,
-	"fontSize2nd": 32,
-	"font2nd": "vcr",
-	"isCentered2nd": false,
+	"fontSize2nd": 70,
+	"font2nd": "BBHBartle-Regular",
+	"isCentered2nd": true,
 	"isItalic": false,
 	"textBorderColor": 0,
 	"isBehindStrumLines": true,
 	"text2nd": "",
-	"opacity": 1,
-	"text": "Do not want you to",
+	"opacity": 0.7,
+	"text": "to\nto",
 	"borderSize": 1.25,
 	"letterSpacing": 0,
-	"hasAntiAliasing": false,
-	"isCentered": false,
+	"hasAntiAliasing": true,
+	"isCentered": true,
 	"isBehindStrumLines2nd": true,
-	"font": "vcr",
+	"font": "BBHBartle-Regular",
 	"isBold": false
+}
+    },
+    {
+      "t": 125357.142857143,
+      "e": "extra-events-cameraFadeEvent",
+      "v": {
+	"shouldFadeIn": false,
+	"applyToHud": false,
+	"duration": 0,
+	"color": 0
 }
     },
     {
       "t": 125535.714285714,
       "e": "extra-events-addLyricsEvent",
       "v": {
-	"fontSize": 32,
-	"textColor2nd": 12,
+	"fontSize": 100,
+	"textColor2nd": 10,
 	"duration": 0.1,
-	"textColor": 12,
-	"fontSize2nd": 32,
-	"font2nd": "vcr",
-	"isCentered2nd": false,
+	"textColor": 10,
+	"fontSize2nd": 70,
+	"font2nd": "BBHBartle-Regular",
+	"isCentered2nd": true,
 	"isItalic": false,
 	"textBorderColor": 0,
 	"isBehindStrumLines": true,
 	"text2nd": "",
-	"opacity": 1,
-	"text": "Do not want you to last",
+	"opacity": 0.7,
+	"text": "to last\nto last",
 	"borderSize": 1.25,
 	"letterSpacing": 0,
-	"hasAntiAliasing": false,
-	"isCentered": false,
+	"hasAntiAliasing": true,
+	"isCentered": true,
 	"isBehindStrumLines2nd": true,
-	"font": "vcr",
+	"font": "BBHBartle-Regular",
 	"isBold": false
 }
     },
     {
-      "t": 125714.285714286,
+      "t": 126071.428571429,
       "e": "extra-events-cameraFadeEvent",
       "v": {
-	"shouldFadeIn": false,
+	"shouldFadeIn": true,
 	"applyToHud": false,
 	"duration": 0,
 	"color": 0
@@ -5196,25 +5265,6 @@
 }
     },
     {
-      "t": 126383.928571429,
-      "e": "extra-events-cameraFadeEvent",
-      "v": {
-	"shouldFadeIn": true,
-	"applyToHud": false,
-	"duration": 0,
-	"color": 0
-}
-    },
-    {
-      "t": 126428.571428571,
-      "e": "extra-events-cameraFlashEvent",
-      "v": {
-	"applyToHud": false,
-	"duration": 4,
-	"color": 12
-}
-    },
-    {
       "t": 126428.571428571,
       "e": "extra-events-addLyricsEvent",
       "v": {
@@ -5238,6 +5288,15 @@
 	"isBehindStrumLines2nd": true,
 	"font": "vcr",
 	"isBold": false
+}
+    },
+    {
+      "t": 126428.571428571,
+      "e": "extra-events-cameraFlashEvent",
+      "v": {
+	"applyToHud": false,
+	"duration": 4,
+	"color": 12
 }
     },
     {
@@ -5920,7 +5979,7 @@
 	"isBehindStrumLines": true,
 	"text2nd": "demon girls",
 	"opacity": 1,
-	"text": "Who knew\n\n\nhave the tastiest fate",
+	"text": "Who knew\n\n\nhave the tastiest fate?",
 	"borderSize": 1.25,
 	"letterSpacing": 0,
 	"hasAntiAliasing": false,
@@ -6489,7 +6548,7 @@
       "v": {
 	"ease": "sineIn",
 	"duration": 26,
-	"intensity": 1.5
+	"intensity": 1
 }
     },
     {
@@ -9858,7 +9917,7 @@
 }
     },
     {
-      "t": 190376.394666667,
+      "t": 190251.394666667,
       "e": "FocusCamera",
       "v": {
 	"x": 100,
@@ -9869,7 +9928,7 @@
 }
     },
     {
-      "t": 190376.394666667,
+      "t": 190251.394666667,
       "e": "extra-events-vignEvent",
       "v": {
 	"ease": "expoOut",
@@ -9878,7 +9937,7 @@
 }
     },
     {
-      "t": 190376.394666667,
+      "t": 190251.394666667,
       "e": "SetCameraBop",
       "v": {
 	"rate": 24,
@@ -9887,7 +9946,7 @@
 }
     },
     {
-      "t": 190376.394666667,
+      "t": 190251.394666667,
       "e": "ZoomCamera",
       "v": {
 	"duration": 4,
@@ -9897,7 +9956,16 @@
 }
     },
     {
-      "t": 191543.061333333,
+      "t": 191334.728,
+      "e": "extra-events-countDownEvent",
+      "v": {
+	"startFrom": 3,
+	"soundOnly": true,
+	"speed": 0
+}
+    },
+    {
+      "t": 191584.728,
       "e": "ZoomCamera",
       "v": {
 	"duration": 6,
@@ -9907,7 +9975,7 @@
 }
     },
     {
-      "t": 191543.061333333,
+      "t": 191584.728,
       "e": "extra-events-vignEvent",
       "v": {
 	"ease": "expoOut",
@@ -9916,7 +9984,7 @@
 }
     },
     {
-      "t": 191543.061333333,
+      "t": 191584.728,
       "e": "SetCameraBop",
       "v": {
 	"rate": 1,
@@ -9925,7 +9993,7 @@
 }
     },
     {
-      "t": 191543.061333333,
+      "t": 191584.728,
       "e": "FocusCamera",
       "v": {
 	"x": 0,
@@ -11028,7 +11096,7 @@
 	"isItalic": false,
 	"textBorderColor": 0,
 	"isBehindStrumLines": true,
-	"text2nd": "demon girls have the tastiest fate",
+	"text2nd": "demon girls have the tastiest fate?",
 	"opacity": 1,
 	"text": "Who knew",
 	"borderSize": 1.25,

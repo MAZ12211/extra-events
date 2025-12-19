@@ -16,7 +16,7 @@ class SouthMRKMixSongScript extends Song {
     var meanWhilemeanWhileBG:FunkinSprite;
 
     function new(){
-        super("ee-south-mrk-mix"); // targets the song (song id in particular which is named ee-south-mrk-mix in the files)
+        super("ee-south-mrk-mix");
         hasPlayedCutscene = false;
         hasSongEnded = false;
     }
@@ -29,7 +29,6 @@ class SouthMRKMixSongScript extends Song {
             PlayState.instance?.endSong(true);
             /**
                 Skips the fade-to-results-screen transition as a workaround for this (https://postimg.cc/6yRtmrYk)
-                until I get around to it in a feature patch maybe??
             **/ 
         } else {
             hasSongEnded = false;

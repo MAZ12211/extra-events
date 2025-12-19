@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+Created with Funkin Packer v0.1.3 https://neeeoo.github.io/funkin-packer/
+-->
+<TextureAtlas imagePath="extra-events-movePlayerStrumlineEvent.png" width="930" height="419">
+	<SubTexture name="extra-events-movePlayerStrumlineEventt0000" x="1" y="1" width="463" height="417" frameX="-471" frameY="-0" frameWidth="934" frameHeight="417"/>
+	<SubTexture name="extra-events-movePlayerStrumlineEventt0001" x="467" y="1" width="462" height="417" frameX="-397" frameY="-0" frameWidth="934" frameHeight="417"/>
+	<SubTexture name="extra-events-movePlayerStrumlineEventt0002" x="467" y="1" width="462" height="417" frameX="-335" frameY="-0" frameWidth="934" frameHeight="417"/>
+	<SubTexture name="extra-events-movePlayerStrumlineEventt0003" x="467" y="1" width="462" height="417" frameX="-284" frameY="-0" frameWidth="934" frameHeight="417"/>
+	<SubTexture name="extra-events-movePlayerStrumlineEventt0004" x="467" y="1" width="462" height="417" frameX="-241" frameY="-0" frameWidth="934" frameHeight="417"/>
+	<SubTexture name="extra-events-movePlayerStrumlineEventt0005" x="467" y="1" width="462" height="417" frameX="-205" frameY="-0" frameWidth="934" frameHeight="417"/>
+	<SubTexture name="extra-events-movePlayerStrumlineEventt0006" x="467" y="1" width="462" height="417" frameX="-174" frameY="-0" frameWidth="934" frameHeight="417"/>
+	<SubTexture name="extra-events-movePlayerStrumlineEventt0007" x="467" y="1" width="462" height="417" frameX="-148" frameY="-0" frameWidth="934" frameHeight="417"/>
+	<SubTexture name="extra-events-movePlayerStrumlineEventt0008" x="467" y="1" width="462" height="417" frameX="-125" frameY="-0" frameWidth="934" frameHeight="417"/>
+	<SubTexture name="extra-events-movePlayerStrumlineEventt0009" x="467" y="1" width="462" height="417" frameX="-106" frameY="-0" frameWidth="934" frameHeight="417"/>
+	<SubTexture name="extra-events-movePlayerStrumlineEventt0010" x="467" y="1" width="462" height="417" frameX="-89" frameY="-0" frameWidth="934" frameHeight="417"/>
+	<SubTexture name="extra-events-movePlayerStrumlineEventt0011" x="467" y="1" width="462" height="417" frameX="-74" frameY="-0" frameWidth="934" frameHeight="417"/>
+	<SubTexture name="extra-events-movePlayerStrumlineEventt0012" x="467" y="1" width="462" height="417" frameX="-62" frameY="-0" frameWidth="934" frameHeight="417"/>
+	<SubTexture name="extra-events-movePlayerStrumlineEventt0013" x="467" y="1" width="462" height="417" frameX="-51" frameY="-0" frameWidth="934" frameHeight="417"/>
+	<SubTexture name="extra-events-movePlayerStrumlineEventt0014" x="467" y="1" width="462" height="417" frameX="-41" frameY="-0" frameWidth="934" frameHeight="417"/>
+	<SubTexture name="extra-events-movePlayerStrumlineEventt0015" x="467" y="1" width="462" height="417" frameX="-33" frameY="-0" frameWidth="934" frameHeight="417"/>
+	<SubTexture name="extra-events-movePlayerStrumlineEventt0016" x="467" y="1" width="462" height="417" frameX="-26" frameY="-0" frameWidth="934" frameHeight="417"/>
+	<SubTexture name="extra-events-movePlayerStrumlineEventt0017" x="467" y="1" width="462" height="417" frameX="-20" frameY="-0" frameWidth="934" frameHeight="417"/>
+	<SubTexture name="extra-events-movePlayerStrumlineEventt0018" x="467" y="1" width="462" height="417" frameX="-15" frameY="-0" frameWidth="934" frameHeight="417"/>
+	<SubTexture name="extra-events-movePlayerStrumlineEventt0019" x="467" y="1" width="462" height="417" frameX="-11" frameY="-0" frameWidth="934" frameHeight="417"/>
+	<SubTexture name="extra-events-movePlayerStrumlineEventt0020" x="467" y="1" width="462" height="417" frameX="-7" frameY="-0" frameWidth="934" frameHeight="417"/>
+	<SubTexture name="extra-events-movePlayerStrumlineEventt0021" x="467" y="1" width="462" height="417" frameX="-4" frameY="-0" frameWidth="934" frameHeight="417"/>
+	<SubTexture name="extra-events-movePlayerStrumlineEventt0022" x="467" y="1" width="462" height="417" frameX="-1" frameY="-0" frameWidth="934" frameHeight="417"/>
+	<SubTexture name="extra-events-movePlayerStrumlineEventt0023" x="1" y="1" width="463" height="417" frameX="-0" frameY="-0" frameWidth="934" frameHeight="417"/>
+</TextureAtlas>

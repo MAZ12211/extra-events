@@ -16,6 +16,7 @@ import funkin.play.scoring.Scoring;
 
 class SilvaMonsterSongScript extends Song {
     var hasPlayedCutscene:Bool;
+    var hasSongEnded:Bool; // Used to skip the fade-to-results-screen transition just like south mrk mix
     var hmmBG:FunkinSprite;
     var congratsText:FlxText;
     var messageAR:FlxText;
@@ -23,107 +24,105 @@ class SilvaMonsterSongScript extends Song {
     var cutsceneSnd:FunkinSound;
 
     function new(){
-        super("ee-monster"); // you put in the song id here (in this case ee-monster, just like in the files) just so the script knows where you want it to activate
+        super("ee-monster");
         hasPlayedCutscene = false;
+        hasSongEnded = false;
     }
 
     function onSongEnd(e) {
         super.onSongEnd(e);
-        hasPlayedCutscene = !PlayStatePlaylist.isStoryMode && !PlayState.instance.isChartingMode && !hasPlayedCutscene;
-        /**
-            Only play the cutscene if you're NOT playing the song in story mode (e.g. freeplay),
-            NOT in charting mode,
-            NOT on mobile (leaving it to somebody else, sorry mobile bros),
-            or if you've already played the cutscene (cutscene keeps repeating without that last check sooo)
-        **/
-        if (!hasPlayedCutscene) return;
         
-        hasPlayedCutscene = true;
-        e.cancel();
-        startFunnyCutscene(); 
-        /**
-            Skips the fade-to-results-screen transition as a workaround for this (https://postimg.cc/6yRtmrYk)
-            until I get around to it in a feature patch maybe??
-        **/ 
-        
+        if (!hasSongEnded) {
+            hasSongEnded = true;
+            e.cancel();
+            
+            // Cutscene will trigger if: 
+            // 1) Played the song in story mode (if in freeplay we just skip to the results screen),
+            // 2) Not on mobile (I have no idea how mobile stuff work + something tells the mobile kiddos would be creeped out by a bird's dead stare),
+            // 3) Not in charting mode,
+            // 4) Cutscene haven't been played yet (cutscene breaks without this check sooo)
+            var shouldPlayCutscene = PlayStatePlaylist.isStoryMode && !FlxG.onMobile && !PlayState.instance.isChartingMode && !hasPlayedCutscene;
+            
+            if (shouldPlayCutscene) {
+                hasPlayedCutscene = true;
+                startFunnyCutscene();
+            } else {
+                PlayState.instance?.endSong(true);
+            }
+
+        } else {
+            hasSongEnded = false;
+        }
     }
 
     function onCountdownStart(e) {
         new FlxTimer().start(0.00000000000001, timer -> {
             Countdown.skipCountdown();
-            /**
-                Skips the initial countdown to make a seamless transition between south mrk mix and monster
-                (also by using the fade cam event)
-            **/ 
         });
     }
 
     function startFunnyCutscene() {
-        if (FlxG.onMobile) {
-            PlayState.instance?.endSong(true);
-        } else {
-            PlayState.instance.togglePauseButton();
-            PlayState.instance.isInCutscene = true;
-            PlayState.instance.mayPauseGame = false;
-            PlayState.instance.camCutscene.visible = true;
-            PlayState.instance.camHUD.visible = false;
-            PlayState.instance.camGame?.visible = false;
+        PlayState.instance.togglePauseButton();
+        PlayState.instance.isInCutscene = true;
+        PlayState.instance.mayPauseGame = false;
+        PlayState.instance.camCutscene.visible = true;
+        PlayState.instance.camHUD.visible = false;
+        PlayState.instance.camGame?.visible = false;
 
-            hmmBG = FunkinSprite.create(0, 0, "hmm");
-            hmmBG.screenCenter();
-            hmmBG.camera = PlayState.instance.camCutscene;
-            PlayState.instance.add(hmmBG);
+        hmmBG = FunkinSprite.create(0, 0, "hmm");
+        hmmBG.screenCenter();
+        hmmBG.camera = PlayState.instance.camCutscene;
+        PlayState.instance.add(hmmBG);
 
-            congratsText = new FlxText(0, 0, FlxG.width);
-            congratsText.screenCenter(0x11);
-            congratsText.x += 200;
-            congratsText.y -= 150;
-            congratsText.text = "Congrats\nYou cleared\nExtra Events week!";
-            congratsText.setFormat(Paths.font("times-new-roman-bold.ttf"), 70, 0xffffff, "center");
-            congratsText.camera = PlayState.instance.camCutscene;
-            congratsText.alpha = 0.00001;
-            PlayState.instance.add(congratsText);
+        congratsText = new FlxText(0, 0, FlxG.width);
+        congratsText.screenCenter(0x11);
+        congratsText.x += 200;
+        congratsText.y -= 150;
+        congratsText.text = "Congrats\nYou cleared\nExtra Events week!";
+        congratsText.setFormat(Paths.font("times-new-roman-bold.ttf"), 70, 0xffffff, "center");
+        congratsText.camera = PlayState.instance.camCutscene;
+        congratsText.alpha = 0.00001;
+        PlayState.instance.add(congratsText);
 
-            messageAR = new FlxText(0, 5, FlxG.width);
-            messageAR.x = FlxG.width - messageAR.width - 10;
-            messageAR.text = "ًﻻﻭﺃ ﻚﺴﻔﻧ ﺐﺣ";
-            messageAR.setFormat(Paths.font("times-new-roman-bold.ttf"), 50, 0xffffff, "right");
-            messageAR.camera = PlayState.instance.camCutscene;
-            messageAR.alpha = 0.00001;
-            PlayState.instance.add(messageAR);
+        messageAR = new FlxText(0, 5, FlxG.width);
+        messageAR.x = FlxG.width - messageAR.width - 10;
+        messageAR.text = "ًﻻﻭﺃ ﻚﺴﻔﻧ ﺐﺣ";
+        messageAR.setFormat(Paths.font("times-new-roman-bold.ttf"), 50, 0xffffff, "right");
+        messageAR.camera = PlayState.instance.camCutscene;
+        messageAR.alpha = 0.00001;
+        PlayState.instance.add(messageAR);
 
-            messageENG = new FlxText(5, 0, FlxG.width);
-            messageENG.y = FlxG.height - messageENG.height - 40;
-            messageENG.text = "Love Yourself First";
-            messageENG.setFormat(Paths.font("times-new-roman-bold.ttf"), 50, 0xffffff, "left");
-            messageENG.camera = PlayState.instance.camCutscene;
-            messageENG.alpha = 0.00001;
-            PlayState.instance.add(messageENG);
+        messageENG = new FlxText(5, 0, FlxG.width);
+        messageENG.y = FlxG.height - messageENG.height - 40;
+        messageENG.text = "Love Yourself First";
+        messageENG.setFormat(Paths.font("times-new-roman-bold.ttf"), 50, 0xffffff, "left");
+        messageENG.camera = PlayState.instance.camCutscene;
+        messageENG.alpha = 0.00001;
+        PlayState.instance.add(messageENG);
 
-            PlayState.instance.refresh();
-            cutsceneSnd = FunkinSound.playOnce(Paths.sound('subject-name-here'), 1.0);
+        PlayState.instance.refresh();
+        cutsceneSnd = FunkinSound.playOnce(Paths.sound('subject-name-here'), 1.0);
 
-            new FlxTimer().start(7, function(timer) {
-                FlxTween.tween(congratsText, {alpha: 0.7}, 4);
-                FlxTween.tween(messageAR, {alpha: 0.3}, 8, {startDelay: 2.5, onComplete: function(twn:FlxTween) {
-                    FlxTween.tween(PlayState.instance.camCutscene.scroll, {x: -350, y: -190}, 1, {ease: FlxEase.easeOut});
-                    FlxTween.tween(PlayState.instance.camCutscene, {zoom: 3.5}, 1, {ease: FlxEase.easeOut, onComplete: function(twn:FlxTween) {
-                        PlayState.instance?.endSong(true);
-                        cutsceneSnd?.destroy();
-                    }});
+        new FlxTimer().start(7, function(timer) {
+            FlxTween.tween(congratsText, {alpha: 0.7}, 4);
+            FlxTween.tween(messageAR, {alpha: 0.3}, 8, {startDelay: 2.5, onComplete: function(twn:FlxTween) {
+                FlxTween.tween(PlayState.instance.camCutscene.scroll, {x: -350, y: -190}, 1, {ease: FlxEase.easeOut});
+                FlxTween.tween(PlayState.instance.camCutscene, {zoom: 3.5}, 1, {ease: FlxEase.easeOut, onComplete: function(twn:FlxTween) {
+                    PlayState.instance?.endSong(true);
+                    cutsceneSnd?.destroy();
                 }});
-                FlxTween.tween(messageENG, {alpha: 0.3}, 8, {startDelay: 2.5});
-            });   
-        }
+            }});
+            FlxTween.tween(messageENG, {alpha: 0.3}, 8, {startDelay: 2.5});
+        });   
     }
 
-
     /**
-    * Don't replay the cutscene between restarts.
+    * Replay the end cutscene between restarts.
     */
     function onSongRetry(event:ScriptEvent) {
         super.onSongRetry(event);
-        hasPlayedCutscene = true;
+        hasPlayedCutscene = false;
+        hasSongEnded = false;
     }
 
    /**
@@ -132,5 +131,6 @@ class SilvaMonsterSongScript extends Song {
     function onCreate(event:ScriptEvent) {
         super.onCreate(event);
         hasPlayedCutscene = false;
+        hasSongEnded = false;
     }
 }

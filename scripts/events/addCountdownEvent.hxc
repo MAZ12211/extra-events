@@ -1,0 +1,86 @@
+import funkin.play.PlayState;
+
+import funkin.play.event.SongEvent;
+import funkin.data.event.SongEventSchema;
+
+import funkin.play.event.ScriptedSongEvent;
+
+import funkin.modding.module.ModuleHandler;
+import funkin.modding.module.Module;
+import funkin.data.event.SongEventRegistry;
+
+import funkin.save.Save;
+import funkin.modding.events.ScriptEvent;
+
+// Credit goes to ComedyLost for making it work mid-song
+
+class CountDownEvent extends ScriptedSongEvent {
+	function new() {
+		super("extra-events-countDownEvent");
+	}
+
+	/**
+	* Adds a countdown with options such as including only the sounds, the speed and the order to start from.
+	**/
+
+	public var eventTitle:String = "Extra Events | Add Countdown";
+	public var DEFAULT_SOUNDONLY:Bool = false; // no graphics
+	public var DEFAULT_SPEED:Int = 0; // 0 = Double BPM, 1 = Normal BPM, 2 = Half BPM
+	public var DEFAULT_STARTFROM:Int = 0; // the order in which the countdown will start from
+
+	override function handleEvent(data):Void {
+		if (PlayState.instance == null || PlayState.instance.currentStage == null) return;
+		if (PlayState.instance.isMinimalMode) return;
+
+		isEnabled = Save.instance.modOptions.get('extra-events').isMidSongCountDownEnabled;
+		if (!isEnabled) return;
+
+		var soundOnly = data.getBool('soundOnly') != null ? data.getBool('soundOnly') : DEFAULT_SOUNDONLY;
+		var speed = data.getInt('speed') != null ? data.getInt('speed') : DEFAULT_SPEED;
+		var startFrom = data.getInt('startFrom') != null ? data.getInt('startFrom') : DEFAULT_STARTFROM;
+
+		ModuleHandler.getModule('extra-events-countDownHandler')?.scriptCall("performCountdown", [startFrom, soundOnly, speed]);
+	}
+
+	public override function getTitle() {
+		return eventTitle;
+	}
+
+	public override function getIconPath(){
+		return 'ui/chart-editor/events/extra-events-countDownEvent';
+	}
+
+	override function getEventSchema(){
+		return [
+			{
+				name: 'startFrom',
+				title: 'Start From',
+				defaultValue: 0,
+				type: "enum",
+				keys: [
+					"3 (3-2-1-Go!)" => 0,
+					"2 (2-1-Go!)" => 1,
+					"1 (1-Go!)" => 2,
+					"Go!" => 3
+				]
+			},
+			{
+				name: 'soundOnly',
+				title: 'Sound Only',
+				defaultValue: false,
+				type: "bool"
+			},
+	        {
+				name: 'speed',
+				title: 'Speed',
+				defaultValue: 1,
+				type: "enum",
+				keys: [
+					"Fast (Double BPM = 2 beats/8 steps to finish)" => 0,
+					"Normal (Normal BPM = 4 beat/16 steps to finish)" => 1,
+					"Slow (Half BPM = 8 beats/32 steps to finish)" => 2,
+				]
+        	}
+		];
+	}
+}
