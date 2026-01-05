@@ -217,7 +217,7 @@ class MovePlayerStrumlineEvent extends ScriptedSongEvent {
       },
       {
         name: 'hideOpponentSL',
-        title: 'Move Opponent Strumline Offscreen',
+        title: 'Move Opponent\nStrumline Offscreen',
         defaultValue: true,
         type: "bool"
       },

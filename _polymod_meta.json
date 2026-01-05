@@ -2,10 +2,12 @@
   "title": "Extra Events",
   "description": "Adds more events to experiment with in your charts!\n\nEvents can be disabled/enabled in the options menu.",
   "api_version": "0.7.4",
-  "mod_version": "1.3.0",
+  "mod_version": "1.3.2",
   "contributors": [
     {"name": "MAZ12211", "role": "Coded everything and did most of the work"},
     {"name": "Psych Ward's base game channels", "role": "Major code help + feedback", "url": "https://discord.gg/psychengine"},
+    {"name": "MarkedAman", "role": "Made Darnell [MRK mix] & South [MRK mix]", "url": "https://www.youtube.com/@MarkedAman"},
+    {"name": "LeChadeur", "role": "Made the vocal covers", "url": "https://www.youtube.com/@lechadeur"},
     {"name": "Funkin's discussions page", "role": "Major code help", "url": "https://github.com/FunkinCrew/Funkin/discussions"},
     {"name": "V-Slice Network", "role": "Major code help", "url": "https://discord.gg/83tbbcZ3uT"},
     {"name": "Comedy Lost", "role": "Major code help", "url": "https://gamebanana.com/members/2287198"},

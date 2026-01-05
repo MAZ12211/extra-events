@@ -55,8 +55,8 @@ class EEFreeplayCapsules extends Module {
 	function customDisplay(cap:SongMenuItem) {
 		if (cap?.freeplayData == null) return;
 		cap.weekType.visible = true;
-		cap.weekType.frames = Paths.getSparrowAtlas('freeplay/freeplayCapsule/EXTRA EVENTS text');
-		cap.weekType.animation?.addByPrefix('idle', 'EXTRA EVENTS text', 2, true);
+		cap.weekType.frames = Paths.getSparrowAtlas('freeplay/freeplayCapsule/extra-events-text');
+		cap.weekType.animation?.addByPrefix('idle', 'extra-events-text', 2, true);
 		cap.weekType.offset.x = 15;
 		cap.weekType.offset.y = -0.5;
 		cap.weekType.scale.set(0.8, 0.8);
@@ -83,7 +83,7 @@ class EEFreeplayCapsules extends Module {
 				var capsule = changedCapsules.shift();
 				//if (capsule == null || !capsule.alive) continue;
 
-				if (capsule.weekType.graphic.key.contains('freeplay/freeplayCapsule/EXTRA EVENTS text')) resetCapsules(capsule);
+				if (capsule.weekType.graphic.key?.contains('freeplay/freeplayCapsule/extra-events-text')) resetCapsules(capsule);
 			}
 			if (changedCapsules.length != 0) changedCapsules = []; // Clear the array just in case
 			var filteredCapsules:Array<SongMenuItem> = FlxG.state.subState.grpCapsules.members.filter(function(cap:SongMenuItem) {
