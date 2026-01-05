@@ -51,7 +51,6 @@ class MovePlayerStrumlineEvent extends ScriptedSongEvent {
 
   public var DEFAULT_DIRECTION:String = "center";
   public var DEFAULT_DURATION:Float = 4.0;
-  public var DEFAULT_EASE:String = 'linear';
   public var DEFAULT_HIDEOPPONENT_SL:Bool = true; // To avoid strumline overlapping
   public var DEFAULT_OFFSETX:Float = 0.0; // Extra option beyond direction
 
@@ -68,7 +67,10 @@ class MovePlayerStrumlineEvent extends ScriptedSongEvent {
     var direction:String = data.getString('direction') != null ? data.getString('direction') : DEFAULT_DIRECTION;
     var offSetX:Float = data.getFloat('offSetX') != null ? data.getFloat('offSetX') : DEFAULT_OFFSETX;
 
-    var ease:String = data.getString('ease') != null ? data.getString('ease') : DEFAULT_EASE;
+    var ease:String = data.getString('ease') != null ? data.getString('ease') : SongEvent.DEFAULT_EASE;
+    var easeDir:String = data.getString('easeDir') ?? SongEvent.DEFAULT_EASE_DIR;
+
+    if (SongEvent.EASE_TYPE_DIR_REGEX.match(ease) || ease == "linear") easeDir = "";
 
     var durSeconds = Conductor.instance.stepLengthMs * duration / 1000;
     var easeFunction:Null<Float->Float>;
@@ -86,7 +88,7 @@ class MovePlayerStrumlineEvent extends ScriptedSongEvent {
         PlayState.instance.playerStrumline.x = playerTargetX;
         PlayState.instance.opponentStrumline?.x = opponentTargetX;
       default:
-        easeFunction = ReflectUtil.getAnonymousField(FlxEase, ease);
+        easeFunction = ReflectUtil.getAnonymousField(FlxEase, ease + easeDir);
         if (easeFunction == null){
           // trace("Invalid easing function: " + ease);
         }
@@ -176,44 +178,27 @@ class MovePlayerStrumlineEvent extends ScriptedSongEvent {
         type: "enum",
         keys: [
           'Linear' => 'linear',
-          'Instant (Ignores Duration)' => 'INSTANT',
-          'Sine In' => 'sineIn',
-          'Sine Out' => 'sineOut',
-          'Sine In/Out' => 'sineInOut',
-          'Quad In' => 'quadIn',
-          'Quad Out' => 'quadOut',
-          'Quad In/Out' => 'quadInOut',
-          'Cube In' => 'cubeIn',
-          'Cube Out' => 'cubeOut',
-          'Cube In/Out' => 'cubeInOut',
-          'Quart In' => 'quartIn',
-          'Quart Out' => 'quartOut',
-          'Quart In/Out' => 'quartInOut',
-          'Quint In' => 'quintIn',
-          'Quint Out' => 'quintOut',
-          'Quint In/Out' => 'quintInOut',
-          'Expo In' => 'expoIn',
-          'Expo Out' => 'expoOut',
-          'Expo In/Out' => 'expoInOut',
-          'Smooth Step In' => 'smoothStepIn',
-          'Smooth Step Out' => 'smoothStepOut',
-          'Smooth Step In/Out' => 'smoothStepInOut',
-          'Smoother Step In' => 'smootherStepIn',
-          'Smoother Step Out' => 'smootherStepOut',
-          'Smoother Step In/Out' => 'smootherStepInOut',
-          'Elastic In' => 'elasticIn',
-          'Elastic Out' => 'elasticOut',
-          'Elastic In/Out' => 'elasticInOut',
-          'Back In' => 'backIn',
-          'Back Out' => 'backOut',
-          'Back In/Out' => 'backInOut',
-          'Bounce In' => 'bounceIn',
-          'Bounce Out' => 'bounceOut',
-          'Bounce In/Out' => 'bounceInOut',
-          'Circ In' => 'circIn',
-          'Circ Out' => 'circOut',
-          'Circ In/Out' => 'circInOut'
+          'Instant (Ignores duration)' => 'INSTANT',
+          'Sine' => 'sine',
+          'Quad' => 'quad',
+          'Cube' => 'cube',
+          'Quart' => 'quart',
+          'Quint' => 'quint',
+          'Expo' => 'expo',
+          'Smooth Step' => 'smoothStep',
+          'Smoother Step' => 'smootherStep',
+          'Elastic' => 'elastic',
+          'Back' => 'back',
+          'Bounce' => 'bounce',
+          'Circ ' => 'circ',
         ]
+      },
+      {
+        name: 'easeDir',
+        title: 'Easing Direction',
+        defaultValue: 'In',
+        type: "enum",
+        keys: ['In' => 'In', 'Out' => 'Out', 'In/Out' => 'InOut']
       },
       {
         name: 'hideOpponentSL',
@@ -226,8 +211,8 @@ class MovePlayerStrumlineEvent extends ScriptedSongEvent {
         title: 'Offset X',
         defaultValue: 0.0,
         step: 0.1,
-        max: 30,
-        min: -30,
+        max: 100,
+        min: -100,
         type: "float",
         units: 'px'
       }

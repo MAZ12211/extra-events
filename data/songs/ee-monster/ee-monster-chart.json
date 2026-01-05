@@ -85,7 +85,7 @@
 	"text": "Oooh",
 	"borderSize": 1.25,
 	"letterSpacing": 0,
-	"hasAntiAliasing": false,
+	"hasAntiAliasing": true,
 	"isCentered": false,
 	"isBehindStrumLines2nd": true,
 	"font": "vcr",
@@ -111,7 +111,7 @@
 	"text": "Oooh oooh",
 	"borderSize": 1.25,
 	"letterSpacing": 0,
-	"hasAntiAliasing": false,
+	"hasAntiAliasing": true,
 	"isCentered": false,
 	"isBehindStrumLines2nd": true,
 	"font": "vcr",
@@ -137,7 +137,7 @@
 	"text": "Oooh oooh o",
 	"borderSize": 1.25,
 	"letterSpacing": 0,
-	"hasAntiAliasing": false,
+	"hasAntiAliasing": true,
 	"isCentered": false,
 	"isBehindStrumLines2nd": true,
 	"font": "vcr",
@@ -163,7 +163,7 @@
 	"text": "Oooh oooh o",
 	"borderSize": 1.25,
 	"letterSpacing": 0,
-	"hasAntiAliasing": false,
+	"hasAntiAliasing": true,
 	"isCentered": false,
 	"isBehindStrumLines2nd": true,
 	"font": "vcr",
@@ -189,7 +189,7 @@
 	"text": "Oooh oooh o",
 	"borderSize": 1.25,
 	"letterSpacing": 0,
-	"hasAntiAliasing": false,
+	"hasAntiAliasing": true,
 	"isCentered": false,
 	"isBehindStrumLines2nd": true,
 	"font": "vcr",
@@ -215,7 +215,7 @@
 	"text": "Oooh oooh oo",
 	"borderSize": 1.25,
 	"letterSpacing": 0,
-	"hasAntiAliasing": false,
+	"hasAntiAliasing": true,
 	"isCentered": false,
 	"isBehindStrumLines2nd": true,
 	"font": "vcr",
@@ -241,7 +241,7 @@
 	"text": "Oooh oooh ooo",
 	"borderSize": 1.25,
 	"letterSpacing": 0,
-	"hasAntiAliasing": false,
+	"hasAntiAliasing": true,
 	"isCentered": false,
 	"isBehindStrumLines2nd": true,
 	"font": "vcr",
@@ -267,7 +267,7 @@
 	"text": "Oooh oooh oooh",
 	"borderSize": 1.25,
 	"letterSpacing": 0,
-	"hasAntiAliasing": false,
+	"hasAntiAliasing": true,
 	"isCentered": false,
 	"isBehindStrumLines2nd": true,
 	"font": "vcr",
@@ -293,7 +293,7 @@
 	"text": "",
 	"borderSize": 1.25,
 	"letterSpacing": 0,
-	"hasAntiAliasing": false,
+	"hasAntiAliasing": true,
 	"isCentered": false,
 	"isBehindStrumLines2nd": true,
 	"font": "vcr",
@@ -319,7 +319,7 @@
 	"text": "La",
 	"borderSize": 1.25,
 	"letterSpacing": 0,
-	"hasAntiAliasing": false,
+	"hasAntiAliasing": true,
 	"isCentered": false,
 	"isBehindStrumLines2nd": true,
 	"font": "vcr",
@@ -345,7 +345,7 @@
 	"text": "La di",
 	"borderSize": 1.25,
 	"letterSpacing": 0,
-	"hasAntiAliasing": false,
+	"hasAntiAliasing": true,
 	"isCentered": false,
 	"isBehindStrumLines2nd": true,
 	"font": "vcr",
@@ -371,7 +371,7 @@
 	"text": "La di da",
 	"borderSize": 1.25,
 	"letterSpacing": 0,
-	"hasAntiAliasing": false,
+	"hasAntiAliasing": true,
 	"isCentered": false,
 	"isBehindStrumLines2nd": true,
 	"font": "vcr",
@@ -397,7 +397,7 @@
 	"text": "La di da da",
 	"borderSize": 1.25,
 	"letterSpacing": 0,
-	"hasAntiAliasing": false,
+	"hasAntiAliasing": true,
 	"isCentered": false,
 	"isBehindStrumLines2nd": true,
 	"font": "vcr",
@@ -423,7 +423,7 @@
 	"text": "La di da da d",
 	"borderSize": 1.25,
 	"letterSpacing": 0,
-	"hasAntiAliasing": false,
+	"hasAntiAliasing": true,
 	"isCentered": false,
 	"isBehindStrumLines2nd": true,
 	"font": "vcr",
@@ -449,7 +449,7 @@
 	"text": "La di da da da",
 	"borderSize": 1.25,
 	"letterSpacing": 0,
-	"hasAntiAliasing": false,
+	"hasAntiAliasing": true,
 	"isCentered": false,
 	"isBehindStrumLines2nd": true,
 	"font": "vcr",
@@ -475,7 +475,7 @@
 	"text": "La di da da daa",
 	"borderSize": 1.25,
 	"letterSpacing": 0,
-	"hasAntiAliasing": false,
+	"hasAntiAliasing": true,
 	"isCentered": false,
 	"isBehindStrumLines2nd": true,
 	"font": "vcr",
@@ -501,7 +501,7 @@
 	"text": "La di da da daaa",
 	"borderSize": 1.25,
 	"letterSpacing": 0,
-	"hasAntiAliasing": false,
+	"hasAntiAliasing": true,
 	"isCentered": false,
 	"isBehindStrumLines2nd": true,
 	"font": "vcr",
@@ -527,7 +527,7 @@
 	"text": "",
 	"borderSize": 1.25,
 	"letterSpacing": 0,
-	"hasAntiAliasing": false,
+	"hasAntiAliasing": true,
 	"isCentered": false,
 	"isBehindStrumLines2nd": true,
 	"font": "vcr",
@@ -589,7 +589,7 @@
 	"text": "You",
 	"borderSize": 1.25,
 	"letterSpacing": 0,
-	"hasAntiAliasing": false,
+	"hasAntiAliasing": true,
 	"isCentered": false,
 	"isBehindStrumLines2nd": true,
 	"font": "vcr",
@@ -615,7 +615,7 @@
 	"text": "You still",
 	"borderSize": 1.25,
 	"letterSpacing": 0,
-	"hasAntiAliasing": false,
+	"hasAntiAliasing": true,
 	"isCentered": false,
 	"isBehindStrumLines2nd": true,
 	"font": "vcr",
@@ -641,7 +641,7 @@
 	"text": "You still see",
 	"borderSize": 1.25,
 	"letterSpacing": 0,
-	"hasAntiAliasing": false,
+	"hasAntiAliasing": true,
 	"isCentered": false,
 	"isBehindStrumLines2nd": true,
 	"font": "vcr",
@@ -667,7 +667,7 @@
 	"text": "You still see my",
 	"borderSize": 1.25,
 	"letterSpacing": 0,
-	"hasAntiAliasing": false,
+	"hasAntiAliasing": true,
 	"isCentered": false,
 	"isBehindStrumLines2nd": true,
 	"font": "vcr",
@@ -693,7 +693,7 @@
 	"text": "You still see my shadow",
 	"borderSize": 1.25,
 	"letterSpacing": 0,
-	"hasAntiAliasing": false,
+	"hasAntiAliasing": true,
 	"isCentered": false,
 	"isBehindStrumLines2nd": true,
 	"font": "vcr",
@@ -728,7 +728,7 @@
 	"text": "You still see my shadow in",
 	"borderSize": 1.25,
 	"letterSpacing": 0,
-	"hasAntiAliasing": false,
+	"hasAntiAliasing": true,
 	"isCentered": false,
 	"isBehindStrumLines2nd": true,
 	"font": "vcr",
@@ -754,7 +754,7 @@
 	"text": "You still see my shadow in your",
 	"borderSize": 1.25,
 	"letterSpacing": 0,
-	"hasAntiAliasing": false,
+	"hasAntiAliasing": true,
 	"isCentered": false,
 	"isBehindStrumLines2nd": true,
 	"font": "vcr",
@@ -780,7 +780,7 @@
 	"text": "You still see my shadow in your room.",
 	"borderSize": 1.25,
 	"letterSpacing": 0,
-	"hasAntiAliasing": false,
+	"hasAntiAliasing": true,
 	"isCentered": false,
 	"isBehindStrumLines2nd": true,
 	"font": "vcr",
@@ -806,7 +806,7 @@
 	"text": "",
 	"borderSize": 1.25,
 	"letterSpacing": 0,
-	"hasAntiAliasing": false,
+	"hasAntiAliasing": true,
 	"isCentered": false,
 	"isBehindStrumLines2nd": true,
 	"font": "vcr",
@@ -832,7 +832,7 @@
 	"text": "Can't",
 	"borderSize": 1.25,
 	"letterSpacing": 0,
-	"hasAntiAliasing": false,
+	"hasAntiAliasing": true,
 	"isCentered": false,
 	"isBehindStrumLines2nd": true,
 	"font": "vcr",
@@ -858,7 +858,7 @@
 	"text": "Can't run",
 	"borderSize": 1.25,
 	"letterSpacing": 0,
-	"hasAntiAliasing": false,
+	"hasAntiAliasing": true,
 	"isCentered": false,
 	"isBehindStrumLines2nd": true,
 	"font": "vcr",
@@ -884,7 +884,7 @@
 	"text": "Can't run back",
 	"borderSize": 1.25,
 	"letterSpacing": 0,
-	"hasAntiAliasing": false,
+	"hasAntiAliasing": true,
 	"isCentered": false,
 	"isBehindStrumLines2nd": true,
 	"font": "vcr",
@@ -910,7 +910,7 @@
 	"text": "Can't run back and",
 	"borderSize": 1.25,
 	"letterSpacing": 0,
-	"hasAntiAliasing": false,
+	"hasAntiAliasing": true,
 	"isCentered": false,
 	"isBehindStrumLines2nd": true,
 	"font": "vcr",
@@ -936,7 +936,7 @@
 	"text": "Can't run back and lea",
 	"borderSize": 1.25,
 	"letterSpacing": 0,
-	"hasAntiAliasing": false,
+	"hasAntiAliasing": true,
 	"isCentered": false,
 	"isBehindStrumLines2nd": true,
 	"font": "vcr",
@@ -962,7 +962,7 @@
 	"text": "Can't run back and leave",
 	"borderSize": 1.25,
 	"letterSpacing": 0,
-	"hasAntiAliasing": false,
+	"hasAntiAliasing": true,
 	"isCentered": false,
 	"isBehindStrumLines2nd": true,
 	"font": "vcr",
@@ -988,7 +988,7 @@
 	"text": "Can't run back and leave what's",
 	"borderSize": 1.25,
 	"letterSpacing": 0,
-	"hasAntiAliasing": false,
+	"hasAntiAliasing": true,
 	"isCentered": false,
 	"isBehindStrumLines2nd": true,
 	"font": "vcr",
@@ -1014,7 +1014,7 @@
 	"text": "Can't run back and leave what's behind",
 	"borderSize": 1.25,
 	"letterSpacing": 0,
-	"hasAntiAliasing": false,
+	"hasAntiAliasing": true,
 	"isCentered": false,
 	"isBehindStrumLines2nd": true,
 	"font": "vcr",
@@ -1040,7 +1040,7 @@
 	"text": "Can't run back and leave what's behind you.",
 	"borderSize": 1.25,
 	"letterSpacing": 0,
-	"hasAntiAliasing": false,
+	"hasAntiAliasing": true,
 	"isCentered": false,
 	"isBehindStrumLines2nd": true,
 	"font": "vcr",
@@ -1066,7 +1066,7 @@
 	"text": "",
 	"borderSize": 1.25,
 	"letterSpacing": 0,
-	"hasAntiAliasing": false,
+	"hasAntiAliasing": true,
 	"isCentered": false,
 	"isBehindStrumLines2nd": true,
 	"font": "vcr",
@@ -1092,7 +1092,7 @@
 	"text": "This",
 	"borderSize": 1.25,
 	"letterSpacing": 0,
-	"hasAntiAliasing": false,
+	"hasAntiAliasing": true,
 	"isCentered": false,
 	"isBehindStrumLines2nd": true,
 	"font": "vcr",
@@ -1118,7 +1118,7 @@
 	"text": "This is",
 	"borderSize": 1.25,
 	"letterSpacing": 0,
-	"hasAntiAliasing": false,
+	"hasAntiAliasing": true,
 	"isCentered": false,
 	"isBehindStrumLines2nd": true,
 	"font": "vcr",
@@ -1144,7 +1144,7 @@
 	"text": "This is the",
 	"borderSize": 1.25,
 	"letterSpacing": 0,
-	"hasAntiAliasing": false,
+	"hasAntiAliasing": true,
 	"isCentered": false,
 	"isBehindStrumLines2nd": true,
 	"font": "vcr",
@@ -1170,7 +1170,7 @@
 	"text": "This is the point",
 	"borderSize": 1.25,
 	"letterSpacing": 0,
-	"hasAntiAliasing": false,
+	"hasAntiAliasing": true,
 	"isCentered": false,
 	"isBehindStrumLines2nd": true,
 	"font": "vcr",
@@ -1196,7 +1196,7 @@
 	"text": "This is the point where",
 	"borderSize": 1.25,
 	"letterSpacing": 0,
-	"hasAntiAliasing": false,
+	"hasAntiAliasing": true,
 	"isCentered": false,
 	"isBehindStrumLines2nd": true,
 	"font": "vcr",
@@ -1222,7 +1222,7 @@
 	"text": "This is the point where I'm",
 	"borderSize": 1.25,
 	"letterSpacing": 0,
-	"hasAntiAliasing": false,
+	"hasAntiAliasing": true,
 	"isCentered": false,
 	"isBehindStrumLines2nd": true,
 	"font": "vcr",
@@ -1248,7 +1248,7 @@
 	"text": "This is the point where I'm going",
 	"borderSize": 1.25,
 	"letterSpacing": 0,
-	"hasAntiAliasing": false,
+	"hasAntiAliasing": true,
 	"isCentered": false,
 	"isBehindStrumLines2nd": true,
 	"font": "vcr",
@@ -1274,7 +1274,7 @@
 	"text": "This is the point where I'm going",
 	"borderSize": 1.25,
 	"letterSpacing": 0,
-	"hasAntiAliasing": false,
+	"hasAntiAliasing": true,
 	"isCentered": false,
 	"isBehindStrumLines2nd": true,
 	"font": "vcr",
@@ -1300,7 +1300,7 @@
 	"text": "This is the point where I'm going to",
 	"borderSize": 1.25,
 	"letterSpacing": 0,
-	"hasAntiAliasing": false,
+	"hasAntiAliasing": true,
 	"isCentered": false,
 	"isBehindStrumLines2nd": true,
 	"font": "vcr",
@@ -1326,7 +1326,7 @@
 	"text": "This is the point where I'm going to kill",
 	"borderSize": 1.25,
 	"letterSpacing": 0,
-	"hasAntiAliasing": false,
+	"hasAntiAliasing": true,
 	"isCentered": false,
 	"isBehindStrumLines2nd": true,
 	"font": "vcr",
@@ -1352,7 +1352,7 @@
 	"text": "This is the point where I'm going to kill you.",
 	"borderSize": 1.25,
 	"letterSpacing": 0,
-	"hasAntiAliasing": false,
+	"hasAntiAliasing": true,
 	"isCentered": false,
 	"isBehindStrumLines2nd": true,
 	"font": "vcr",
@@ -1378,7 +1378,7 @@
 	"text": "And",
 	"borderSize": 1.25,
 	"letterSpacing": 0,
-	"hasAntiAliasing": false,
+	"hasAntiAliasing": true,
 	"isCentered": false,
 	"isBehindStrumLines2nd": true,
 	"font": "vcr",
@@ -1404,7 +1404,7 @@
 	"text": "And I'm",
 	"borderSize": 1.25,
 	"letterSpacing": 0,
-	"hasAntiAliasing": false,
+	"hasAntiAliasing": true,
 	"isCentered": false,
 	"isBehindStrumLines2nd": true,
 	"font": "vcr",
@@ -1430,7 +1430,7 @@
 	"text": "And I'm gonna",
 	"borderSize": 1.25,
 	"letterSpacing": 0,
-	"hasAntiAliasing": false,
+	"hasAntiAliasing": true,
 	"isCentered": false,
 	"isBehindStrumLines2nd": true,
 	"font": "vcr",
@@ -1456,7 +1456,7 @@
 	"text": "And I'm gonna ea",
 	"borderSize": 1.25,
 	"letterSpacing": 0,
-	"hasAntiAliasing": false,
+	"hasAntiAliasing": true,
 	"isCentered": false,
 	"isBehindStrumLines2nd": true,
 	"font": "vcr",
@@ -1482,7 +1482,7 @@
 	"text": "And I'm gonna eat",
 	"borderSize": 1.25,
 	"letterSpacing": 0,
-	"hasAntiAliasing": false,
+	"hasAntiAliasing": true,
 	"isCentered": false,
 	"isBehindStrumLines2nd": true,
 	"font": "vcr",
@@ -1508,7 +1508,7 @@
 	"text": "And I'm gonna eat you.",
 	"borderSize": 1.25,
 	"letterSpacing": 0,
-	"hasAntiAliasing": false,
+	"hasAntiAliasing": true,
 	"isCentered": false,
 	"isBehindStrumLines2nd": true,
 	"font": "vcr",
@@ -1534,7 +1534,7 @@
 	"text": "So,",
 	"borderSize": 1.25,
 	"letterSpacing": 0,
-	"hasAntiAliasing": false,
+	"hasAntiAliasing": true,
 	"isCentered": false,
 	"isBehindStrumLines2nd": true,
 	"font": "vcr",
@@ -1560,7 +1560,7 @@
 	"text": "So I",
 	"borderSize": 1.25,
 	"letterSpacing": 0,
-	"hasAntiAliasing": false,
+	"hasAntiAliasing": true,
 	"isCentered": false,
 	"isBehindStrumLines2nd": true,
 	"font": "vcr",
@@ -1586,7 +1586,7 @@
 	"text": "So I must",
 	"borderSize": 1.25,
 	"letterSpacing": 0,
-	"hasAntiAliasing": false,
+	"hasAntiAliasing": true,
 	"isCentered": false,
 	"isBehindStrumLines2nd": true,
 	"font": "vcr",
@@ -1612,7 +1612,7 @@
 	"text": "So I must re",
 	"borderSize": 1.25,
 	"letterSpacing": 0,
-	"hasAntiAliasing": false,
+	"hasAntiAliasing": true,
 	"isCentered": false,
 	"isBehindStrumLines2nd": true,
 	"font": "vcr",
@@ -1638,7 +1638,7 @@
 	"text": "So I must remove",
 	"borderSize": 1.25,
 	"letterSpacing": 0,
-	"hasAntiAliasing": false,
+	"hasAntiAliasing": true,
 	"isCentered": false,
 	"isBehindStrumLines2nd": true,
 	"font": "vcr",
@@ -1664,7 +1664,7 @@
 	"text": "So I must remove",
 	"borderSize": 1.25,
 	"letterSpacing": 0,
-	"hasAntiAliasing": false,
+	"hasAntiAliasing": true,
 	"isCentered": false,
 	"isBehindStrumLines2nd": true,
 	"font": "vcr",
@@ -1690,7 +1690,7 @@
 	"text": "So I must remove",
 	"borderSize": 2.5,
 	"letterSpacing": 0,
-	"hasAntiAliasing": false,
+	"hasAntiAliasing": true,
 	"isCentered": false,
 	"isBehindStrumLines2nd": true,
 	"font": "vcr",
@@ -1716,7 +1716,7 @@
 	"text": "Eas",
 	"borderSize": 1.25,
 	"letterSpacing": 0,
-	"hasAntiAliasing": false,
+	"hasAntiAliasing": true,
 	"isCentered": false,
 	"isBehindStrumLines2nd": true,
 	"font": "vcr",
@@ -1742,7 +1742,7 @@
 	"text": "Easi",
 	"borderSize": 1.25,
 	"letterSpacing": 0,
-	"hasAntiAliasing": false,
+	"hasAntiAliasing": true,
 	"isCentered": false,
 	"isBehindStrumLines2nd": true,
 	"font": "vcr",
@@ -1768,7 +1768,7 @@
 	"text": "Easier",
 	"borderSize": 1.25,
 	"letterSpacing": 0,
-	"hasAntiAliasing": false,
+	"hasAntiAliasing": true,
 	"isCentered": false,
 	"isBehindStrumLines2nd": true,
 	"font": "vcr",
@@ -1794,7 +1794,7 @@
 	"text": "Easier said",
 	"borderSize": 1.25,
 	"letterSpacing": 0,
-	"hasAntiAliasing": false,
+	"hasAntiAliasing": true,
 	"isCentered": false,
 	"isBehindStrumLines2nd": true,
 	"font": "vcr",
@@ -1820,7 +1820,7 @@
 	"text": "Easier said than",
 	"borderSize": 1.25,
 	"letterSpacing": 0,
-	"hasAntiAliasing": false,
+	"hasAntiAliasing": true,
 	"isCentered": false,
 	"isBehindStrumLines2nd": true,
 	"font": "vcr",
@@ -1846,7 +1846,7 @@
 	"text": "Easier said than done",
 	"borderSize": 1.25,
 	"letterSpacing": 0,
-	"hasAntiAliasing": false,
+	"hasAntiAliasing": true,
 	"isCentered": false,
 	"isBehindStrumLines2nd": true,
 	"font": "vcr",
@@ -1872,7 +1872,7 @@
 	"text": "I",
 	"borderSize": 1.25,
 	"letterSpacing": 0,
-	"hasAntiAliasing": false,
+	"hasAntiAliasing": true,
 	"isCentered": false,
 	"isBehindStrumLines2nd": true,
 	"font": "vcr",
@@ -1898,7 +1898,7 @@
 	"text": "I thought",
 	"borderSize": 1.25,
 	"letterSpacing": 0,
-	"hasAntiAliasing": false,
+	"hasAntiAliasing": true,
 	"isCentered": false,
 	"isBehindStrumLines2nd": true,
 	"font": "vcr",
@@ -1924,7 +1924,7 @@
 	"text": "I thought you",
 	"borderSize": 1.25,
 	"letterSpacing": 0,
-	"hasAntiAliasing": false,
+	"hasAntiAliasing": true,
 	"isCentered": false,
 	"isBehindStrumLines2nd": true,
 	"font": "vcr",
@@ -1950,7 +1950,7 @@
 	"text": "I thought you were",
 	"borderSize": 1.25,
 	"letterSpacing": 0,
-	"hasAntiAliasing": false,
+	"hasAntiAliasing": true,
 	"isCentered": false,
 	"isBehindStrumLines2nd": true,
 	"font": "vcr",
@@ -1976,7 +1976,7 @@
 	"text": "I thought you were the",
 	"borderSize": 1.25,
 	"letterSpacing": 0,
-	"hasAntiAliasing": false,
+	"hasAntiAliasing": true,
 	"isCentered": false,
 	"isBehindStrumLines2nd": true,
 	"font": "vcr",
@@ -2002,7 +2002,7 @@
 	"text": "I thought you were the one",
 	"borderSize": 1.25,
 	"letterSpacing": 0,
-	"hasAntiAliasing": false,
+	"hasAntiAliasing": true,
 	"isCentered": false,
 	"isBehindStrumLines2nd": true,
 	"font": "vcr",
@@ -2028,7 +2028,7 @@
 	"text": "Drain",
 	"borderSize": 1.25,
 	"letterSpacing": 0,
-	"hasAntiAliasing": false,
+	"hasAntiAliasing": true,
 	"isCentered": false,
 	"isBehindStrumLines2nd": true,
 	"font": "vcr",
@@ -2054,7 +2054,7 @@
 	"text": "Draining",
 	"borderSize": 1.25,
 	"letterSpacing": 0,
-	"hasAntiAliasing": false,
+	"hasAntiAliasing": true,
 	"isCentered": false,
 	"isBehindStrumLines2nd": true,
 	"font": "vcr",
@@ -2080,7 +2080,7 @@
 	"text": "Draining all",
 	"borderSize": 1.25,
 	"letterSpacing": 0,
-	"hasAntiAliasing": false,
+	"hasAntiAliasing": true,
 	"isCentered": false,
 	"isBehindStrumLines2nd": true,
 	"font": "vcr",
@@ -2106,7 +2106,7 @@
 	"text": "Draining all of",
 	"borderSize": 1.25,
 	"letterSpacing": 0,
-	"hasAntiAliasing": false,
+	"hasAntiAliasing": true,
 	"isCentered": false,
 	"isBehindStrumLines2nd": true,
 	"font": "vcr",
@@ -2132,7 +2132,7 @@
 	"text": "Draining all of your",
 	"borderSize": 1.25,
 	"letterSpacing": 0,
-	"hasAntiAliasing": false,
+	"hasAntiAliasing": true,
 	"isCentered": false,
 	"isBehindStrumLines2nd": true,
 	"font": "vcr",
@@ -2158,7 +2158,7 @@
 	"text": "Draining all of your heart",
 	"borderSize": 1.25,
 	"letterSpacing": 0,
-	"hasAntiAliasing": false,
+	"hasAntiAliasing": true,
 	"isCentered": false,
 	"isBehindStrumLines2nd": true,
 	"font": "vcr",
@@ -2184,7 +2184,7 @@
 	"text": "Di",
 	"borderSize": 1.25,
 	"letterSpacing": 0,
-	"hasAntiAliasing": false,
+	"hasAntiAliasing": true,
 	"isCentered": false,
 	"isBehindStrumLines2nd": true,
 	"font": "vcr",
@@ -2210,7 +2210,7 @@
 	"text": "Dissect",
 	"borderSize": 1.25,
 	"letterSpacing": 0,
-	"hasAntiAliasing": false,
+	"hasAntiAliasing": true,
 	"isCentered": false,
 	"isBehindStrumLines2nd": true,
 	"font": "vcr",
@@ -2236,7 +2236,7 @@
 	"text": "Dissecting",
 	"borderSize": 1.25,
 	"letterSpacing": 0,
-	"hasAntiAliasing": false,
+	"hasAntiAliasing": true,
 	"isCentered": false,
 	"isBehindStrumLines2nd": true,
 	"font": "vcr",
@@ -2262,7 +2262,7 @@
 	"text": "Dissecting your",
 	"borderSize": 1.25,
 	"letterSpacing": 0,
-	"hasAntiAliasing": false,
+	"hasAntiAliasing": true,
 	"isCentered": false,
 	"isBehindStrumLines2nd": true,
 	"font": "vcr",
@@ -2288,7 +2288,7 @@
 	"text": "Dissecting your",
 	"borderSize": 1.25,
 	"letterSpacing": 0,
-	"hasAntiAliasing": false,
+	"hasAntiAliasing": true,
 	"isCentered": false,
 	"isBehindStrumLines2nd": true,
 	"font": "vcr",
@@ -2314,7 +2314,7 @@
 	"text": "I",
 	"borderSize": 1.25,
 	"letterSpacing": 0,
-	"hasAntiAliasing": false,
+	"hasAntiAliasing": true,
 	"isCentered": false,
 	"isBehindStrumLines2nd": true,
 	"font": "vcr",
@@ -2340,7 +2340,7 @@
 	"text": "I found",
 	"borderSize": 1.25,
 	"letterSpacing": 0,
-	"hasAntiAliasing": false,
+	"hasAntiAliasing": true,
 	"isCentered": false,
 	"isBehindStrumLines2nd": true,
 	"font": "vcr",
@@ -2366,7 +2366,7 @@
 	"text": "I found a",
 	"borderSize": 1.25,
 	"letterSpacing": 0,
-	"hasAntiAliasing": false,
+	"hasAntiAliasing": true,
 	"isCentered": false,
 	"isBehindStrumLines2nd": true,
 	"font": "vcr",
@@ -2392,7 +2392,7 @@
 	"text": "I found another",
 	"borderSize": 1.25,
 	"letterSpacing": 0,
-	"hasAntiAliasing": false,
+	"hasAntiAliasing": true,
 	"isCentered": false,
 	"isBehindStrumLines2nd": true,
 	"font": "vcr",
@@ -2418,7 +2418,7 @@
 	"text": "I found another o",
 	"borderSize": 1.25,
 	"letterSpacing": 0,
-	"hasAntiAliasing": false,
+	"hasAntiAliasing": true,
 	"isCentered": false,
 	"isBehindStrumLines2nd": true,
 	"font": "vcr",
@@ -2444,7 +2444,7 @@
 	"text": "I found another one",
 	"borderSize": 1.25,
 	"letterSpacing": 0,
-	"hasAntiAliasing": false,
+	"hasAntiAliasing": true,
 	"isCentered": false,
 	"isBehindStrumLines2nd": true,
 	"font": "vcr",
@@ -2470,7 +2470,7 @@
 	"text": "But",
 	"borderSize": 1.25,
 	"letterSpacing": 0,
-	"hasAntiAliasing": false,
+	"hasAntiAliasing": true,
 	"isCentered": false,
 	"isBehindStrumLines2nd": true,
 	"font": "vcr",
@@ -2496,7 +2496,7 @@
 	"text": "But you",
 	"borderSize": 1.25,
 	"letterSpacing": 0,
-	"hasAntiAliasing": false,
+	"hasAntiAliasing": true,
 	"isCentered": false,
 	"isBehindStrumLines2nd": true,
 	"font": "vcr",
@@ -2522,7 +2522,7 @@
 	"text": "But you were",
 	"borderSize": 1.25,
 	"letterSpacing": 0,
-	"hasAntiAliasing": false,
+	"hasAntiAliasing": true,
 	"isCentered": false,
 	"isBehindStrumLines2nd": true,
 	"font": "vcr",
@@ -2548,7 +2548,7 @@
 	"text": "But you were the",
 	"borderSize": 1.25,
 	"letterSpacing": 0,
-	"hasAntiAliasing": false,
+	"hasAntiAliasing": true,
 	"isCentered": false,
 	"isBehindStrumLines2nd": true,
 	"font": "vcr",
@@ -2574,7 +2574,7 @@
 	"text": "But you were the better",
 	"borderSize": 1.25,
 	"letterSpacing": 0,
-	"hasAntiAliasing": false,
+	"hasAntiAliasing": true,
 	"isCentered": false,
 	"isBehindStrumLines2nd": true,
 	"font": "vcr",
@@ -2600,7 +2600,7 @@
 	"text": "But you were the better o",
 	"borderSize": 1.25,
 	"letterSpacing": 0,
-	"hasAntiAliasing": false,
+	"hasAntiAliasing": true,
 	"isCentered": false,
 	"isBehindStrumLines2nd": true,
 	"font": "vcr",
@@ -2626,7 +2626,7 @@
 	"text": "But you were the better one",
 	"borderSize": 1.25,
 	"letterSpacing": 0,
-	"hasAntiAliasing": false,
+	"hasAntiAliasing": true,
 	"isCentered": false,
 	"isBehindStrumLines2nd": true,
 	"font": "vcr",
@@ -2652,7 +2652,7 @@
 	"text": "I",
 	"borderSize": 1.25,
 	"letterSpacing": 0,
-	"hasAntiAliasing": false,
+	"hasAntiAliasing": true,
 	"isCentered": true,
 	"isBehindStrumLines2nd": true,
 	"font": "vcr",
@@ -2678,7 +2678,7 @@
 	"text": "I won't",
 	"borderSize": 1.25,
 	"letterSpacing": 0,
-	"hasAntiAliasing": false,
+	"hasAntiAliasing": true,
 	"isCentered": true,
 	"isBehindStrumLines2nd": true,
 	"font": "vcr",
@@ -2704,7 +2704,7 @@
 	"text": "I won't let",
 	"borderSize": 1.25,
 	"letterSpacing": 0,
-	"hasAntiAliasing": false,
+	"hasAntiAliasing": true,
 	"isCentered": true,
 	"isBehindStrumLines2nd": true,
 	"font": "vcr",
@@ -2730,7 +2730,7 @@
 	"text": "I won't let you",
 	"borderSize": 1.25,
 	"letterSpacing": 0,
-	"hasAntiAliasing": false,
+	"hasAntiAliasing": true,
 	"isCentered": true,
 	"isBehindStrumLines2nd": true,
 	"font": "vcr",
@@ -2756,7 +2756,7 @@
 	"text": "I won't let you",
 	"borderSize": 1.25,
 	"letterSpacing": 0,
-	"hasAntiAliasing": false,
+	"hasAntiAliasing": true,
 	"isCentered": true,
 	"isBehindStrumLines2nd": true,
 	"font": "vcr",
@@ -2782,7 +2782,7 @@
 	"text": "I won't let you",
 	"borderSize": 1.25,
 	"letterSpacing": 0,
-	"hasAntiAliasing": false,
+	"hasAntiAliasing": true,
 	"isCentered": true,
 	"isBehindStrumLines2nd": true,
 	"font": "vcr",
@@ -2808,7 +2808,7 @@
 	"text": "I won't let you",
 	"borderSize": 1.25,
 	"letterSpacing": 0,
-	"hasAntiAliasing": false,
+	"hasAntiAliasing": true,
 	"isCentered": true,
 	"isBehindStrumLines2nd": true,
 	"font": "vcr",
@@ -2834,7 +2834,7 @@
 	"text": "",
 	"borderSize": 1.25,
 	"letterSpacing": 0,
-	"hasAntiAliasing": false,
+	"hasAntiAliasing": true,
 	"isCentered": false,
 	"isBehindStrumLines2nd": true,
 	"font": "vcr",
@@ -2874,7 +2874,7 @@
 	"text": "I'll",
 	"borderSize": 1.25,
 	"letterSpacing": 0,
-	"hasAntiAliasing": false,
+	"hasAntiAliasing": true,
 	"isCentered": false,
 	"isBehindStrumLines2nd": true,
 	"font": "vcr",
@@ -2900,7 +2900,7 @@
 	"text": "I'll make",
 	"borderSize": 1.25,
 	"letterSpacing": 0,
-	"hasAntiAliasing": false,
+	"hasAntiAliasing": true,
 	"isCentered": false,
 	"isBehindStrumLines2nd": true,
 	"font": "vcr",
@@ -2926,7 +2926,7 @@
 	"text": "I'll make sure",
 	"borderSize": 1.25,
 	"letterSpacing": 0,
-	"hasAntiAliasing": false,
+	"hasAntiAliasing": true,
 	"isCentered": false,
 	"isBehindStrumLines2nd": true,
 	"font": "vcr",
@@ -2952,7 +2952,7 @@
 	"text": "I'll make sure that",
 	"borderSize": 1.25,
 	"letterSpacing": 0,
-	"hasAntiAliasing": false,
+	"hasAntiAliasing": true,
 	"isCentered": false,
 	"isBehindStrumLines2nd": true,
 	"font": "vcr",
@@ -2978,7 +2978,7 @@
 	"text": "I'll make sure that you",
 	"borderSize": 1.25,
 	"letterSpacing": 0,
-	"hasAntiAliasing": false,
+	"hasAntiAliasing": true,
 	"isCentered": false,
 	"isBehindStrumLines2nd": true,
 	"font": "vcr",
@@ -3004,7 +3004,7 @@
 	"text": "I'll make sure that you will",
 	"borderSize": 1.25,
 	"letterSpacing": 0,
-	"hasAntiAliasing": false,
+	"hasAntiAliasing": true,
 	"isCentered": false,
 	"isBehindStrumLines2nd": true,
 	"font": "vcr",
@@ -3030,7 +3030,7 @@
 	"text": "I'll make sure that you will",
 	"borderSize": 1.25,
 	"letterSpacing": 0,
-	"hasAntiAliasing": false,
+	"hasAntiAliasing": true,
 	"isCentered": false,
 	"isBehindStrumLines2nd": true,
 	"font": "vcr",
@@ -3056,7 +3056,7 @@
 	"text": "I'll make sure that you will",
 	"borderSize": 1.25,
 	"letterSpacing": 0,
-	"hasAntiAliasing": false,
+	"hasAntiAliasing": true,
 	"isCentered": false,
 	"isBehindStrumLines2nd": true,
 	"font": "vcr",
@@ -3082,7 +3082,7 @@
 	"text": "I'll make sure that you will",
 	"borderSize": 1.25,
 	"letterSpacing": 0,
-	"hasAntiAliasing": false,
+	"hasAntiAliasing": true,
 	"isCentered": false,
 	"isBehindStrumLines2nd": true,
 	"font": "vcr",
@@ -3108,7 +3108,7 @@
 	"text": "I'll make sure that you will",
 	"borderSize": 1.25,
 	"letterSpacing": 0,
-	"hasAntiAliasing": false,
+	"hasAntiAliasing": true,
 	"isCentered": false,
 	"isBehindStrumLines2nd": true,
 	"font": "vcr",
@@ -3134,7 +3134,7 @@
 	"text": "",
 	"borderSize": 1.25,
 	"letterSpacing": 0,
-	"hasAntiAliasing": false,
+	"hasAntiAliasing": true,
 	"isCentered": false,
 	"isBehindStrumLines2nd": true,
 	"font": "vcr",
@@ -3160,7 +3160,7 @@
 	"text": "",
 	"borderSize": 1.25,
 	"letterSpacing": 0,
-	"hasAntiAliasing": false,
+	"hasAntiAliasing": true,
 	"isCentered": false,
 	"isBehindStrumLines2nd": true,
 	"font": "vcr",
@@ -3186,7 +3186,7 @@
 	"text": "",
 	"borderSize": 1.25,
 	"letterSpacing": 0,
-	"hasAntiAliasing": false,
+	"hasAntiAliasing": true,
 	"isCentered": false,
 	"isBehindStrumLines2nd": true,
 	"font": "vcr",
@@ -3212,7 +3212,7 @@
 	"text": "You",
 	"borderSize": 1.25,
 	"letterSpacing": 0,
-	"hasAntiAliasing": false,
+	"hasAntiAliasing": true,
 	"isCentered": true,
 	"isBehindStrumLines2nd": true,
 	"font": "vcr",
@@ -3238,7 +3238,7 @@
 	"text": "You know",
 	"borderSize": 1.25,
 	"letterSpacing": 0,
-	"hasAntiAliasing": false,
+	"hasAntiAliasing": true,
 	"isCentered": true,
 	"isBehindStrumLines2nd": true,
 	"font": "vcr",
@@ -3264,7 +3264,7 @@
 	"text": "You know that",
 	"borderSize": 1.25,
 	"letterSpacing": 0,
-	"hasAntiAliasing": false,
+	"hasAntiAliasing": true,
 	"isCentered": true,
 	"isBehindStrumLines2nd": true,
 	"font": "vcr",
@@ -3290,7 +3290,7 @@
 	"text": "You know that",
 	"borderSize": 1.25,
 	"letterSpacing": 0,
-	"hasAntiAliasing": false,
+	"hasAntiAliasing": true,
 	"isCentered": true,
 	"isBehindStrumLines2nd": true,
 	"font": "vcr",
@@ -3316,7 +3316,7 @@
 	"text": "You know that",
 	"borderSize": 1.25,
 	"letterSpacing": 0,
-	"hasAntiAliasing": false,
+	"hasAntiAliasing": true,
 	"isCentered": true,
 	"isBehindStrumLines2nd": true,
 	"font": "vcr",
@@ -3342,7 +3342,7 @@
 	"text": "You know that",
 	"borderSize": 1.25,
 	"letterSpacing": 0,
-	"hasAntiAliasing": false,
+	"hasAntiAliasing": true,
 	"isCentered": true,
 	"isBehindStrumLines2nd": true,
 	"font": "vcr",
@@ -3368,7 +3368,7 @@
 	"text": "You know that",
 	"borderSize": 1.25,
 	"letterSpacing": 0,
-	"hasAntiAliasing": false,
+	"hasAntiAliasing": true,
 	"isCentered": true,
 	"isBehindStrumLines2nd": true,
 	"font": "vcr",
@@ -3404,7 +3404,7 @@
 	"text": "You know that",
 	"borderSize": 1.25,
 	"letterSpacing": 0,
-	"hasAntiAliasing": false,
+	"hasAntiAliasing": true,
 	"isCentered": true,
 	"isBehindStrumLines2nd": true,
 	"font": "vcr",
@@ -3430,7 +3430,7 @@
 	"text": "",
 	"borderSize": 1.25,
 	"letterSpacing": 0,
-	"hasAntiAliasing": false,
+	"hasAntiAliasing": true,
 	"isCentered": false,
 	"isBehindStrumLines2nd": true,
 	"font": "vcr",
@@ -3484,7 +3484,7 @@
 	"text": "You",
 	"borderSize": 1.25,
 	"letterSpacing": 0,
-	"hasAntiAliasing": false,
+	"hasAntiAliasing": true,
 	"isCentered": false,
 	"isBehindStrumLines2nd": true,
 	"font": "vcr",
@@ -3510,7 +3510,7 @@
 	"text": "You feel",
 	"borderSize": 1.25,
 	"letterSpacing": 0,
-	"hasAntiAliasing": false,
+	"hasAntiAliasing": true,
 	"isCentered": false,
 	"isBehindStrumLines2nd": true,
 	"font": "vcr",
@@ -3536,7 +3536,7 @@
 	"text": "You feel these",
 	"borderSize": 1.25,
 	"letterSpacing": 0,
-	"hasAntiAliasing": false,
+	"hasAntiAliasing": true,
 	"isCentered": false,
 	"isBehindStrumLines2nd": true,
 	"font": "vcr",
@@ -3562,7 +3562,7 @@
 	"text": "You feel these lu",
 	"borderSize": 1.25,
 	"letterSpacing": 0,
-	"hasAntiAliasing": false,
+	"hasAntiAliasing": true,
 	"isCentered": false,
 	"isBehindStrumLines2nd": true,
 	"font": "vcr",
@@ -3588,7 +3588,7 @@
 	"text": "You feel these lucid",
 	"borderSize": 1.25,
 	"letterSpacing": 0,
-	"hasAntiAliasing": false,
+	"hasAntiAliasing": true,
 	"isCentered": false,
 	"isBehindStrumLines2nd": true,
 	"font": "vcr",
@@ -3614,7 +3614,7 @@
 	"text": "You feel these lucid dreams",
 	"borderSize": 1.25,
 	"letterSpacing": 0,
-	"hasAntiAliasing": false,
+	"hasAntiAliasing": true,
 	"isCentered": false,
 	"isBehindStrumLines2nd": true,
 	"font": "vcr",
@@ -3640,7 +3640,7 @@
 	"text": "where",
 	"borderSize": 1.25,
 	"letterSpacing": 0,
-	"hasAntiAliasing": false,
+	"hasAntiAliasing": true,
 	"isCentered": false,
 	"isBehindStrumLines2nd": true,
 	"font": "vcr",
@@ -3666,7 +3666,7 @@
 	"text": "where you",
 	"borderSize": 1.25,
 	"letterSpacing": 0,
-	"hasAntiAliasing": false,
+	"hasAntiAliasing": true,
 	"isCentered": false,
 	"isBehindStrumLines2nd": true,
 	"font": "vcr",
@@ -3692,7 +3692,7 @@
 	"text": "where you can't",
 	"borderSize": 1.25,
 	"letterSpacing": 0,
-	"hasAntiAliasing": false,
+	"hasAntiAliasing": true,
 	"isCentered": false,
 	"isBehindStrumLines2nd": true,
 	"font": "vcr",
@@ -3718,7 +3718,7 @@
 	"text": "where you can't move",
 	"borderSize": 1.25,
 	"letterSpacing": 0,
-	"hasAntiAliasing": false,
+	"hasAntiAliasing": true,
 	"isCentered": false,
 	"isBehindStrumLines2nd": true,
 	"font": "vcr",
@@ -3744,7 +3744,7 @@
 	"text": "where you can't move a",
 	"borderSize": 1.25,
 	"letterSpacing": 0,
-	"hasAntiAliasing": false,
+	"hasAntiAliasing": true,
 	"isCentered": false,
 	"isBehindStrumLines2nd": true,
 	"font": "vcr",
@@ -3770,7 +3770,7 @@
 	"text": "where you can't move a thing",
 	"borderSize": 1.25,
 	"letterSpacing": 0,
-	"hasAntiAliasing": false,
+	"hasAntiAliasing": true,
 	"isCentered": false,
 	"isBehindStrumLines2nd": true,
 	"font": "vcr",
@@ -3796,7 +3796,7 @@
 	"text": "Blood",
 	"borderSize": 1.25,
 	"letterSpacing": 0,
-	"hasAntiAliasing": false,
+	"hasAntiAliasing": true,
 	"isCentered": true,
 	"isBehindStrumLines2nd": true,
 	"font": "vcr",
@@ -3822,7 +3822,7 @@
 	"text": "Blood drip",
 	"borderSize": 1.25,
 	"letterSpacing": 0,
-	"hasAntiAliasing": false,
+	"hasAntiAliasing": true,
 	"isCentered": true,
 	"isBehindStrumLines2nd": true,
 	"font": "vcr",
@@ -3848,7 +3848,7 @@
 	"text": "Blood dripping",
 	"borderSize": 1.25,
 	"letterSpacing": 0,
-	"hasAntiAliasing": false,
+	"hasAntiAliasing": true,
 	"isCentered": true,
 	"isBehindStrumLines2nd": true,
 	"font": "vcr",
@@ -3874,7 +3874,7 @@
 	"text": "Blood dripping off",
 	"borderSize": 1.25,
 	"letterSpacing": 0,
-	"hasAntiAliasing": false,
+	"hasAntiAliasing": true,
 	"isCentered": true,
 	"isBehindStrumLines2nd": true,
 	"font": "vcr",
@@ -3900,7 +3900,7 @@
 	"text": "Blood dripping off of",
 	"borderSize": 1.25,
 	"letterSpacing": 0,
-	"hasAntiAliasing": false,
+	"hasAntiAliasing": true,
 	"isCentered": true,
 	"isBehindStrumLines2nd": true,
 	"font": "vcr",
@@ -3926,7 +3926,7 @@
 	"text": "Blood dripping off of your",
 	"borderSize": 1.25,
 	"letterSpacing": 0,
-	"hasAntiAliasing": false,
+	"hasAntiAliasing": true,
 	"isCentered": true,
 	"isBehindStrumLines2nd": true,
 	"font": "vcr",
@@ -3952,7 +3952,7 @@
 	"text": "Blood dripping off of your",
 	"borderSize": 1.25,
 	"letterSpacing": 0,
-	"hasAntiAliasing": false,
+	"hasAntiAliasing": true,
 	"isCentered": true,
 	"isBehindStrumLines2nd": true,
 	"font": "vcr",
@@ -3995,7 +3995,7 @@
 	"text": "Blood dripping off of your",
 	"borderSize": 1.25,
 	"letterSpacing": 0,
-	"hasAntiAliasing": false,
+	"hasAntiAliasing": true,
 	"isCentered": true,
 	"isBehindStrumLines2nd": true,
 	"font": "vcr",
@@ -4021,7 +4021,7 @@
 	"text": "",
 	"borderSize": 1.25,
 	"letterSpacing": 0,
-	"hasAntiAliasing": false,
+	"hasAntiAliasing": true,
 	"isCentered": true,
 	"isBehindStrumLines2nd": true,
 	"font": "vcr",
@@ -4064,7 +4064,7 @@
 	"text": "I'll",
 	"borderSize": 1.25,
 	"letterSpacing": 0,
-	"hasAntiAliasing": false,
+	"hasAntiAliasing": true,
 	"isCentered": false,
 	"isBehindStrumLines2nd": true,
 	"font": "vcr",
@@ -4090,7 +4090,7 @@
 	"text": "I'll do",
 	"borderSize": 1.25,
 	"letterSpacing": 0,
-	"hasAntiAliasing": false,
+	"hasAntiAliasing": true,
 	"isCentered": false,
 	"isBehindStrumLines2nd": true,
 	"font": "vcr",
@@ -4116,7 +4116,7 @@
 	"text": "I'll do it",
 	"borderSize": 1.25,
 	"letterSpacing": 0,
-	"hasAntiAliasing": false,
+	"hasAntiAliasing": true,
 	"isCentered": false,
 	"isBehindStrumLines2nd": true,
 	"font": "vcr",
@@ -4142,7 +4142,7 @@
 	"text": "I'll do it ov",
 	"borderSize": 1.25,
 	"letterSpacing": 0,
-	"hasAntiAliasing": false,
+	"hasAntiAliasing": true,
 	"isCentered": false,
 	"isBehindStrumLines2nd": true,
 	"font": "vcr",
@@ -4168,7 +4168,7 @@
 	"text": "I'll do it over",
 	"borderSize": 1.25,
 	"letterSpacing": 0,
-	"hasAntiAliasing": false,
+	"hasAntiAliasing": true,
 	"isCentered": false,
 	"isBehindStrumLines2nd": true,
 	"font": "vcr",
@@ -4194,7 +4194,7 @@
 	"text": "I'll do it over a",
 	"borderSize": 1.25,
 	"letterSpacing": 0,
-	"hasAntiAliasing": false,
+	"hasAntiAliasing": true,
 	"isCentered": false,
 	"isBehindStrumLines2nd": true,
 	"font": "vcr",
@@ -4220,7 +4220,7 @@
 	"text": "I'll do it over again",
 	"borderSize": 1.25,
 	"letterSpacing": 0,
-	"hasAntiAliasing": false,
+	"hasAntiAliasing": true,
 	"isCentered": false,
 	"isBehindStrumLines2nd": true,
 	"font": "vcr",
@@ -4246,7 +4246,7 @@
 	"text": "I",
 	"borderSize": 1.25,
 	"letterSpacing": 0,
-	"hasAntiAliasing": false,
+	"hasAntiAliasing": true,
 	"isCentered": false,
 	"isBehindStrumLines2nd": true,
 	"font": "vcr",
@@ -4272,7 +4272,7 @@
 	"text": "I just",
 	"borderSize": 1.25,
 	"letterSpacing": 0,
-	"hasAntiAliasing": false,
+	"hasAntiAliasing": true,
 	"isCentered": false,
 	"isBehindStrumLines2nd": true,
 	"font": "vcr",
@@ -4298,7 +4298,7 @@
 	"text": "I just want",
 	"borderSize": 1.25,
 	"letterSpacing": 0,
-	"hasAntiAliasing": false,
+	"hasAntiAliasing": true,
 	"isCentered": false,
 	"isBehindStrumLines2nd": true,
 	"font": "vcr",
@@ -4324,7 +4324,7 @@
 	"text": "I just want you",
 	"borderSize": 1.25,
 	"letterSpacing": 0,
-	"hasAntiAliasing": false,
+	"hasAntiAliasing": true,
 	"isCentered": false,
 	"isBehindStrumLines2nd": true,
 	"font": "vcr",
@@ -4350,7 +4350,7 @@
 	"text": "I just want you to",
 	"borderSize": 1.25,
 	"letterSpacing": 0,
-	"hasAntiAliasing": false,
+	"hasAntiAliasing": true,
 	"isCentered": false,
 	"isBehindStrumLines2nd": true,
 	"font": "vcr",
@@ -4376,7 +4376,7 @@
 	"text": "I just want you to end",
 	"borderSize": 1.25,
 	"letterSpacing": 0,
-	"hasAntiAliasing": false,
+	"hasAntiAliasing": true,
 	"isCentered": false,
 	"isBehindStrumLines2nd": true,
 	"font": "vcr",
@@ -4509,7 +4509,7 @@
 	"text": "Watch these ashes blow in the wind",
 	"borderSize": 1.25,
 	"letterSpacing": 0,
-	"hasAntiAliasing": false,
+	"hasAntiAliasing": true,
 	"isCentered": false,
 	"isBehindStrumLines2nd": true,
 	"font": "vcr",
@@ -4535,7 +4535,7 @@
 	"text": "Watch these ashes blow in",
 	"borderSize": 1.25,
 	"letterSpacing": 0,
-	"hasAntiAliasing": false,
+	"hasAntiAliasing": true,
 	"isCentered": false,
 	"isBehindStrumLines2nd": true,
 	"font": "vcr",
@@ -4561,7 +4561,7 @@
 	"text": "Watch these ashes blow in the",
 	"borderSize": 1.25,
 	"letterSpacing": 0,
-	"hasAntiAliasing": false,
+	"hasAntiAliasing": true,
 	"isCentered": false,
 	"isBehindStrumLines2nd": true,
 	"font": "vcr",
@@ -4587,7 +4587,7 @@
 	"text": "Watch these ashes blow",
 	"borderSize": 1.25,
 	"letterSpacing": 0,
-	"hasAntiAliasing": false,
+	"hasAntiAliasing": true,
 	"isCentered": false,
 	"isBehindStrumLines2nd": true,
 	"font": "vcr",
@@ -4613,7 +4613,7 @@
 	"text": "You",
 	"borderSize": 1.25,
 	"letterSpacing": 0,
-	"hasAntiAliasing": false,
+	"hasAntiAliasing": true,
 	"isCentered": false,
 	"isBehindStrumLines2nd": true,
 	"font": "vcr",
@@ -4639,7 +4639,7 @@
 	"text": "You should",
 	"borderSize": 1.25,
 	"letterSpacing": 0,
-	"hasAntiAliasing": false,
+	"hasAntiAliasing": true,
 	"isCentered": false,
 	"isBehindStrumLines2nd": true,
 	"font": "vcr",
@@ -4665,7 +4665,7 @@
 	"text": "You should have",
 	"borderSize": 1.25,
 	"letterSpacing": 0,
-	"hasAntiAliasing": false,
+	"hasAntiAliasing": true,
 	"isCentered": false,
 	"isBehindStrumLines2nd": true,
 	"font": "vcr",
@@ -4691,7 +4691,7 @@
 	"text": "You should have lis",
 	"borderSize": 1.25,
 	"letterSpacing": 0,
-	"hasAntiAliasing": false,
+	"hasAntiAliasing": true,
 	"isCentered": false,
 	"isBehindStrumLines2nd": true,
 	"font": "vcr",
@@ -4717,7 +4717,7 @@
 	"text": "You should have listen",
 	"borderSize": 1.25,
 	"letterSpacing": 0,
-	"hasAntiAliasing": false,
+	"hasAntiAliasing": true,
 	"isCentered": false,
 	"isBehindStrumLines2nd": true,
 	"font": "vcr",
@@ -4743,7 +4743,7 @@
 	"text": "You should have listen to",
 	"borderSize": 1.25,
 	"letterSpacing": 0,
-	"hasAntiAliasing": false,
+	"hasAntiAliasing": true,
 	"isCentered": false,
 	"isBehindStrumLines2nd": true,
 	"font": "vcr",
@@ -4769,7 +4769,7 @@
 	"text": "You should have listen to your",
 	"borderSize": 1.25,
 	"letterSpacing": 0,
-	"hasAntiAliasing": false,
+	"hasAntiAliasing": true,
 	"isCentered": false,
 	"isBehindStrumLines2nd": true,
 	"font": "vcr",
@@ -4795,7 +4795,7 @@
 	"text": "You should have listen to your",
 	"borderSize": 1.25,
 	"letterSpacing": 0,
-	"hasAntiAliasing": false,
+	"hasAntiAliasing": true,
 	"isCentered": false,
 	"isBehindStrumLines2nd": true,
 	"font": "vcr",
@@ -4821,7 +4821,7 @@
 	"text": "You should have listen to your",
 	"borderSize": 1.25,
 	"letterSpacing": 0,
-	"hasAntiAliasing": false,
+	"hasAntiAliasing": true,
 	"isCentered": false,
 	"isBehindStrumLines2nd": true,
 	"font": "vcr",
@@ -4847,7 +4847,7 @@
 	"text": "You should have listen to your",
 	"borderSize": 1.25,
 	"letterSpacing": 0,
-	"hasAntiAliasing": false,
+	"hasAntiAliasing": true,
 	"isCentered": false,
 	"isBehindStrumLines2nd": true,
 	"font": "vcr",
@@ -4873,7 +4873,7 @@
 	"text": "You should have listen to your",
 	"borderSize": 1.25,
 	"letterSpacing": 0,
-	"hasAntiAliasing": false,
+	"hasAntiAliasing": true,
 	"isCentered": false,
 	"isBehindStrumLines2nd": true,
 	"font": "vcr",
@@ -4899,7 +4899,7 @@
 	"text": "Did",
 	"borderSize": 1.25,
 	"letterSpacing": 0,
-	"hasAntiAliasing": false,
+	"hasAntiAliasing": true,
 	"isCentered": false,
 	"isBehindStrumLines2nd": true,
 	"font": "vcr",
@@ -4925,7 +4925,7 @@
 	"text": "Did this",
 	"borderSize": 1.25,
 	"letterSpacing": 0,
-	"hasAntiAliasing": false,
+	"hasAntiAliasing": true,
 	"isCentered": false,
 	"isBehindStrumLines2nd": true,
 	"font": "vcr",
@@ -4951,7 +4951,7 @@
 	"text": "Did this shit",
 	"borderSize": 1.25,
 	"letterSpacing": 0,
-	"hasAntiAliasing": false,
+	"hasAntiAliasing": true,
 	"isCentered": false,
 	"isBehindStrumLines2nd": true,
 	"font": "vcr",
@@ -4977,7 +4977,7 @@
 	"text": "Did this shit in",
 	"borderSize": 1.25,
 	"letterSpacing": 0,
-	"hasAntiAliasing": false,
+	"hasAntiAliasing": true,
 	"isCentered": false,
 	"isBehindStrumLines2nd": true,
 	"font": "vcr",
@@ -5003,7 +5003,7 @@
 	"text": "Did this shit in the",
 	"borderSize": 1.25,
 	"letterSpacing": 0,
-	"hasAntiAliasing": false,
+	"hasAntiAliasing": true,
 	"isCentered": false,
 	"isBehindStrumLines2nd": true,
 	"font": "vcr",
@@ -5029,7 +5029,7 @@
 	"text": "Did this shit in the past",
 	"borderSize": 1.25,
 	"letterSpacing": 0,
-	"hasAntiAliasing": false,
+	"hasAntiAliasing": true,
 	"isCentered": false,
 	"isBehindStrumLines2nd": true,
 	"font": "vcr",
@@ -5055,7 +5055,7 @@
 	"text": "Do",
 	"borderSize": 1.25,
 	"letterSpacing": 0,
-	"hasAntiAliasing": false,
+	"hasAntiAliasing": true,
 	"isCentered": false,
 	"isBehindStrumLines2nd": true,
 	"font": "vcr",
@@ -5081,7 +5081,7 @@
 	"text": "Do not",
 	"borderSize": 1.25,
 	"letterSpacing": 0,
-	"hasAntiAliasing": false,
+	"hasAntiAliasing": true,
 	"isCentered": false,
 	"isBehindStrumLines2nd": true,
 	"font": "vcr",
@@ -5107,7 +5107,7 @@
 	"text": "Do not want",
 	"borderSize": 1.25,
 	"letterSpacing": 0,
-	"hasAntiAliasing": false,
+	"hasAntiAliasing": true,
 	"isCentered": false,
 	"isBehindStrumLines2nd": true,
 	"font": "vcr",
@@ -5133,7 +5133,7 @@
 	"text": "Do not want you",
 	"borderSize": 1.25,
 	"letterSpacing": 0,
-	"hasAntiAliasing": false,
+	"hasAntiAliasing": true,
 	"isCentered": false,
 	"isBehindStrumLines2nd": true,
 	"font": "vcr",
@@ -5231,7 +5231,7 @@
 	"text": "You",
 	"borderSize": 1.25,
 	"letterSpacing": 0,
-	"hasAntiAliasing": false,
+	"hasAntiAliasing": true,
 	"isCentered": false,
 	"isBehindStrumLines2nd": true,
 	"font": "vcr",
@@ -5257,7 +5257,7 @@
 	"text": "You are",
 	"borderSize": 1.25,
 	"letterSpacing": 0,
-	"hasAntiAliasing": false,
+	"hasAntiAliasing": true,
 	"isCentered": false,
 	"isBehindStrumLines2nd": true,
 	"font": "vcr",
@@ -5283,7 +5283,7 @@
 	"text": "You are made",
 	"borderSize": 1.25,
 	"letterSpacing": 0,
-	"hasAntiAliasing": false,
+	"hasAntiAliasing": true,
 	"isCentered": false,
 	"isBehindStrumLines2nd": true,
 	"font": "vcr",
@@ -5318,7 +5318,7 @@
 	"text": "You are made out",
 	"borderSize": 1.25,
 	"letterSpacing": 0,
-	"hasAntiAliasing": false,
+	"hasAntiAliasing": true,
 	"isCentered": false,
 	"isBehindStrumLines2nd": true,
 	"font": "vcr",
@@ -5344,7 +5344,7 @@
 	"text": "You are made out of",
 	"borderSize": 1.25,
 	"letterSpacing": 0,
-	"hasAntiAliasing": false,
+	"hasAntiAliasing": true,
 	"isCentered": false,
 	"isBehindStrumLines2nd": true,
 	"font": "vcr",
@@ -5370,7 +5370,7 @@
 	"text": "You are made out of",
 	"borderSize": 1.25,
 	"letterSpacing": 0,
-	"hasAntiAliasing": false,
+	"hasAntiAliasing": true,
 	"isCentered": false,
 	"isBehindStrumLines2nd": true,
 	"font": "vcr",
@@ -5396,7 +5396,7 @@
 	"text": "You are made out of",
 	"borderSize": 1.25,
 	"letterSpacing": 0,
-	"hasAntiAliasing": false,
+	"hasAntiAliasing": true,
 	"isCentered": false,
 	"isBehindStrumLines2nd": true,
 	"font": "vcr",
@@ -5422,7 +5422,7 @@
 	"text": "You are made out of",
 	"borderSize": 1.25,
 	"letterSpacing": 0,
-	"hasAntiAliasing": false,
+	"hasAntiAliasing": true,
 	"isCentered": false,
 	"isBehindStrumLines2nd": true,
 	"font": "vcr",
@@ -5455,7 +5455,7 @@
 	"text": "You",
 	"borderSize": 1.25,
 	"letterSpacing": 0,
-	"hasAntiAliasing": false,
+	"hasAntiAliasing": true,
 	"isCentered": false,
 	"isBehindStrumLines2nd": true,
 	"font": "vcr",
@@ -5481,7 +5481,7 @@
 	"text": "You were",
 	"borderSize": 1.25,
 	"letterSpacing": 0,
-	"hasAntiAliasing": false,
+	"hasAntiAliasing": true,
 	"isCentered": false,
 	"isBehindStrumLines2nd": true,
 	"font": "vcr",
@@ -5507,7 +5507,7 @@
 	"text": "You were tangle",
 	"borderSize": 1.25,
 	"letterSpacing": 0,
-	"hasAntiAliasing": false,
+	"hasAntiAliasing": true,
 	"isCentered": false,
 	"isBehindStrumLines2nd": true,
 	"font": "vcr",
@@ -5533,7 +5533,7 @@
 	"text": "You were tangled",
 	"borderSize": 1.25,
 	"letterSpacing": 0,
-	"hasAntiAliasing": false,
+	"hasAntiAliasing": true,
 	"isCentered": false,
 	"isBehindStrumLines2nd": true,
 	"font": "vcr",
@@ -5559,7 +5559,7 @@
 	"text": "You were tangled up",
 	"borderSize": 1.25,
 	"letterSpacing": 0,
-	"hasAntiAliasing": false,
+	"hasAntiAliasing": true,
 	"isCentered": false,
 	"isBehindStrumLines2nd": true,
 	"font": "vcr",
@@ -5585,7 +5585,7 @@
 	"text": "You were tangled up in",
 	"borderSize": 1.25,
 	"letterSpacing": 0,
-	"hasAntiAliasing": false,
+	"hasAntiAliasing": true,
 	"isCentered": false,
 	"isBehindStrumLines2nd": true,
 	"font": "vcr",
@@ -5611,7 +5611,7 @@
 	"text": "You were tangled up in your  ",
 	"borderSize": 1.25,
 	"letterSpacing": 0,
-	"hasAntiAliasing": false,
+	"hasAntiAliasing": true,
 	"isCentered": false,
 	"isBehindStrumLines2nd": true,
 	"font": "vcr",
@@ -5637,7 +5637,7 @@
 	"text": "You were tangled up in your bed",
 	"borderSize": 1.25,
 	"letterSpacing": 0,
-	"hasAntiAliasing": false,
+	"hasAntiAliasing": true,
 	"isCentered": false,
 	"isBehindStrumLines2nd": true,
 	"font": "vcr",
@@ -5663,7 +5663,7 @@
 	"text": "You were tangled up in your bed",
 	"borderSize": 1.25,
 	"letterSpacing": 0,
-	"hasAntiAliasing": false,
+	"hasAntiAliasing": true,
 	"isCentered": false,
 	"isBehindStrumLines2nd": true,
 	"font": "vcr",
@@ -5689,7 +5689,7 @@
 	"text": "You were tangled up in your bed",
 	"borderSize": 1.25,
 	"letterSpacing": 0,
-	"hasAntiAliasing": false,
+	"hasAntiAliasing": true,
 	"isCentered": false,
 	"isBehindStrumLines2nd": true,
 	"font": "vcr",
@@ -5722,7 +5722,7 @@
 	"text": "Who",
 	"borderSize": 1.25,
 	"letterSpacing": 0,
-	"hasAntiAliasing": false,
+	"hasAntiAliasing": true,
 	"isCentered": false,
 	"isBehindStrumLines2nd": true,
 	"font": "vcr",
@@ -5748,7 +5748,7 @@
 	"text": "Who knew",
 	"borderSize": 1.25,
 	"letterSpacing": 0,
-	"hasAntiAliasing": false,
+	"hasAntiAliasing": true,
 	"isCentered": false,
 	"isBehindStrumLines2nd": true,
 	"font": "vcr",
@@ -5774,7 +5774,7 @@
 	"text": "Who knew",
 	"borderSize": 1.25,
 	"letterSpacing": 0,
-	"hasAntiAliasing": false,
+	"hasAntiAliasing": true,
 	"isCentered": false,
 	"isBehindStrumLines2nd": true,
 	"font": "vcr",
@@ -5800,7 +5800,7 @@
 	"text": "Who knew",
 	"borderSize": 1.25,
 	"letterSpacing": 0,
-	"hasAntiAliasing": false,
+	"hasAntiAliasing": true,
 	"isCentered": false,
 	"isBehindStrumLines2nd": true,
 	"font": "vcr",
@@ -5826,7 +5826,7 @@
 	"text": "Who knew",
 	"borderSize": 1.25,
 	"letterSpacing": 0,
-	"hasAntiAliasing": false,
+	"hasAntiAliasing": true,
 	"isCentered": false,
 	"isBehindStrumLines2nd": true,
 	"font": "vcr",
@@ -5852,7 +5852,7 @@
 	"text": "Who knew\n\n\nhave",
 	"borderSize": 1.25,
 	"letterSpacing": 0,
-	"hasAntiAliasing": false,
+	"hasAntiAliasing": true,
 	"isCentered": false,
 	"isBehindStrumLines2nd": true,
 	"font": "vcr",
@@ -5878,7 +5878,7 @@
 	"text": "Who knew\n\n\nhave the",
 	"borderSize": 1.25,
 	"letterSpacing": 0,
-	"hasAntiAliasing": false,
+	"hasAntiAliasing": true,
 	"isCentered": false,
 	"isBehindStrumLines2nd": true,
 	"font": "vcr",
@@ -5904,7 +5904,7 @@
 	"text": "Who knew\n\n\nhave the tasti",
 	"borderSize": 1.25,
 	"letterSpacing": 0,
-	"hasAntiAliasing": false,
+	"hasAntiAliasing": true,
 	"isCentered": false,
 	"isBehindStrumLines2nd": true,
 	"font": "vcr",
@@ -5930,7 +5930,7 @@
 	"text": "Who knew\n\n\nhave the tasties",
 	"borderSize": 1.25,
 	"letterSpacing": 0,
-	"hasAntiAliasing": false,
+	"hasAntiAliasing": true,
 	"isCentered": false,
 	"isBehindStrumLines2nd": true,
 	"font": "vcr",
@@ -5956,7 +5956,7 @@
 	"text": "Who knew\n\n\nhave the tastiest",
 	"borderSize": 1.25,
 	"letterSpacing": 0,
-	"hasAntiAliasing": false,
+	"hasAntiAliasing": true,
 	"isCentered": false,
 	"isBehindStrumLines2nd": true,
 	"font": "vcr",
@@ -5982,7 +5982,7 @@
 	"text": "Who knew\n\n\nhave the tastiest fate?",
 	"borderSize": 1.25,
 	"letterSpacing": 0,
-	"hasAntiAliasing": false,
+	"hasAntiAliasing": true,
 	"isCentered": false,
 	"isBehindStrumLines2nd": true,
 	"font": "vcr",
@@ -6015,7 +6015,7 @@
 	"text": "Took",
 	"borderSize": 1.25,
 	"letterSpacing": 0,
-	"hasAntiAliasing": false,
+	"hasAntiAliasing": true,
 	"isCentered": false,
 	"isBehindStrumLines2nd": true,
 	"font": "vcr",
@@ -6041,7 +6041,7 @@
 	"text": "Took aw",
 	"borderSize": 1.25,
 	"letterSpacing": 0,
-	"hasAntiAliasing": false,
+	"hasAntiAliasing": true,
 	"isCentered": false,
 	"isBehindStrumLines2nd": true,
 	"font": "vcr",
@@ -6067,7 +6067,7 @@
 	"text": "Took away",
 	"borderSize": 1.25,
 	"letterSpacing": 0,
-	"hasAntiAliasing": false,
+	"hasAntiAliasing": true,
 	"isCentered": false,
 	"isBehindStrumLines2nd": true,
 	"font": "vcr",
@@ -6093,7 +6093,7 @@
 	"text": "Took away your",
 	"borderSize": 1.25,
 	"letterSpacing": 0,
-	"hasAntiAliasing": false,
+	"hasAntiAliasing": true,
 	"isCentered": false,
 	"isBehindStrumLines2nd": true,
 	"font": "vcr",
@@ -6119,7 +6119,7 @@
 	"text": "Took away your heart",
 	"borderSize": 1.25,
 	"letterSpacing": 0,
-	"hasAntiAliasing": false,
+	"hasAntiAliasing": true,
 	"isCentered": false,
 	"isBehindStrumLines2nd": true,
 	"font": "vcr",
@@ -6145,7 +6145,7 @@
 	"text": "Took away your heart",
 	"borderSize": 1.25,
 	"letterSpacing": 0,
-	"hasAntiAliasing": false,
+	"hasAntiAliasing": true,
 	"isCentered": false,
 	"isBehindStrumLines2nd": true,
 	"font": "vcr",
@@ -6171,7 +6171,7 @@
 	"text": "Took away your heart",
 	"borderSize": 1.25,
 	"letterSpacing": 0,
-	"hasAntiAliasing": false,
+	"hasAntiAliasing": true,
 	"isCentered": false,
 	"isBehindStrumLines2nd": true,
 	"font": "vcr",
@@ -6197,7 +6197,7 @@
 	"text": "Took away your heart",
 	"borderSize": 1.25,
 	"letterSpacing": 0,
-	"hasAntiAliasing": false,
+	"hasAntiAliasing": true,
 	"isCentered": false,
 	"isBehindStrumLines2nd": true,
 	"font": "vcr",
@@ -6223,7 +6223,7 @@
 	"text": "Took away your heart",
 	"borderSize": 1.25,
 	"letterSpacing": 0,
-	"hasAntiAliasing": false,
+	"hasAntiAliasing": true,
 	"isCentered": false,
 	"isBehindStrumLines2nd": true,
 	"font": "vcr",
@@ -6249,7 +6249,7 @@
 	"text": "Took away your heart",
 	"borderSize": 1.25,
 	"letterSpacing": 0,
-	"hasAntiAliasing": false,
+	"hasAntiAliasing": true,
 	"isCentered": false,
 	"isBehindStrumLines2nd": true,
 	"font": "vcr",
@@ -6275,7 +6275,7 @@
 	"text": "Took away your heart",
 	"borderSize": 1.25,
 	"letterSpacing": 0,
-	"hasAntiAliasing": false,
+	"hasAntiAliasing": true,
 	"isCentered": false,
 	"isBehindStrumLines2nd": true,
 	"font": "vcr",
@@ -6301,7 +6301,7 @@
 	"text": "Now",
 	"borderSize": 1.25,
 	"letterSpacing": 0,
-	"hasAntiAliasing": false,
+	"hasAntiAliasing": true,
 	"isCentered": false,
 	"isBehindStrumLines2nd": true,
 	"font": "vcr",
@@ -6327,7 +6327,7 @@
 	"text": "Now I",
 	"borderSize": 1.25,
 	"letterSpacing": 0,
-	"hasAntiAliasing": false,
+	"hasAntiAliasing": true,
 	"isCentered": false,
 	"isBehindStrumLines2nd": true,
 	"font": "vcr",
@@ -6353,7 +6353,7 @@
 	"text": "Now I ate",
 	"borderSize": 1.25,
 	"letterSpacing": 0,
-	"hasAntiAliasing": false,
+	"hasAntiAliasing": true,
 	"isCentered": false,
 	"isBehindStrumLines2nd": true,
 	"font": "vcr",
@@ -6379,7 +6379,7 @@
 	"text": "Now I ate your",
 	"borderSize": 1.25,
 	"letterSpacing": 0,
-	"hasAntiAliasing": false,
+	"hasAntiAliasing": true,
 	"isCentered": false,
 	"isBehindStrumLines2nd": true,
 	"font": "vcr",
@@ -6405,7 +6405,7 @@
 	"text": "Now I ate your heart",
 	"borderSize": 1.25,
 	"letterSpacing": 0,
-	"hasAntiAliasing": false,
+	"hasAntiAliasing": true,
 	"isCentered": false,
 	"isBehindStrumLines2nd": true,
 	"font": "vcr",
@@ -6431,7 +6431,7 @@
 	"text": "Now I ate your heart an",
 	"borderSize": 1.25,
 	"letterSpacing": 0,
-	"hasAntiAliasing": false,
+	"hasAntiAliasing": true,
 	"isCentered": false,
 	"isBehindStrumLines2nd": true,
 	"font": "vcr",
@@ -6457,7 +6457,7 @@
 	"text": "Now I ate your heart and",
 	"borderSize": 1.25,
 	"letterSpacing": 0,
-	"hasAntiAliasing": false,
+	"hasAntiAliasing": true,
 	"isCentered": false,
 	"isBehindStrumLines2nd": true,
 	"font": "vcr",
@@ -6483,7 +6483,7 @@
 	"text": "Now I ate your heart and made",
 	"borderSize": 1.25,
 	"letterSpacing": 0,
-	"hasAntiAliasing": false,
+	"hasAntiAliasing": true,
 	"isCentered": false,
 	"isBehindStrumLines2nd": true,
 	"font": "vcr",
@@ -6509,7 +6509,7 @@
 	"text": "Now I ate your heart and made you",
 	"borderSize": 1.25,
 	"letterSpacing": 0,
-	"hasAntiAliasing": false,
+	"hasAntiAliasing": true,
 	"isCentered": false,
 	"isBehindStrumLines2nd": true,
 	"font": "vcr",
@@ -6535,7 +6535,7 @@
 	"text": "Now I ate your heart and made you break",
 	"borderSize": 1.25,
 	"letterSpacing": 0,
-	"hasAntiAliasing": false,
+	"hasAntiAliasing": true,
 	"isCentered": false,
 	"isBehindStrumLines2nd": true,
 	"font": "vcr",
@@ -6570,7 +6570,7 @@
 	"text": "I'll",
 	"borderSize": 1.25,
 	"letterSpacing": 0,
-	"hasAntiAliasing": false,
+	"hasAntiAliasing": true,
 	"isCentered": false,
 	"isBehindStrumLines2nd": true,
 	"font": "vcr",
@@ -6617,7 +6617,7 @@
 	"text": "I'll make",
 	"borderSize": 1.25,
 	"letterSpacing": 0,
-	"hasAntiAliasing": false,
+	"hasAntiAliasing": true,
 	"isCentered": false,
 	"isBehindStrumLines2nd": true,
 	"font": "vcr",
@@ -6643,7 +6643,7 @@
 	"text": "I'll make your",
 	"borderSize": 1.25,
 	"letterSpacing": 0,
-	"hasAntiAliasing": false,
+	"hasAntiAliasing": true,
 	"isCentered": false,
 	"isBehindStrumLines2nd": true,
 	"font": "vcr",
@@ -6669,7 +6669,7 @@
 	"text": "I'll make your heart",
 	"borderSize": 1.25,
 	"letterSpacing": 0,
-	"hasAntiAliasing": false,
+	"hasAntiAliasing": true,
 	"isCentered": false,
 	"isBehindStrumLines2nd": true,
 	"font": "vcr",
@@ -6695,7 +6695,7 @@
 	"text": "I'll make your heart break",
 	"borderSize": 1.25,
 	"letterSpacing": 0,
-	"hasAntiAliasing": false,
+	"hasAntiAliasing": true,
 	"isCentered": false,
 	"isBehindStrumLines2nd": true,
 	"font": "vcr",
@@ -6721,7 +6721,7 @@
 	"text": "I'll",
 	"borderSize": 1.25,
 	"letterSpacing": 0,
-	"hasAntiAliasing": false,
+	"hasAntiAliasing": true,
 	"isCentered": false,
 	"isBehindStrumLines2nd": true,
 	"font": "vcr",
@@ -6758,7 +6758,7 @@
 	"text": "I'll make",
 	"borderSize": 1.25,
 	"letterSpacing": 0,
-	"hasAntiAliasing": false,
+	"hasAntiAliasing": true,
 	"isCentered": false,
 	"isBehindStrumLines2nd": true,
 	"font": "vcr",
@@ -6784,7 +6784,7 @@
 	"text": "I'll make your",
 	"borderSize": 1.25,
 	"letterSpacing": 0,
-	"hasAntiAliasing": false,
+	"hasAntiAliasing": true,
 	"isCentered": false,
 	"isBehindStrumLines2nd": true,
 	"font": "vcr",
@@ -6810,7 +6810,7 @@
 	"text": "I'll make your heart",
 	"borderSize": 1.25,
 	"letterSpacing": 0,
-	"hasAntiAliasing": false,
+	"hasAntiAliasing": true,
 	"isCentered": false,
 	"isBehindStrumLines2nd": true,
 	"font": "vcr",
@@ -6836,7 +6836,7 @@
 	"text": "I'll make your heart ache",
 	"borderSize": 1.25,
 	"letterSpacing": 0,
-	"hasAntiAliasing": false,
+	"hasAntiAliasing": true,
 	"isCentered": false,
 	"isBehindStrumLines2nd": true,
 	"font": "vcr",
@@ -6864,7 +6864,7 @@
 	"letterSpacing": 0,
 	"isBehindStrumLines2nd": true,
 	"isCentered": false,
-	"hasAntiAliasing": false,
+	"hasAntiAliasing": true,
 	"isBold": false,
 	"font": "vcr"
 }
@@ -6901,7 +6901,7 @@
 	"letterSpacing": 0,
 	"isBehindStrumLines2nd": true,
 	"isCentered": false,
-	"hasAntiAliasing": false,
+	"hasAntiAliasing": true,
 	"isBold": false,
 	"font": "vcr"
 }
@@ -6927,7 +6927,7 @@
 	"letterSpacing": 0,
 	"isBehindStrumLines2nd": true,
 	"isCentered": false,
-	"hasAntiAliasing": false,
+	"hasAntiAliasing": true,
 	"isBold": false,
 	"font": "vcr"
 }
@@ -6953,7 +6953,7 @@
 	"letterSpacing": 0,
 	"isBehindStrumLines2nd": true,
 	"isCentered": false,
-	"hasAntiAliasing": false,
+	"hasAntiAliasing": true,
 	"isBold": false,
 	"font": "vcr"
 }
@@ -6979,7 +6979,7 @@
 	"letterSpacing": 0,
 	"isBehindStrumLines2nd": true,
 	"isCentered": false,
-	"hasAntiAliasing": false,
+	"hasAntiAliasing": true,
 	"isBold": false,
 	"font": "vcr"
 }
@@ -7005,7 +7005,7 @@
 	"letterSpacing": 0,
 	"isBehindStrumLines2nd": true,
 	"isCentered": false,
-	"hasAntiAliasing": false,
+	"hasAntiAliasing": true,
 	"isBold": false,
 	"font": "vcr"
 }
@@ -7042,7 +7042,7 @@
 	"letterSpacing": 0,
 	"isBehindStrumLines2nd": true,
 	"isCentered": false,
-	"hasAntiAliasing": false,
+	"hasAntiAliasing": true,
 	"isBold": false,
 	"font": "vcr"
 }
@@ -7068,7 +7068,7 @@
 	"letterSpacing": 0,
 	"isBehindStrumLines2nd": true,
 	"isCentered": false,
-	"hasAntiAliasing": false,
+	"hasAntiAliasing": true,
 	"isBold": false,
 	"font": "vcr"
 }
@@ -7094,7 +7094,7 @@
 	"letterSpacing": 0,
 	"isBehindStrumLines2nd": true,
 	"isCentered": false,
-	"hasAntiAliasing": false,
+	"hasAntiAliasing": true,
 	"isBold": false,
 	"font": "vcr"
 }
@@ -7120,7 +7120,7 @@
 	"letterSpacing": 0,
 	"isBehindStrumLines2nd": true,
 	"isCentered": false,
-	"hasAntiAliasing": false,
+	"hasAntiAliasing": true,
 	"isBold": false,
 	"font": "vcr"
 }
@@ -7154,7 +7154,7 @@
 	"text": "I'll",
 	"borderSize": 1.25,
 	"letterSpacing": 0,
-	"hasAntiAliasing": false,
+	"hasAntiAliasing": true,
 	"isCentered": false,
 	"isBehindStrumLines2nd": true,
 	"font": "vcr",
@@ -7200,7 +7200,7 @@
 	"text": "I'll make",
 	"borderSize": 1.25,
 	"letterSpacing": 0,
-	"hasAntiAliasing": false,
+	"hasAntiAliasing": true,
 	"isCentered": false,
 	"isBehindStrumLines2nd": true,
 	"font": "vcr",
@@ -7226,7 +7226,7 @@
 	"text": "I'll make your",
 	"borderSize": 1.25,
 	"letterSpacing": 0,
-	"hasAntiAliasing": false,
+	"hasAntiAliasing": true,
 	"isCentered": false,
 	"isBehindStrumLines2nd": true,
 	"font": "vcr",
@@ -7252,7 +7252,7 @@
 	"text": "I'll make your heart",
 	"borderSize": 1.25,
 	"letterSpacing": 0,
-	"hasAntiAliasing": false,
+	"hasAntiAliasing": true,
 	"isCentered": false,
 	"isBehindStrumLines2nd": true,
 	"font": "vcr",
@@ -7278,7 +7278,7 @@
 	"text": "I'll make your heart break",
 	"borderSize": 1.25,
 	"letterSpacing": 0,
-	"hasAntiAliasing": false,
+	"hasAntiAliasing": true,
 	"isCentered": false,
 	"isBehindStrumLines2nd": true,
 	"font": "vcr",
@@ -7304,7 +7304,7 @@
 	"text": "I'll",
 	"borderSize": 1.25,
 	"letterSpacing": 0,
-	"hasAntiAliasing": false,
+	"hasAntiAliasing": true,
 	"isCentered": false,
 	"isBehindStrumLines2nd": true,
 	"font": "vcr",
@@ -7341,7 +7341,7 @@
 	"text": "I'll make",
 	"borderSize": 1.25,
 	"letterSpacing": 0,
-	"hasAntiAliasing": false,
+	"hasAntiAliasing": true,
 	"isCentered": false,
 	"isBehindStrumLines2nd": true,
 	"font": "vcr",
@@ -7367,7 +7367,7 @@
 	"text": "I'll make your",
 	"borderSize": 1.25,
 	"letterSpacing": 0,
-	"hasAntiAliasing": false,
+	"hasAntiAliasing": true,
 	"isCentered": false,
 	"isBehindStrumLines2nd": true,
 	"font": "vcr",
@@ -7393,7 +7393,7 @@
 	"text": "I'll make your heart",
 	"borderSize": 1.25,
 	"letterSpacing": 0,
-	"hasAntiAliasing": false,
+	"hasAntiAliasing": true,
 	"isCentered": false,
 	"isBehindStrumLines2nd": true,
 	"font": "vcr",
@@ -7419,7 +7419,7 @@
 	"text": "I'll make your heart ache",
 	"borderSize": 1.25,
 	"letterSpacing": 0,
-	"hasAntiAliasing": false,
+	"hasAntiAliasing": true,
 	"isCentered": false,
 	"isBehindStrumLines2nd": true,
 	"font": "vcr",
@@ -7458,7 +7458,7 @@
 	"letterSpacing": 0,
 	"isBehindStrumLines2nd": true,
 	"isCentered": false,
-	"hasAntiAliasing": false,
+	"hasAntiAliasing": true,
 	"isBold": false,
 	"font": "vcr"
 }
@@ -7484,7 +7484,7 @@
 	"letterSpacing": 0,
 	"isBehindStrumLines2nd": true,
 	"isCentered": false,
-	"hasAntiAliasing": false,
+	"hasAntiAliasing": true,
 	"isBold": false,
 	"font": "vcr"
 }
@@ -7510,7 +7510,7 @@
 	"letterSpacing": 0,
 	"isBehindStrumLines2nd": true,
 	"isCentered": false,
-	"hasAntiAliasing": false,
+	"hasAntiAliasing": true,
 	"isBold": false,
 	"font": "vcr"
 }
@@ -7536,7 +7536,7 @@
 	"letterSpacing": 0,
 	"isBehindStrumLines2nd": true,
 	"isCentered": false,
-	"hasAntiAliasing": false,
+	"hasAntiAliasing": true,
 	"isBold": false,
 	"font": "vcr"
 }
@@ -7562,7 +7562,7 @@
 	"letterSpacing": 0,
 	"isBehindStrumLines2nd": true,
 	"isCentered": false,
-	"hasAntiAliasing": false,
+	"hasAntiAliasing": true,
 	"isBold": false,
 	"font": "vcr"
 }
@@ -7588,7 +7588,7 @@
 	"letterSpacing": 0,
 	"isBehindStrumLines2nd": true,
 	"isCentered": false,
-	"hasAntiAliasing": false,
+	"hasAntiAliasing": true,
 	"isBold": false,
 	"font": "vcr"
 }
@@ -7624,7 +7624,7 @@
 	"letterSpacing": 0,
 	"isBehindStrumLines2nd": true,
 	"isCentered": false,
-	"hasAntiAliasing": false,
+	"hasAntiAliasing": true,
 	"isBold": false,
 	"font": "vcr"
 }
@@ -7659,7 +7659,7 @@
 	"letterSpacing": 0,
 	"isBehindStrumLines2nd": true,
 	"isCentered": false,
-	"hasAntiAliasing": false,
+	"hasAntiAliasing": true,
 	"isBold": false,
 	"font": "vcr"
 }
@@ -7716,7 +7716,7 @@
 	"letterSpacing": 0,
 	"isBehindStrumLines2nd": true,
 	"isCentered": false,
-	"hasAntiAliasing": false,
+	"hasAntiAliasing": true,
 	"isBold": false,
 	"font": "vcr"
 }
@@ -7742,7 +7742,7 @@
 	"letterSpacing": 0,
 	"isBehindStrumLines2nd": true,
 	"isCentered": false,
-	"hasAntiAliasing": false,
+	"hasAntiAliasing": true,
 	"isBold": false,
 	"font": "vcr"
 }
@@ -7768,7 +7768,7 @@
 	"letterSpacing": 0,
 	"isBehindStrumLines2nd": true,
 	"isCentered": false,
-	"hasAntiAliasing": false,
+	"hasAntiAliasing": true,
 	"isBold": false,
 	"font": "vcr"
 }
@@ -7794,7 +7794,7 @@
 	"letterSpacing": 0,
 	"isBehindStrumLines2nd": true,
 	"isCentered": false,
-	"hasAntiAliasing": false,
+	"hasAntiAliasing": true,
 	"isBold": false,
 	"font": "vcr"
 }
@@ -7820,7 +7820,7 @@
 	"letterSpacing": 0,
 	"isBehindStrumLines2nd": true,
 	"isCentered": false,
-	"hasAntiAliasing": false,
+	"hasAntiAliasing": true,
 	"isBold": false,
 	"font": "vcr"
 }
@@ -7846,7 +7846,7 @@
 	"letterSpacing": 0,
 	"isBehindStrumLines2nd": true,
 	"isCentered": false,
-	"hasAntiAliasing": false,
+	"hasAntiAliasing": true,
 	"isBold": false,
 	"font": "vcr"
 }
@@ -7872,7 +7872,7 @@
 	"letterSpacing": 0,
 	"isBehindStrumLines2nd": true,
 	"isCentered": false,
-	"hasAntiAliasing": false,
+	"hasAntiAliasing": true,
 	"isBold": false,
 	"font": "vcr"
 }
@@ -7898,7 +7898,7 @@
 	"letterSpacing": 0,
 	"isBehindStrumLines2nd": true,
 	"isCentered": false,
-	"hasAntiAliasing": false,
+	"hasAntiAliasing": true,
 	"isBold": false,
 	"font": "vcr"
 }
@@ -7924,7 +7924,7 @@
 	"letterSpacing": 0,
 	"isBehindStrumLines2nd": true,
 	"isCentered": false,
-	"hasAntiAliasing": false,
+	"hasAntiAliasing": true,
 	"isBold": false,
 	"font": "vcr"
 }
@@ -7950,7 +7950,7 @@
 	"letterSpacing": 0,
 	"isBehindStrumLines2nd": true,
 	"isCentered": false,
-	"hasAntiAliasing": false,
+	"hasAntiAliasing": true,
 	"isBold": false,
 	"font": "vcr"
 }
@@ -7976,7 +7976,7 @@
 	"letterSpacing": 0,
 	"isBehindStrumLines2nd": true,
 	"isCentered": false,
-	"hasAntiAliasing": false,
+	"hasAntiAliasing": true,
 	"isBold": false,
 	"font": "vcr"
 }
@@ -8002,7 +8002,7 @@
 	"letterSpacing": 0,
 	"isBehindStrumLines2nd": true,
 	"isCentered": false,
-	"hasAntiAliasing": false,
+	"hasAntiAliasing": true,
 	"isBold": false,
 	"font": "vcr"
 }
@@ -8028,7 +8028,7 @@
 	"letterSpacing": 0,
 	"isBehindStrumLines2nd": true,
 	"isCentered": false,
-	"hasAntiAliasing": false,
+	"hasAntiAliasing": true,
 	"isBold": false,
 	"font": "vcr"
 }
@@ -8054,7 +8054,7 @@
 	"letterSpacing": 0,
 	"isBehindStrumLines2nd": true,
 	"isCentered": false,
-	"hasAntiAliasing": false,
+	"hasAntiAliasing": true,
 	"isBold": false,
 	"font": "vcr"
 }
@@ -8080,7 +8080,7 @@
 	"letterSpacing": 0,
 	"isBehindStrumLines2nd": true,
 	"isCentered": false,
-	"hasAntiAliasing": false,
+	"hasAntiAliasing": true,
 	"isBold": false,
 	"font": "vcr"
 }
@@ -8106,7 +8106,7 @@
 	"letterSpacing": 0,
 	"isBehindStrumLines2nd": true,
 	"isCentered": false,
-	"hasAntiAliasing": false,
+	"hasAntiAliasing": true,
 	"isBold": false,
 	"font": "vcr"
 }
@@ -8132,7 +8132,7 @@
 	"letterSpacing": 0,
 	"isBehindStrumLines2nd": true,
 	"isCentered": false,
-	"hasAntiAliasing": false,
+	"hasAntiAliasing": true,
 	"isBold": false,
 	"font": "vcr"
 }
@@ -8158,7 +8158,7 @@
 	"letterSpacing": 0,
 	"isBehindStrumLines2nd": true,
 	"isCentered": false,
-	"hasAntiAliasing": false,
+	"hasAntiAliasing": true,
 	"isBold": false,
 	"font": "vcr"
 }
@@ -8184,7 +8184,7 @@
 	"letterSpacing": 0,
 	"isBehindStrumLines2nd": true,
 	"isCentered": false,
-	"hasAntiAliasing": false,
+	"hasAntiAliasing": true,
 	"isBold": false,
 	"font": "vcr"
 }
@@ -8210,7 +8210,7 @@
 	"letterSpacing": 0,
 	"isBehindStrumLines2nd": true,
 	"isCentered": false,
-	"hasAntiAliasing": false,
+	"hasAntiAliasing": true,
 	"isBold": false,
 	"font": "vcr"
 }
@@ -8236,7 +8236,7 @@
 	"letterSpacing": 0,
 	"isBehindStrumLines2nd": true,
 	"isCentered": false,
-	"hasAntiAliasing": false,
+	"hasAntiAliasing": true,
 	"isBold": false,
 	"font": "vcr"
 }
@@ -8262,7 +8262,7 @@
 	"letterSpacing": 0,
 	"isBehindStrumLines2nd": true,
 	"isCentered": false,
-	"hasAntiAliasing": false,
+	"hasAntiAliasing": true,
 	"isBold": false,
 	"font": "vcr"
 }
@@ -8288,7 +8288,7 @@
 	"letterSpacing": 0,
 	"isBehindStrumLines2nd": true,
 	"isCentered": false,
-	"hasAntiAliasing": false,
+	"hasAntiAliasing": true,
 	"isBold": false,
 	"font": "vcr"
 }
@@ -8314,7 +8314,7 @@
 	"letterSpacing": 0,
 	"isBehindStrumLines2nd": true,
 	"isCentered": false,
-	"hasAntiAliasing": false,
+	"hasAntiAliasing": true,
 	"isBold": false,
 	"font": "vcr"
 }
@@ -8340,7 +8340,7 @@
 	"letterSpacing": 0,
 	"isBehindStrumLines2nd": true,
 	"isCentered": false,
-	"hasAntiAliasing": false,
+	"hasAntiAliasing": true,
 	"isBold": false,
 	"font": "vcr"
 }
@@ -8366,7 +8366,7 @@
 	"letterSpacing": 0,
 	"isBehindStrumLines2nd": true,
 	"isCentered": false,
-	"hasAntiAliasing": false,
+	"hasAntiAliasing": true,
 	"isBold": false,
 	"font": "vcr"
 }
@@ -8392,7 +8392,7 @@
 	"letterSpacing": 0,
 	"isBehindStrumLines2nd": true,
 	"isCentered": false,
-	"hasAntiAliasing": false,
+	"hasAntiAliasing": true,
 	"isBold": false,
 	"font": "vcr"
 }
@@ -8418,7 +8418,7 @@
 	"letterSpacing": 0,
 	"isBehindStrumLines2nd": true,
 	"isCentered": false,
-	"hasAntiAliasing": false,
+	"hasAntiAliasing": true,
 	"isBold": false,
 	"font": "vcr"
 }
@@ -8444,7 +8444,7 @@
 	"letterSpacing": 0,
 	"isBehindStrumLines2nd": true,
 	"isCentered": false,
-	"hasAntiAliasing": false,
+	"hasAntiAliasing": true,
 	"isBold": false,
 	"font": "vcr"
 }
@@ -8470,7 +8470,7 @@
 	"letterSpacing": 0,
 	"isBehindStrumLines2nd": true,
 	"isCentered": false,
-	"hasAntiAliasing": false,
+	"hasAntiAliasing": true,
 	"isBold": false,
 	"font": "vcr"
 }
@@ -8496,7 +8496,7 @@
 	"letterSpacing": 0,
 	"isBehindStrumLines2nd": true,
 	"isCentered": false,
-	"hasAntiAliasing": false,
+	"hasAntiAliasing": true,
 	"isBold": false,
 	"font": "vcr"
 }
@@ -8522,7 +8522,7 @@
 	"letterSpacing": 0,
 	"isBehindStrumLines2nd": true,
 	"isCentered": false,
-	"hasAntiAliasing": false,
+	"hasAntiAliasing": true,
 	"isBold": false,
 	"font": "vcr"
 }
@@ -8548,7 +8548,7 @@
 	"letterSpacing": 0,
 	"isBehindStrumLines2nd": true,
 	"isCentered": false,
-	"hasAntiAliasing": false,
+	"hasAntiAliasing": true,
 	"isBold": false,
 	"font": "vcr"
 }
@@ -8574,7 +8574,7 @@
 	"letterSpacing": 0,
 	"isBehindStrumLines2nd": true,
 	"isCentered": false,
-	"hasAntiAliasing": false,
+	"hasAntiAliasing": true,
 	"isBold": false,
 	"font": "vcr"
 }
@@ -8600,7 +8600,7 @@
 	"letterSpacing": 0,
 	"isBehindStrumLines2nd": true,
 	"isCentered": false,
-	"hasAntiAliasing": false,
+	"hasAntiAliasing": true,
 	"isBold": false,
 	"font": "vcr"
 }
@@ -8626,7 +8626,7 @@
 	"letterSpacing": 0,
 	"isBehindStrumLines2nd": true,
 	"isCentered": false,
-	"hasAntiAliasing": false,
+	"hasAntiAliasing": true,
 	"isBold": false,
 	"font": "vcr"
 }
@@ -8652,7 +8652,7 @@
 	"letterSpacing": 0,
 	"isBehindStrumLines2nd": true,
 	"isCentered": false,
-	"hasAntiAliasing": false,
+	"hasAntiAliasing": true,
 	"isBold": false,
 	"font": "vcr"
 }
@@ -8678,7 +8678,7 @@
 	"letterSpacing": 0,
 	"isBehindStrumLines2nd": true,
 	"isCentered": false,
-	"hasAntiAliasing": false,
+	"hasAntiAliasing": true,
 	"isBold": false,
 	"font": "vcr"
 }
@@ -8704,7 +8704,7 @@
 	"letterSpacing": 0,
 	"isBehindStrumLines2nd": true,
 	"isCentered": false,
-	"hasAntiAliasing": false,
+	"hasAntiAliasing": true,
 	"isBold": false,
 	"font": "vcr"
 }
@@ -8730,7 +8730,7 @@
 	"letterSpacing": 0,
 	"isBehindStrumLines2nd": true,
 	"isCentered": false,
-	"hasAntiAliasing": false,
+	"hasAntiAliasing": true,
 	"isBold": false,
 	"font": "vcr"
 }
@@ -8756,7 +8756,7 @@
 	"letterSpacing": 0,
 	"isBehindStrumLines2nd": true,
 	"isCentered": false,
-	"hasAntiAliasing": false,
+	"hasAntiAliasing": true,
 	"isBold": false,
 	"font": "vcr"
 }
@@ -8782,7 +8782,7 @@
 	"letterSpacing": 0,
 	"isBehindStrumLines2nd": true,
 	"isCentered": false,
-	"hasAntiAliasing": false,
+	"hasAntiAliasing": true,
 	"isBold": false,
 	"font": "vcr"
 }
@@ -8808,7 +8808,7 @@
 	"letterSpacing": 0,
 	"isBehindStrumLines2nd": true,
 	"isCentered": false,
-	"hasAntiAliasing": false,
+	"hasAntiAliasing": true,
 	"isBold": false,
 	"font": "vcr"
 }
@@ -8834,7 +8834,7 @@
 	"letterSpacing": 0,
 	"isBehindStrumLines2nd": true,
 	"isCentered": false,
-	"hasAntiAliasing": false,
+	"hasAntiAliasing": true,
 	"isBold": false,
 	"font": "vcr"
 }
@@ -8860,7 +8860,7 @@
 	"letterSpacing": 0,
 	"isBehindStrumLines2nd": true,
 	"isCentered": false,
-	"hasAntiAliasing": false,
+	"hasAntiAliasing": true,
 	"isBold": false,
 	"font": "vcr"
 }
@@ -8886,7 +8886,7 @@
 	"letterSpacing": 0,
 	"isBehindStrumLines2nd": true,
 	"isCentered": false,
-	"hasAntiAliasing": false,
+	"hasAntiAliasing": true,
 	"isBold": false,
 	"font": "vcr"
 }
@@ -8912,7 +8912,7 @@
 	"letterSpacing": 0,
 	"isBehindStrumLines2nd": true,
 	"isCentered": false,
-	"hasAntiAliasing": false,
+	"hasAntiAliasing": true,
 	"isBold": false,
 	"font": "vcr"
 }
@@ -8938,7 +8938,7 @@
 	"letterSpacing": 0,
 	"isBehindStrumLines2nd": true,
 	"isCentered": false,
-	"hasAntiAliasing": false,
+	"hasAntiAliasing": true,
 	"isBold": false,
 	"font": "vcr"
 }
@@ -8964,7 +8964,7 @@
 	"letterSpacing": 0,
 	"isBehindStrumLines2nd": true,
 	"isCentered": false,
-	"hasAntiAliasing": false,
+	"hasAntiAliasing": true,
 	"isBold": false,
 	"font": "vcr"
 }
@@ -8990,7 +8990,7 @@
 	"letterSpacing": 0,
 	"isBehindStrumLines2nd": true,
 	"isCentered": false,
-	"hasAntiAliasing": false,
+	"hasAntiAliasing": true,
 	"isBold": false,
 	"font": "vcr"
 }
@@ -9016,7 +9016,7 @@
 	"letterSpacing": 0,
 	"isBehindStrumLines2nd": true,
 	"isCentered": false,
-	"hasAntiAliasing": false,
+	"hasAntiAliasing": true,
 	"isBold": false,
 	"font": "vcr"
 }
@@ -9042,7 +9042,7 @@
 	"letterSpacing": 0,
 	"isBehindStrumLines2nd": true,
 	"isCentered": false,
-	"hasAntiAliasing": false,
+	"hasAntiAliasing": true,
 	"isBold": false,
 	"font": "vcr"
 }
@@ -9068,7 +9068,7 @@
 	"letterSpacing": 0,
 	"isBehindStrumLines2nd": true,
 	"isCentered": false,
-	"hasAntiAliasing": false,
+	"hasAntiAliasing": true,
 	"isBold": false,
 	"font": "vcr"
 }
@@ -9094,7 +9094,7 @@
 	"letterSpacing": 0,
 	"isBehindStrumLines2nd": true,
 	"isCentered": false,
-	"hasAntiAliasing": false,
+	"hasAntiAliasing": true,
 	"isBold": false,
 	"font": "vcr"
 }
@@ -9120,7 +9120,7 @@
 	"letterSpacing": 0,
 	"isBehindStrumLines2nd": true,
 	"isCentered": false,
-	"hasAntiAliasing": false,
+	"hasAntiAliasing": true,
 	"isBold": false,
 	"font": "vcr"
 }
@@ -9146,7 +9146,7 @@
 	"letterSpacing": 0,
 	"isBehindStrumLines2nd": true,
 	"isCentered": false,
-	"hasAntiAliasing": false,
+	"hasAntiAliasing": true,
 	"isBold": false,
 	"font": "vcr"
 }
@@ -9172,7 +9172,7 @@
 	"letterSpacing": 0,
 	"isBehindStrumLines2nd": true,
 	"isCentered": false,
-	"hasAntiAliasing": false,
+	"hasAntiAliasing": true,
 	"isBold": false,
 	"font": "vcr"
 }
@@ -9198,7 +9198,7 @@
 	"letterSpacing": 0,
 	"isBehindStrumLines2nd": true,
 	"isCentered": false,
-	"hasAntiAliasing": false,
+	"hasAntiAliasing": true,
 	"isBold": false,
 	"font": "vcr"
 }
@@ -9224,7 +9224,7 @@
 	"letterSpacing": 0,
 	"isBehindStrumLines2nd": true,
 	"isCentered": false,
-	"hasAntiAliasing": false,
+	"hasAntiAliasing": true,
 	"isBold": false,
 	"font": "vcr"
 }
@@ -9250,7 +9250,7 @@
 	"letterSpacing": 0,
 	"isBehindStrumLines2nd": true,
 	"isCentered": false,
-	"hasAntiAliasing": false,
+	"hasAntiAliasing": true,
 	"isBold": false,
 	"font": "vcr"
 }
@@ -9276,7 +9276,7 @@
 	"letterSpacing": 0,
 	"isBehindStrumLines2nd": true,
 	"isCentered": false,
-	"hasAntiAliasing": false,
+	"hasAntiAliasing": true,
 	"isBold": false,
 	"font": "vcr"
 }
@@ -9302,7 +9302,7 @@
 	"letterSpacing": 0,
 	"isBehindStrumLines2nd": true,
 	"isCentered": false,
-	"hasAntiAliasing": false,
+	"hasAntiAliasing": true,
 	"isBold": false,
 	"font": "vcr"
 }
@@ -9328,7 +9328,7 @@
 	"letterSpacing": 0,
 	"isBehindStrumLines2nd": true,
 	"isCentered": false,
-	"hasAntiAliasing": false,
+	"hasAntiAliasing": true,
 	"isBold": false,
 	"font": "vcr"
 }
@@ -9354,7 +9354,7 @@
 	"letterSpacing": 0,
 	"isBehindStrumLines2nd": true,
 	"isCentered": false,
-	"hasAntiAliasing": false,
+	"hasAntiAliasing": true,
 	"isBold": false,
 	"font": "vcr"
 }
@@ -9380,7 +9380,7 @@
 	"letterSpacing": 0,
 	"isBehindStrumLines2nd": true,
 	"isCentered": false,
-	"hasAntiAliasing": false,
+	"hasAntiAliasing": true,
 	"isBold": false,
 	"font": "vcr"
 }
@@ -9406,7 +9406,7 @@
 	"letterSpacing": 0,
 	"isBehindStrumLines2nd": true,
 	"isCentered": false,
-	"hasAntiAliasing": false,
+	"hasAntiAliasing": true,
 	"isBold": false,
 	"font": "vcr"
 }
@@ -9432,7 +9432,7 @@
 	"letterSpacing": 0,
 	"isBehindStrumLines2nd": true,
 	"isCentered": false,
-	"hasAntiAliasing": false,
+	"hasAntiAliasing": true,
 	"isBold": false,
 	"font": "vcr"
 }
@@ -9458,7 +9458,7 @@
 	"letterSpacing": 0,
 	"isBehindStrumLines2nd": true,
 	"isCentered": false,
-	"hasAntiAliasing": false,
+	"hasAntiAliasing": true,
 	"isBold": false,
 	"font": "vcr"
 }
@@ -9484,7 +9484,7 @@
 	"letterSpacing": 0,
 	"isBehindStrumLines2nd": true,
 	"isCentered": false,
-	"hasAntiAliasing": false,
+	"hasAntiAliasing": true,
 	"isBold": false,
 	"font": "vcr"
 }
@@ -9510,7 +9510,7 @@
 	"letterSpacing": 0,
 	"isBehindStrumLines2nd": true,
 	"isCentered": false,
-	"hasAntiAliasing": false,
+	"hasAntiAliasing": true,
 	"isBold": false,
 	"font": "vcr"
 }
@@ -9536,7 +9536,7 @@
 	"letterSpacing": 0,
 	"isBehindStrumLines2nd": true,
 	"isCentered": false,
-	"hasAntiAliasing": false,
+	"hasAntiAliasing": true,
 	"isBold": false,
 	"font": "vcr"
 }
@@ -9562,7 +9562,7 @@
 	"letterSpacing": 0,
 	"isBehindStrumLines2nd": true,
 	"isCentered": false,
-	"hasAntiAliasing": false,
+	"hasAntiAliasing": true,
 	"isBold": false,
 	"font": "vcr"
 }
@@ -9588,7 +9588,7 @@
 	"letterSpacing": 0,
 	"isBehindStrumLines2nd": true,
 	"isCentered": false,
-	"hasAntiAliasing": false,
+	"hasAntiAliasing": true,
 	"isBold": false,
 	"font": "vcr"
 }
@@ -9614,7 +9614,7 @@
 	"letterSpacing": 0,
 	"isBehindStrumLines2nd": true,
 	"isCentered": false,
-	"hasAntiAliasing": false,
+	"hasAntiAliasing": true,
 	"isBold": false,
 	"font": "vcr"
 }
@@ -9640,7 +9640,7 @@
 	"letterSpacing": 0,
 	"isBehindStrumLines2nd": true,
 	"isCentered": false,
-	"hasAntiAliasing": false,
+	"hasAntiAliasing": true,
 	"isBold": false,
 	"font": "vcr"
 }
@@ -9666,7 +9666,7 @@
 	"letterSpacing": 0,
 	"isBehindStrumLines2nd": true,
 	"isCentered": false,
-	"hasAntiAliasing": false,
+	"hasAntiAliasing": true,
 	"isBold": false,
 	"font": "vcr"
 }
@@ -9692,7 +9692,7 @@
 	"letterSpacing": 0,
 	"isBehindStrumLines2nd": true,
 	"isCentered": false,
-	"hasAntiAliasing": false,
+	"hasAntiAliasing": true,
 	"isBold": false,
 	"font": "vcr"
 }
@@ -9718,7 +9718,7 @@
 	"letterSpacing": 0,
 	"isBehindStrumLines2nd": true,
 	"isCentered": true,
-	"hasAntiAliasing": false,
+	"hasAntiAliasing": true,
 	"isBold": false,
 	"font": "vcr"
 }
@@ -9744,7 +9744,7 @@
 	"letterSpacing": 0,
 	"isBehindStrumLines2nd": true,
 	"isCentered": true,
-	"hasAntiAliasing": false,
+	"hasAntiAliasing": true,
 	"isBold": false,
 	"font": "vcr"
 }
@@ -9770,7 +9770,7 @@
 	"letterSpacing": 0,
 	"isBehindStrumLines2nd": true,
 	"isCentered": true,
-	"hasAntiAliasing": false,
+	"hasAntiAliasing": true,
 	"isBold": false,
 	"font": "vcr"
 }
@@ -9796,7 +9796,7 @@
 	"letterSpacing": 0,
 	"isBehindStrumLines2nd": true,
 	"isCentered": true,
-	"hasAntiAliasing": false,
+	"hasAntiAliasing": true,
 	"isBold": false,
 	"font": "vcr"
 }
@@ -9822,7 +9822,7 @@
 	"letterSpacing": 0,
 	"isBehindStrumLines2nd": true,
 	"isCentered": true,
-	"hasAntiAliasing": false,
+	"hasAntiAliasing": true,
 	"isBold": false,
 	"font": "vcr"
 }
@@ -9848,7 +9848,7 @@
 	"letterSpacing": 0,
 	"isBehindStrumLines2nd": true,
 	"isCentered": true,
-	"hasAntiAliasing": false,
+	"hasAntiAliasing": true,
 	"isBold": false,
 	"font": "vcr"
 }
@@ -9874,7 +9874,7 @@
 	"letterSpacing": 0,
 	"isBehindStrumLines2nd": true,
 	"isCentered": true,
-	"hasAntiAliasing": false,
+	"hasAntiAliasing": true,
 	"isBold": false,
 	"font": "vcr"
 }
@@ -9900,7 +9900,7 @@
 	"letterSpacing": 0,
 	"isBehindStrumLines2nd": true,
 	"isCentered": true,
-	"hasAntiAliasing": false,
+	"hasAntiAliasing": true,
 	"isBold": false,
 	"font": "vcr"
 }
@@ -10044,7 +10044,7 @@
 	"letterSpacing": 0,
 	"isBehindStrumLines2nd": true,
 	"isCentered": false,
-	"hasAntiAliasing": false,
+	"hasAntiAliasing": true,
 	"isBold": false,
 	"font": "vcr"
 }
@@ -10070,7 +10070,7 @@
 	"letterSpacing": 0,
 	"isBehindStrumLines2nd": true,
 	"isCentered": false,
-	"hasAntiAliasing": false,
+	"hasAntiAliasing": true,
 	"isBold": false,
 	"font": "vcr"
 }
@@ -10096,7 +10096,7 @@
 	"letterSpacing": 0,
 	"isBehindStrumLines2nd": true,
 	"isCentered": false,
-	"hasAntiAliasing": false,
+	"hasAntiAliasing": true,
 	"isBold": false,
 	"font": "vcr"
 }
@@ -10122,7 +10122,7 @@
 	"letterSpacing": 0,
 	"isBehindStrumLines2nd": true,
 	"isCentered": false,
-	"hasAntiAliasing": false,
+	"hasAntiAliasing": true,
 	"isBold": false,
 	"font": "vcr"
 }
@@ -10148,7 +10148,7 @@
 	"letterSpacing": 0,
 	"isBehindStrumLines2nd": true,
 	"isCentered": false,
-	"hasAntiAliasing": false,
+	"hasAntiAliasing": true,
 	"isBold": false,
 	"font": "vcr"
 }
@@ -10174,7 +10174,7 @@
 	"letterSpacing": 0,
 	"isBehindStrumLines2nd": true,
 	"isCentered": false,
-	"hasAntiAliasing": false,
+	"hasAntiAliasing": true,
 	"isBold": false,
 	"font": "vcr"
 }
@@ -10200,7 +10200,7 @@
 	"letterSpacing": 0,
 	"isBehindStrumLines2nd": true,
 	"isCentered": false,
-	"hasAntiAliasing": false,
+	"hasAntiAliasing": true,
 	"isBold": false,
 	"font": "vcr"
 }
@@ -10226,7 +10226,7 @@
 	"letterSpacing": 0,
 	"isBehindStrumLines2nd": true,
 	"isCentered": false,
-	"hasAntiAliasing": false,
+	"hasAntiAliasing": true,
 	"isBold": false,
 	"font": "vcr"
 }
@@ -10252,7 +10252,7 @@
 	"letterSpacing": 0,
 	"isBehindStrumLines2nd": true,
 	"isCentered": false,
-	"hasAntiAliasing": false,
+	"hasAntiAliasing": true,
 	"isBold": false,
 	"font": "vcr"
 }
@@ -10278,7 +10278,7 @@
 	"letterSpacing": 0,
 	"isBehindStrumLines2nd": true,
 	"isCentered": false,
-	"hasAntiAliasing": false,
+	"hasAntiAliasing": true,
 	"isBold": false,
 	"font": "vcr"
 }
@@ -10304,7 +10304,7 @@
 	"letterSpacing": 0,
 	"isBehindStrumLines2nd": true,
 	"isCentered": false,
-	"hasAntiAliasing": false,
+	"hasAntiAliasing": true,
 	"isBold": false,
 	"font": "vcr"
 }
@@ -10330,7 +10330,7 @@
 	"letterSpacing": 0,
 	"isBehindStrumLines2nd": true,
 	"isCentered": false,
-	"hasAntiAliasing": false,
+	"hasAntiAliasing": true,
 	"isBold": false,
 	"font": "vcr"
 }
@@ -10356,7 +10356,7 @@
 	"letterSpacing": 0,
 	"isBehindStrumLines2nd": true,
 	"isCentered": false,
-	"hasAntiAliasing": false,
+	"hasAntiAliasing": true,
 	"isBold": false,
 	"font": "vcr"
 }
@@ -10382,7 +10382,7 @@
 	"letterSpacing": 0,
 	"isBehindStrumLines2nd": true,
 	"isCentered": false,
-	"hasAntiAliasing": false,
+	"hasAntiAliasing": true,
 	"isBold": false,
 	"font": "vcr"
 }
@@ -10408,7 +10408,7 @@
 	"letterSpacing": 0,
 	"isBehindStrumLines2nd": true,
 	"isCentered": false,
-	"hasAntiAliasing": false,
+	"hasAntiAliasing": true,
 	"isBold": false,
 	"font": "vcr"
 }
@@ -10434,7 +10434,7 @@
 	"letterSpacing": 0,
 	"isBehindStrumLines2nd": true,
 	"isCentered": false,
-	"hasAntiAliasing": false,
+	"hasAntiAliasing": true,
 	"isBold": false,
 	"font": "vcr"
 }
@@ -10460,7 +10460,7 @@
 	"letterSpacing": 0,
 	"isBehindStrumLines2nd": true,
 	"isCentered": false,
-	"hasAntiAliasing": false,
+	"hasAntiAliasing": true,
 	"isBold": false,
 	"font": "vcr"
 }
@@ -10486,7 +10486,7 @@
 	"letterSpacing": 0,
 	"isBehindStrumLines2nd": true,
 	"isCentered": false,
-	"hasAntiAliasing": false,
+	"hasAntiAliasing": true,
 	"isBold": false,
 	"font": "vcr"
 }
@@ -10512,7 +10512,7 @@
 	"letterSpacing": 0,
 	"isBehindStrumLines2nd": true,
 	"isCentered": false,
-	"hasAntiAliasing": false,
+	"hasAntiAliasing": true,
 	"isBold": false,
 	"font": "vcr"
 }
@@ -10538,7 +10538,7 @@
 	"letterSpacing": 0,
 	"isBehindStrumLines2nd": true,
 	"isCentered": false,
-	"hasAntiAliasing": false,
+	"hasAntiAliasing": true,
 	"isBold": false,
 	"font": "vcr"
 }
@@ -10564,7 +10564,7 @@
 	"letterSpacing": 0,
 	"isBehindStrumLines2nd": true,
 	"isCentered": false,
-	"hasAntiAliasing": false,
+	"hasAntiAliasing": true,
 	"isBold": false,
 	"font": "vcr"
 }
@@ -10590,7 +10590,7 @@
 	"letterSpacing": 0,
 	"isBehindStrumLines2nd": true,
 	"isCentered": false,
-	"hasAntiAliasing": false,
+	"hasAntiAliasing": true,
 	"isBold": false,
 	"font": "vcr"
 }
@@ -10616,7 +10616,7 @@
 	"letterSpacing": 0,
 	"isBehindStrumLines2nd": true,
 	"isCentered": false,
-	"hasAntiAliasing": false,
+	"hasAntiAliasing": true,
 	"isBold": false,
 	"font": "vcr"
 }
@@ -10642,7 +10642,7 @@
 	"letterSpacing": 0,
 	"isBehindStrumLines2nd": true,
 	"isCentered": false,
-	"hasAntiAliasing": false,
+	"hasAntiAliasing": true,
 	"isBold": false,
 	"font": "vcr"
 }
@@ -10668,7 +10668,7 @@
 	"letterSpacing": 0,
 	"isBehindStrumLines2nd": true,
 	"isCentered": false,
-	"hasAntiAliasing": false,
+	"hasAntiAliasing": true,
 	"isBold": false,
 	"font": "vcr"
 }
@@ -10694,7 +10694,7 @@
 	"letterSpacing": 0,
 	"isBehindStrumLines2nd": true,
 	"isCentered": false,
-	"hasAntiAliasing": false,
+	"hasAntiAliasing": true,
 	"isBold": false,
 	"font": "vcr"
 }
@@ -10720,7 +10720,7 @@
 	"letterSpacing": 0,
 	"isBehindStrumLines2nd": true,
 	"isCentered": false,
-	"hasAntiAliasing": false,
+	"hasAntiAliasing": true,
 	"isBold": false,
 	"font": "vcr"
 }
@@ -10746,7 +10746,7 @@
 	"letterSpacing": 0,
 	"isBehindStrumLines2nd": true,
 	"isCentered": false,
-	"hasAntiAliasing": false,
+	"hasAntiAliasing": true,
 	"isBold": false,
 	"font": "vcr"
 }
@@ -10772,7 +10772,7 @@
 	"letterSpacing": 0,
 	"isBehindStrumLines2nd": true,
 	"isCentered": false,
-	"hasAntiAliasing": false,
+	"hasAntiAliasing": true,
 	"isBold": false,
 	"font": "vcr"
 }
@@ -10798,7 +10798,7 @@
 	"letterSpacing": 0,
 	"isBehindStrumLines2nd": true,
 	"isCentered": false,
-	"hasAntiAliasing": false,
+	"hasAntiAliasing": true,
 	"isBold": false,
 	"font": "vcr"
 }
@@ -10833,7 +10833,7 @@
 	"letterSpacing": 0,
 	"isBehindStrumLines2nd": true,
 	"isCentered": true,
-	"hasAntiAliasing": false,
+	"hasAntiAliasing": true,
 	"isBold": false,
 	"font": "vcr"
 }
@@ -10869,7 +10869,7 @@
 	"letterSpacing": 0,
 	"isBehindStrumLines2nd": true,
 	"isCentered": true,
-	"hasAntiAliasing": false,
+	"hasAntiAliasing": true,
 	"isBold": false,
 	"font": "vcr"
 }
@@ -10895,7 +10895,7 @@
 	"letterSpacing": 0,
 	"isBehindStrumLines2nd": true,
 	"isCentered": true,
-	"hasAntiAliasing": false,
+	"hasAntiAliasing": true,
 	"isBold": false,
 	"font": "vcr"
 }
@@ -10921,7 +10921,7 @@
 	"letterSpacing": 0,
 	"isBehindStrumLines2nd": true,
 	"isCentered": true,
-	"hasAntiAliasing": false,
+	"hasAntiAliasing": true,
 	"isBold": false,
 	"font": "vcr"
 }
@@ -10947,7 +10947,7 @@
 	"letterSpacing": 0,
 	"isBehindStrumLines2nd": true,
 	"isCentered": true,
-	"hasAntiAliasing": false,
+	"hasAntiAliasing": true,
 	"isBold": false,
 	"font": "vcr"
 }
@@ -10973,7 +10973,7 @@
 	"letterSpacing": 0,
 	"isBehindStrumLines2nd": true,
 	"isCentered": true,
-	"hasAntiAliasing": false,
+	"hasAntiAliasing": true,
 	"isBold": false,
 	"font": "vcr"
 }
@@ -10999,7 +10999,7 @@
 	"letterSpacing": 0,
 	"isBehindStrumLines2nd": true,
 	"isCentered": true,
-	"hasAntiAliasing": false,
+	"hasAntiAliasing": true,
 	"isBold": false,
 	"font": "vcr"
 }
@@ -11025,7 +11025,7 @@
 	"letterSpacing": 0,
 	"isBehindStrumLines2nd": true,
 	"isCentered": true,
-	"hasAntiAliasing": false,
+	"hasAntiAliasing": true,
 	"isBold": false,
 	"font": "vcr"
 }
@@ -11051,7 +11051,7 @@
 	"letterSpacing": 0,
 	"isBehindStrumLines2nd": true,
 	"isCentered": true,
-	"hasAntiAliasing": false,
+	"hasAntiAliasing": true,
 	"isBold": false,
 	"font": "vcr"
 }
@@ -11077,7 +11077,7 @@
 	"letterSpacing": 0,
 	"isBehindStrumLines2nd": true,
 	"isCentered": true,
-	"hasAntiAliasing": false,
+	"hasAntiAliasing": true,
 	"isBold": false,
 	"font": "vcr"
 }
@@ -11103,7 +11103,7 @@
 	"letterSpacing": 0,
 	"isBehindStrumLines2nd": true,
 	"isCentered": true,
-	"hasAntiAliasing": false,
+	"hasAntiAliasing": true,
 	"isBold": false,
 	"font": "vcr"
 }
@@ -11129,7 +11129,7 @@
 	"letterSpacing": 0,
 	"isBehindStrumLines2nd": true,
 	"isCentered": true,
-	"hasAntiAliasing": false,
+	"hasAntiAliasing": true,
 	"isBold": false,
 	"font": "vcr"
 }
@@ -11183,7 +11183,7 @@
 	"letterSpacing": 0,
 	"isBehindStrumLines2nd": true,
 	"isCentered": false,
-	"hasAntiAliasing": false,
+	"hasAntiAliasing": true,
 	"isBold": false,
 	"font": "vcr"
 }
@@ -11209,7 +11209,7 @@
 	"letterSpacing": 0,
 	"isBehindStrumLines2nd": true,
 	"isCentered": false,
-	"hasAntiAliasing": false,
+	"hasAntiAliasing": true,
 	"isBold": false,
 	"font": "vcr"
 }
@@ -11235,7 +11235,7 @@
 	"letterSpacing": 0,
 	"isBehindStrumLines2nd": true,
 	"isCentered": false,
-	"hasAntiAliasing": false,
+	"hasAntiAliasing": true,
 	"isBold": false,
 	"font": "vcr"
 }
@@ -11261,7 +11261,7 @@
 	"letterSpacing": 0,
 	"isBehindStrumLines2nd": true,
 	"isCentered": false,
-	"hasAntiAliasing": false,
+	"hasAntiAliasing": true,
 	"isBold": false,
 	"font": "vcr"
 }
@@ -11287,7 +11287,7 @@
 	"letterSpacing": 0,
 	"isBehindStrumLines2nd": true,
 	"isCentered": false,
-	"hasAntiAliasing": false,
+	"hasAntiAliasing": true,
 	"isBold": false,
 	"font": "vcr"
 }
@@ -11313,7 +11313,7 @@
 	"letterSpacing": 0,
 	"isBehindStrumLines2nd": true,
 	"isCentered": false,
-	"hasAntiAliasing": false,
+	"hasAntiAliasing": true,
 	"isBold": false,
 	"font": "vcr"
 }
@@ -11339,7 +11339,7 @@
 	"letterSpacing": 0,
 	"isBehindStrumLines2nd": true,
 	"isCentered": false,
-	"hasAntiAliasing": false,
+	"hasAntiAliasing": true,
 	"isBold": false,
 	"font": "vcr"
 }
@@ -11365,7 +11365,7 @@
 	"letterSpacing": 0,
 	"isBehindStrumLines2nd": true,
 	"isCentered": false,
-	"hasAntiAliasing": false,
+	"hasAntiAliasing": true,
 	"isBold": false,
 	"font": "vcr"
 }
@@ -11391,7 +11391,7 @@
 	"letterSpacing": 0,
 	"isBehindStrumLines2nd": true,
 	"isCentered": false,
-	"hasAntiAliasing": false,
+	"hasAntiAliasing": true,
 	"isBold": false,
 	"font": "vcr"
 }
@@ -11417,7 +11417,7 @@
 	"letterSpacing": 0,
 	"isBehindStrumLines2nd": true,
 	"isCentered": false,
-	"hasAntiAliasing": false,
+	"hasAntiAliasing": true,
 	"isBold": false,
 	"font": "vcr"
 }
@@ -11463,7 +11463,7 @@
 	"letterSpacing": 0,
 	"isBehindStrumLines2nd": true,
 	"isCentered": false,
-	"hasAntiAliasing": false,
+	"hasAntiAliasing": true,
 	"isBold": false,
 	"font": "vcr"
 }
@@ -11489,7 +11489,7 @@
 	"letterSpacing": 0,
 	"isBehindStrumLines2nd": true,
 	"isCentered": false,
-	"hasAntiAliasing": false,
+	"hasAntiAliasing": true,
 	"isBold": false,
 	"font": "vcr"
 }
@@ -11515,7 +11515,7 @@
 	"letterSpacing": 0,
 	"isBehindStrumLines2nd": true,
 	"isCentered": false,
-	"hasAntiAliasing": false,
+	"hasAntiAliasing": true,
 	"isBold": false,
 	"font": "vcr"
 }
@@ -11541,7 +11541,7 @@
 	"letterSpacing": 0,
 	"isBehindStrumLines2nd": true,
 	"isCentered": false,
-	"hasAntiAliasing": false,
+	"hasAntiAliasing": true,
 	"isBold": false,
 	"font": "vcr"
 }
@@ -11567,7 +11567,7 @@
 	"letterSpacing": 0,
 	"isBehindStrumLines2nd": true,
 	"isCentered": false,
-	"hasAntiAliasing": false,
+	"hasAntiAliasing": true,
 	"isBold": false,
 	"font": "vcr"
 }
@@ -11593,7 +11593,7 @@
 	"letterSpacing": 0,
 	"isBehindStrumLines2nd": true,
 	"isCentered": false,
-	"hasAntiAliasing": false,
+	"hasAntiAliasing": true,
 	"isBold": false,
 	"font": "vcr"
 }
@@ -11619,7 +11619,7 @@
 	"letterSpacing": 0,
 	"isBehindStrumLines2nd": true,
 	"isCentered": false,
-	"hasAntiAliasing": false,
+	"hasAntiAliasing": true,
 	"isBold": false,
 	"font": "vcr"
 }
@@ -11645,7 +11645,7 @@
 	"letterSpacing": 0,
 	"isBehindStrumLines2nd": true,
 	"isCentered": false,
-	"hasAntiAliasing": false,
+	"hasAntiAliasing": true,
 	"isBold": false,
 	"font": "vcr"
 }
@@ -11671,7 +11671,7 @@
 	"letterSpacing": 0,
 	"isBehindStrumLines2nd": true,
 	"isCentered": false,
-	"hasAntiAliasing": false,
+	"hasAntiAliasing": true,
 	"isBold": false,
 	"font": "vcr"
 }
@@ -11697,7 +11697,7 @@
 	"letterSpacing": 0,
 	"isBehindStrumLines2nd": true,
 	"isCentered": false,
-	"hasAntiAliasing": false,
+	"hasAntiAliasing": true,
 	"isBold": false,
 	"font": "vcr"
 }
@@ -11723,7 +11723,7 @@
 	"letterSpacing": 0,
 	"isBehindStrumLines2nd": true,
 	"isCentered": false,
-	"hasAntiAliasing": false,
+	"hasAntiAliasing": true,
 	"isBold": false,
 	"font": "vcr"
 }
@@ -11769,7 +11769,7 @@
 	"letterSpacing": 0,
 	"isBehindStrumLines2nd": true,
 	"isCentered": true,
-	"hasAntiAliasing": false,
+	"hasAntiAliasing": true,
 	"isBold": false,
 	"font": "vcr"
 }
@@ -11795,7 +11795,7 @@
 	"letterSpacing": 0,
 	"isBehindStrumLines2nd": true,
 	"isCentered": true,
-	"hasAntiAliasing": false,
+	"hasAntiAliasing": true,
 	"isBold": false,
 	"font": "vcr"
 }
@@ -11821,7 +11821,7 @@
 	"letterSpacing": 0,
 	"isBehindStrumLines2nd": true,
 	"isCentered": true,
-	"hasAntiAliasing": false,
+	"hasAntiAliasing": true,
 	"isBold": false,
 	"font": "vcr"
 }
@@ -11847,7 +11847,7 @@
 	"letterSpacing": 0,
 	"isBehindStrumLines2nd": true,
 	"isCentered": true,
-	"hasAntiAliasing": false,
+	"hasAntiAliasing": true,
 	"isBold": false,
 	"font": "vcr"
 }
@@ -11873,7 +11873,7 @@
 	"letterSpacing": 0,
 	"isBehindStrumLines2nd": true,
 	"isCentered": true,
-	"hasAntiAliasing": false,
+	"hasAntiAliasing": true,
 	"isBold": false,
 	"font": "vcr"
 }
@@ -11899,7 +11899,7 @@
 	"letterSpacing": 0,
 	"isBehindStrumLines2nd": true,
 	"isCentered": true,
-	"hasAntiAliasing": false,
+	"hasAntiAliasing": true,
 	"isBold": false,
 	"font": "vcr"
 }
@@ -11925,7 +11925,7 @@
 	"letterSpacing": 0,
 	"isBehindStrumLines2nd": true,
 	"isCentered": true,
-	"hasAntiAliasing": false,
+	"hasAntiAliasing": true,
 	"isBold": false,
 	"font": "vcr"
 }
@@ -11971,7 +11971,7 @@
 	"letterSpacing": 0,
 	"isBehindStrumLines2nd": true,
 	"isCentered": false,
-	"hasAntiAliasing": false,
+	"hasAntiAliasing": true,
 	"isBold": false,
 	"font": "vcr"
 }

@@ -56,7 +56,6 @@ class CameraRotateEvent extends ScriptedSongEvent {
   public var DEFAULT_CAMGAME_ANGLE:Float = 10.0;
   public var DEFAULT_CAMHUD_ANGLE:Float = 10.0;
   public var DEFAULT_DURATION:Float = 4.0;
-  public var DEFAULT_EASE:String = 'linear';
 
   public var camGameRotateTween:FlxTween = null;
   public var camHUDRotateTween:FlxTween = null;
@@ -72,7 +71,10 @@ class CameraRotateEvent extends ScriptedSongEvent {
     var toAngle_camGame:Float = data.getFloat('angleCamGame') != null ? data.getFloat('angleCamGame') : DEFAULT_CAMGAME_ANGLE;
     var toAngle_camHUD:Float = data.getFloat('angleCamHUD') != null ? data.getFloat('angleCamHUD') : DEFAULT_CAMHUD_ANGLE;
     var duration:Float = data.getFloat('duration') != null ? data.getFloat('duration') : DEFAULT_DURATION;
-    var ease:String = data.getString('ease') != null ? data.getString('ease') : DEFAULT_EASE;
+    var ease:String = data.getString('ease') != null ? data.getString('ease') : SongEvent.DEFAULT_EASE;
+    var easeDir:String = data.getString('easeDir') ?? SongEvent.DEFAULT_EASE_DIR;
+
+    if (SongEvent.EASE_TYPE_DIR_REGEX.match(ease) || ease == "linear") easeDir = "";
 
     var durSeconds = Conductor.instance.stepLengthMs * duration / 1000;
     var easeFunction:Null<Float->Float>;
@@ -89,7 +91,7 @@ class CameraRotateEvent extends ScriptedSongEvent {
           PlayState.instance.camGame.angle = toAngle_camGame;
           if (Save.instance.modOptions.get('extra-events').iscamHUDRotateEnabled) PlayState.instance.camHUD.angle = toAngle_camHUD;
         default:
-          easeFunction = ReflectUtil.getAnonymousField(FlxEase, ease);
+          easeFunction = ReflectUtil.getAnonymousField(FlxEase, ease + easeDir);
           if (easeFunction == null){
             // trace("Invalid easing function: " + ease);
           }
@@ -159,44 +161,27 @@ class CameraRotateEvent extends ScriptedSongEvent {
         type: "enum",
         keys: [
           'Linear' => 'linear',
-          'Instant (Ignores Duration)' => 'INSTANT',
-          'Sine In' => 'sineIn',
-          'Sine Out' => 'sineOut',
-          'Sine In/Out' => 'sineInOut',
-          'Quad In' => 'quadIn',
-          'Quad Out' => 'quadOut',
-          'Quad In/Out' => 'quadInOut',
-          'Cube In' => 'cubeIn',
-          'Cube Out' => 'cubeOut',
-          'Cube In/Out' => 'cubeInOut',
-          'Quart In' => 'quartIn',
-          'Quart Out' => 'quartOut',
-          'Quart In/Out' => 'quartInOut',
-          'Quint In' => 'quintIn',
-          'Quint Out' => 'quintOut',
-          'Quint In/Out' => 'quintInOut',
-          'Expo In' => 'expoIn',
-          'Expo Out' => 'expoOut',
-          'Expo In/Out' => 'expoInOut',
-          'Smooth Step In' => 'smoothStepIn',
-          'Smooth Step Out' => 'smoothStepOut',
-          'Smooth Step In/Out' => 'smoothStepInOut',
-          'Smoother Step In' => 'smootherStepIn',
-          'Smoother Step Out' => 'smootherStepOut',
-          'Smoother Step In/Out' => 'smootherStepInOut',
-          'Elastic In' => 'elasticIn',
-          'Elastic Out' => 'elasticOut',
-          'Elastic In/Out' => 'elasticInOut',
-          'Back In' => 'backIn',
-          'Back Out' => 'backOut',
-          'Back In/Out' => 'backInOut',
-          'Bounce In' => 'bounceIn',
-          'Bounce Out' => 'bounceOut',
-          'Bounce In/Out' => 'bounceInOut',
-          'Circ In' => 'circIn',
-          'Circ Out' => 'circOut',
-          'Circ In/Out' => 'circInOut'
+          'Instant (Ignores duration)' => 'INSTANT',
+          'Sine' => 'sine',
+          'Quad' => 'quad',
+          'Cube' => 'cube',
+          'Quart' => 'quart',
+          'Quint' => 'quint',
+          'Expo' => 'expo',
+          'Smooth Step' => 'smoothStep',
+          'Smoother Step' => 'smootherStep',
+          'Elastic' => 'elastic',
+          'Back' => 'back',
+          'Bounce' => 'bounce',
+          'Circ ' => 'circ',
         ]
+      },
+      {
+        name: 'easeDir',
+        title: 'Easing Direction',
+        defaultValue: 'In',
+        type: "enum",
+        keys: ['In' => 'In', 'Out' => 'Out', 'In/Out' => 'InOut']
       }
     ];
   }

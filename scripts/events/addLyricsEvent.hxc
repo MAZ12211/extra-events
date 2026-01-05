@@ -38,7 +38,7 @@ class AddLyricsEvent extends ScriptedSongEvent {
 
   public var DEFAULT_ITALIC:Bool = false;
   public var DEFAULT_BOLD:Bool = false;
-  public var DEFAULT_HAS_ANTIALIASING:Bool = false;
+  public var DEFAULT_HAS_ANTIALIASING:Bool = true;
   
   public var DEFAULT_ISCENTERED:Bool = false; // No real point in having custom x and y position. ISCENTERED is used for if you want the lyric to be the on the middle of the screen
   public var DEFAULT_ISCENTERED_2ND:Bool = false;
@@ -220,7 +220,7 @@ class AddLyricsEvent extends ScriptedSongEvent {
       {
         name: "hasAntiAliasing",
         title: "Anti-Aliasing",
-        defaultValue: false,
+        defaultValue: true,
         type: "bool"
       },
       {
