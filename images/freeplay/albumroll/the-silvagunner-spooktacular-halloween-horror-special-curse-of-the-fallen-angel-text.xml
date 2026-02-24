@@ -2,7 +2,7 @@
 <!--
 Created with Funkin Packer v0.1.3 https://neeeoo.github.io/funkin-packer/
 -->
-<TextureAtlas imagePath="the-siIvagunner-spooktacular-halloween-horror-special-curse-of-the-fallen-angel-text.png" width="995" height="186">
+<TextureAtlas imagePath="the-silvagunner-spooktacular-halloween-horror-special-curse-of-the-fallen-angel-text.png" width="995" height="186">
 	<SubTexture name="switch0001" x="499" y="1" width="495" height="184" frameX="-4" frameY="-38" frameWidth="514" frameHeight="229"/>
 	<SubTexture name="switch0002" x="499" y="1" width="495" height="184" frameX="-4" frameY="-38" frameWidth="514" frameHeight="229"/>
 	<SubTexture name="switch0003" x="499" y="1" width="495" height="184" frameX="-4" frameY="-38" frameWidth="514" frameHeight="229"/>
