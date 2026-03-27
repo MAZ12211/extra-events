@@ -1,4 +1,5 @@
 {
+  "id": "extra-events",
   "title": "Extra Events",
   "description": "Adds more events to experiment with in your charts!\n\nEvents can be disabled/enabled in the options menu.",
   "api_version": "0.8.4",
