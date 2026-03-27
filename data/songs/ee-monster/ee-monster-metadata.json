@@ -27,8 +27,8 @@
     "stage": "spookyMansion",
     "noteStyle": "funkin",
     "ratings": {"easy": 2, "hard": 3, "normal": 2},
-    "previewStart": 0,
-    "previewEnd": 0
+    "previewStart": 0.0995220125786164,
+    "previewEnd": 0.187986453797775
   },
   "generatedBy": "Friday Night Funkin' - v0.7.5",
   "timeFormat": "ms",

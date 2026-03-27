@@ -4,5 +4,6 @@
   "artists": ["MarkedAman", "LeChadeur"],
   "albumArtAsset": "freeplay/albumRoll/mrk-mixes-vol-one",
   "albumTitleAsset": "freeplay/albumRoll/mrk-mixes-vol-one-text",
+  "albumOSTName": "MRK MIXES VOL ONE",
   "albumTitleOffsets": [-20, -10]
 }

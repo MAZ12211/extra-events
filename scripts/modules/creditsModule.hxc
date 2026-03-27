@@ -1,9 +1,8 @@
 import funkin.modding.module.Module;
 import funkin.ui.credits.CreditsDataHandler;
 // Credit goes to Kolo (https://x.com/KoloInDaCrib)
-// TODO: Figure out why these don't show up lol
 
-class CreditsModule extends Module 
+class eeCreditsModule extends Module 
 {
     var MOD_CREDITS:Array<CreditsData> = 
     [
@@ -35,13 +34,13 @@ class CreditsModule extends Module
 
     public function new()
     {
-        super("creditsModule");
+        super("ee-creditsModule");
     }
 
     public function onCreate(event:ScriptEvent)
     {
         super.onCreate(event);
-	this.active = false;
+	    this.active = false;
 
         for (i in 0...MOD_CREDITS.length)
         {
