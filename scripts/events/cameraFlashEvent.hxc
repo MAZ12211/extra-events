@@ -17,28 +17,8 @@ import funkin.data.event.SongEventRegistry;
 
 import funkin.Preferences;
 
-class CameraFlashFixes extends ScriptedModule {
-  var shouldFixFlashEvent:Bool = true;
-
-  public function new(){
-    super('extra-events-cameraFlashFixes');
-  }
-  
-  function onGameOver(event:ScriptEvent){
-    super.onGameOver(event);
-    if (PlayState.instance.camGame != null && shouldFixFlashEvent) PlayState.instance.camGame.stopFlash();
-    if (PlayState.instance.camHUD != null && shouldFixFlashEvent) PlayState.instance.camHUD.stopFlash();
-  }
-
-  function onSongRetry(event:ScriptEvent){
-    super.onSongRetry(event);
-    if (PlayState.instance.camGame != null && shouldFixFlashEvent) PlayState.instance.camGame.stopFlash();
-    if (PlayState.instance.camHUD != null && shouldFixFlashEvent) PlayState.instance.camHUD.stopFlash();
-  }
-}
-
 class CameraFlashEvent extends ScriptedSongEvent {
-  
+
   function new() {
     super("extra-events-cameraFlashEvent");
   }
@@ -52,7 +32,9 @@ class CameraFlashEvent extends ScriptedSongEvent {
   public var DEFAULT_APPLYTOHUD:Bool = false; // self-explanatory, default to false for players who just want to read the notes like me
   public var DEFAULT_COLOR:Int = 12; // Black
 
-  override function handleEvent(data):Void {
+  public var shouldFixFlashEvent:Bool = true;
+
+  override function handleEvent(data) {
     if (PlayState.instance == null || PlayState.instance.currentStage == null) return;
     if (PlayState.instance.isMinimalMode) return;
 
@@ -108,6 +90,18 @@ class CameraFlashEvent extends ScriptedSongEvent {
       PlayState.instance.camHUD?.flash(color, durSeconds / PlayState.instance.playbackRate);
     }
 
+  }
+
+  public override function onGameOver(event:ScriptEvent){
+    super.onGameOver(event);
+    if (PlayState.instance.camGame != null && shouldFixFlashEvent) PlayState.instance.camGame.stopFlash();
+    if (PlayState.instance.camHUD != null && shouldFixFlashEvent) PlayState.instance.camHUD.stopFlash();
+  }
+
+  public override function onSongRetry(event:ScriptEvent){
+    super.onSongRetry(event);
+    if (PlayState.instance.camGame != null && shouldFixFlashEvent) PlayState.instance.camGame.stopFlash();
+    if (PlayState.instance.camHUD != null && shouldFixFlashEvent) PlayState.instance.camHUD.stopFlash();
   }
 
   public override function getTitle() {

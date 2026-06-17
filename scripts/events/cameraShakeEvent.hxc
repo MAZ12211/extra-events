@@ -11,42 +11,6 @@ import funkin.modding.module.ScriptedModule;
 import funkin.data.event.SongEventRegistry;
 import funkin.save.Save;
 
-class CameraShakeFixes extends ScriptedModule {
-  var shouldFixShakeEvent:Bool = true;
-  var camShakeVal = null; // Used for pausing the screen shake effect when you.. pause the game. Thank you Comedy Lost :D
-  var camHUDShakeVal = null;
-
-  public function new(){
-    super('extra-events-cameraShakeFixes');
-  }
-  
-  function onGameOver(event:ScriptEvent){
-    super.onGameOver(event);
-    if (PlayState.instance.camGame != null && shouldFixShakeEvent) PlayState.instance.camGame.stopShake();
-    if (PlayState.instance.camHUD != null && shouldFixShakeEvent) PlayState.instance.camHUD.stopShake();
-  }
-
-  function onSongRetry(event:ScriptEvent){
-    super.onSongRetry(event);
-    if (PlayState.instance.camGame != null && shouldFixShakeEvent) PlayState.instance.camGame.stopShake();
-    if (PlayState.instance.camHUD != null && shouldFixShakeEvent) PlayState.instance.camHUD.stopShake();
-  }
-
-  function onPause(e) {
-    super.onPause(e);
-    camShakeVal = PlayState.instance.camGame._fxShakeDuration ?? null;
-    camHUDShakeVal = PlayState.instance.camHUD._fxShakeDuration ?? null;
-    if (camShakeVal != null || camShakeVal != 0) PlayState.instance?.camGame?._fxShakeDuration = 0;
-    if (camHUDShakeVal != null || camHUDShakeVal != 0) PlayState.instance?.camHUD?._fxShakeDuration = 0;
-  }
-
-  function onResume(e) {
-    super.onResume(e);
-    if (camShakeVal != null || camShakeVal != 0) PlayState.instance?.camGame?._fxShakeDuration = camShakeVal;
-    if (camHUDShakeVal != null || camHUDShakeVal != 0) PlayState.instance?.camHUD?._fxShakeDuration = camHUDShakeVal;
-  }
-}
-
 class CameraShakeEvent extends ScriptedSongEvent {
   function new() {
     super("extra-events-cameraShakeEvent");
@@ -62,6 +26,10 @@ class CameraShakeEvent extends ScriptedSongEvent {
   public var DEFAULT_DIRECTION:Int = 2;
 
   // public var tween:FlxTween = null; // Can't figure out how to do easing on shaking effects
+
+  public var shouldFixShakeEvent:Bool = true;
+  public var camShakeVal = null; // Used for pausing the screen shake effect when you.. pause the game. Thank you Comedy Lost :D
+  public var camHUDShakeVal = null;
 
   override function handleEvent(data):Void {
     if (PlayState.instance == null || PlayState.instance.currentStage == null) return;
@@ -93,6 +61,32 @@ class CameraShakeEvent extends ScriptedSongEvent {
 
     if (intensity_CamGame != 0) FlxG.camera.shake(intensity_CamGame, durSeconds / PlayState.instance.playbackRate, null, true, direction);
     if (intensity_CamHUD != 0) PlayState.instance.camHUD?.shake(intensity_CamHUD, durSeconds / PlayState.instance.playbackRate, null, true, direction);
+  }
+
+  public override function onGameOver(event:ScriptEvent){
+    super.onGameOver(event);
+    if (PlayState.instance.camGame != null && shouldFixShakeEvent) PlayState.instance.camGame.stopShake();
+    if (PlayState.instance.camHUD != null && shouldFixShakeEvent) PlayState.instance.camHUD.stopShake();
+  }
+
+  public override function onSongRetry(event:ScriptEvent){
+    super.onSongRetry(event);
+    if (PlayState.instance.camGame != null && shouldFixShakeEvent) PlayState.instance.camGame.stopShake();
+    if (PlayState.instance.camHUD != null && shouldFixShakeEvent) PlayState.instance.camHUD.stopShake();
+  }
+
+  public override function onPause(e) {
+    super.onPause(e);
+    camShakeVal = PlayState.instance.camGame._fxShakeDuration ?? null;
+    camHUDShakeVal = PlayState.instance.camHUD._fxShakeDuration ?? null;
+    if (camShakeVal != null || camShakeVal != 0) PlayState.instance?.camGame?._fxShakeDuration = 0;
+    if (camHUDShakeVal != null || camHUDShakeVal != 0) PlayState.instance?.camHUD?._fxShakeDuration = 0;
+  }
+
+  public override function onResume(e) {
+    super.onResume(e);
+    if (camShakeVal != null || camShakeVal != 0) PlayState.instance?.camGame?._fxShakeDuration = camShakeVal;
+    if (camHUDShakeVal != null || camHUDShakeVal != 0) PlayState.instance?.camHUD?._fxShakeDuration = camHUDShakeVal;
   }
 
   public override function getTitle() {
@@ -146,4 +140,3 @@ class CameraShakeEvent extends ScriptedSongEvent {
     ];
   }
 }
-

@@ -15,49 +15,6 @@ import funkin.modding.module.ModuleHandler;
 import funkin.modding.module.ScriptedModule;
 import funkin.data.event.SongEventRegistry;
 
-class CameraFadeFixes extends ScriptedModule {
-
-  var shouldFixFadeEvent:Bool = true;
-  var camFadeVal = null;
-  var camHUDFadeVal = null;
-
-  public function new(){
-    super('extra-events-cameraFadeFixes');
-  }
-
-  // There was a bug where if the player just happened to restart the song
-  // or died after the camera was faded, the camera fade effect wouldn't reset
-  // This is the band-aid solution for it until a way to reset events is found
-
-  function onGameOver(event:ScriptEvent){
-    super.onGameOver(event);
-    if (PlayState.instance.camGame != null && shouldFixFadeEvent) PlayState.instance.camGame.stopFade();
-    if (PlayState.instance.camHUD != null && shouldFixFadeEvent) PlayState.instance.camHUD.stopFade();
-  }
-
-  function onSongRetry(event:ScriptEvent){
-    super.onSongRetry(event);
-    if (PlayState.instance.camGame != null && shouldFixFadeEvent) PlayState.instance.camGame.stopFade();
-    if (PlayState.instance.camHUD != null && shouldFixFadeEvent) PlayState.instance.camHUD.stopFade();
-  }
-
-  // Prevents the event from running if the game is paused
-  // Credit goes to ComedyLost
-  function onPause(e) {
-    super.onPause(e);
-    camFadeVal = PlayState.instance.camGame._fxFadeDuration ?? null;
-    camHUDFadeVal = PlayState.instance.camHUD._fxFadeDuration ?? null;
-    if (camFadeVal != null || camFadeVal != 0) PlayState.instance?.camGame?._fxFadeDuration = 0;
-    if (camHUDFadeVal != null || camHUDFadeVal != 0) PlayState.instance?.camHUD?._fxFadeDuration = 0;
-  }
-
-  function onResume(e) {
-    super.onResume(e);
-    if (camFadeVal != null || camFadeVal != 0) PlayState.instance?.camGame?._fxFadeDuration = camFadeVal;
-    if (camHUDFadeVal != null || camHUDFadeVal != 0) PlayState.instance?.camHUD?._fxFadeDuration = camHUDFadeVal;
-  }
-}
-
 class CameraFadeEvent extends ScriptedSongEvent {
   function new() {
     super("extra-events-cameraFadeEvent");
@@ -74,7 +31,11 @@ class CameraFadeEvent extends ScriptedSongEvent {
   public var DEFAULT_APPLYTOHUD:Bool = false; // self-explanatory, default to false for players who want to read the notes
   public var DEFAULT_COLOR:Int = 0; // Black
 
-  override function handleEvent(data):Void {
+  public var shouldFixFadeEvent:Bool = true;
+  public var camFadeVal = null;
+  public var camHUDFadeVal = null;
+
+  override function handleEvent(data) {
     if (PlayState.instance == null || PlayState.instance.currentStage == null) return; // used to know if we're in a song
     if (PlayState.instance.isMinimalMode) return;
 
@@ -134,6 +95,38 @@ class CameraFadeEvent extends ScriptedSongEvent {
       FlxTween.tween(PlayState.instance?.camHUD, {alpha: (shouldFadeIn ? 1.0 : 0.00001)}, durSeconds / PlayState.instance.playbackRate);
     }
 
+  }
+
+  // There was a bug where if the player just happened to restart the song
+  // or died after the camera was faded, the camera fade effect wouldn't reset
+  // This is the band-aid solution for it until a way to reset events is found
+
+  public override function onGameOver(event:ScriptEvent){
+    super.onGameOver(event);
+    if (PlayState.instance.camGame != null && shouldFixFadeEvent) PlayState.instance.camGame.stopFade();
+    if (PlayState.instance.camHUD != null && shouldFixFadeEvent) PlayState.instance.camHUD.stopFade();
+  }
+
+  public override function onSongRetry(event:ScriptEvent){
+    super.onSongRetry(event);
+    if (PlayState.instance.camGame != null && shouldFixFadeEvent) PlayState.instance.camGame.stopFade();
+    if (PlayState.instance.camHUD != null && shouldFixFadeEvent) PlayState.instance.camHUD.stopFade();
+  }
+
+  // Prevents the event from running if the game is paused
+  // Credit goes to ComedyLost
+  public override function onPause(e) {
+    super.onPause(e);
+    camFadeVal = PlayState.instance.camGame._fxFadeDuration ?? null;
+    camHUDFadeVal = PlayState.instance.camHUD._fxFadeDuration ?? null;
+    if (camFadeVal != null || camFadeVal != 0) PlayState.instance?.camGame?._fxFadeDuration = 0;
+    if (camHUDFadeVal != null || camHUDFadeVal != 0) PlayState.instance?.camHUD?._fxFadeDuration = 0;
+  }
+
+  public override function onResume(e) {
+    super.onResume(e);
+    if (camFadeVal != null || camFadeVal != 0) PlayState.instance?.camGame?._fxFadeDuration = camFadeVal;
+    if (camHUDFadeVal != null || camHUDFadeVal != 0) PlayState.instance?.camHUD?._fxFadeDuration = camHUDFadeVal;
   }
 
   public override function getTitle() {

@@ -18,31 +18,11 @@ import funkin.data.event.SongEventRegistry;
 import funkin.util.Constants;
 import funkin.Preferences;
 
-class movePlayerStrumlineFixes extends ScriptedModule {
-
-  var shouldFix_MPSLEvent:Bool = true;
-
-  public function new(){
-    super('extra-events-movePlayerStrumlineFixes');
-  }
-
-  function onSongRetry(event:ScriptEvent){
-    super.onSongRetry(event);
-    if (FlxG.onMobile) return;
-    if (PlayState.instance.camHUD != null && shouldFix_MPSLEvent) {
-      PlayState.instance.comboPopUps?.offsets =  [0, 0];
-      PlayState.instance.playerStrumline.x = FlxG.width / 2 + Constants.STRUMLINE_X_OFFSET; // Resets the player strumline to its default position
-      if (PlayState.instance.opponentStrumline.x != Constants.STRUMLINE_X_OFFSET) PlayState.instance.opponentStrumline.x = Constants.STRUMLINE_X_OFFSET; // same for opponent strumline
-    }
-  }
-  
-}
-
 class MovePlayerStrumlineEvent extends ScriptedSongEvent {
   function new() {
     super("extra-events-movePlayerStrumlineEvent");
   }
-  
+
   /**
   * Moves the Player Strumline with easings and being able to move in/out the opponent's strumline
   **/
@@ -56,6 +36,8 @@ class MovePlayerStrumlineEvent extends ScriptedSongEvent {
 
   public var playerSLTwn:FlxTween = null;
   public var opponentSLTwn:FlxTween = null;
+
+  public var shouldFix_MPSLEvent:Bool = true;
 
   override function handleEvent(data) {
     if (PlayState.instance == null || PlayState.instance.currentStage == null) return;
@@ -99,7 +81,7 @@ class MovePlayerStrumlineEvent extends ScriptedSongEvent {
 
         var targetX:Float;
         var currentPSLPosX = PlayState.instance.playerStrumline.x;
-        
+
         switch (direction) {
           case "center":
             targetX = FlxG.width / 2 - PlayState.instance.playerStrumline.width / 2 + offSetX;
@@ -115,19 +97,21 @@ class MovePlayerStrumlineEvent extends ScriptedSongEvent {
             targetX = FlxG.width / 2 - PlayState.instance.playerStrumline.width / 2 + offSetX;
           }
 
+        //if (targetX != currentPSLPosX) {
+        //  playerSLTwn = FlxTween.tween(PlayState.instance.playerStrumline, {x: targetX}, durSeconds / PlayState.instance.playbackRate, {ease: easeFunction, onUpdate: function(twn:FlxTween) {
+        //    // Code snippet by comedylost
+        //    // This fixes the hold note covers being mispositioned (they're still mispositioned sometimes but I'm okay with this)
+        //    for (covers in PlayState.instance.playerStrumline.noteHoldCovers) {
+        //      var alpha = covers.alpha;
+        //      var visible = covers.visible;
+        //      covers.revive();
+        //      covers.alpha = alpha;
+        //      covers.visible = visible;
+        //    }
+        //  }});
+        //}
         if (targetX != currentPSLPosX) {
-          playerSLTwn = FlxTween.tween(PlayState.instance.playerStrumline, {x: targetX}, durSeconds / PlayState.instance.playbackRate, {ease: easeFunction, onUpdate: function(twn:FlxTween) {
-            // Code snippet by comedylost
-            // This fixes the hold note covers being mispositioned (they're still mispositioned sometimes but I'm okay with this)
-            for (covers in PlayState.instance.playerStrumline.noteHoldCovers) {
-              var alpha = covers.alpha;
-              var visible = covers.visible;
-              covers.revive();
-              covers.alpha = alpha;
-              covers.visible = visible;
-            }
-          }});
-
+          playerSLTwn = FlxTween.tween(PlayState.instance.playerStrumline, {x: targetX}, durSeconds / PlayState.instance.playbackRate, {ease: easeFunction});
         }
     }
 
@@ -141,10 +125,20 @@ class MovePlayerStrumlineEvent extends ScriptedSongEvent {
     if (opponentSLTwn != null) opponentSLTwn.cancel();
   }
 
+  public override function onSongRetry(event:ScriptEvent){
+    super.onSongRetry(event);
+    if (FlxG.onMobile) return;
+    if (PlayState.instance.camHUD != null && shouldFix_MPSLEvent) {
+      PlayState.instance.comboPopUps?.offsets =  [0, 0];
+      PlayState.instance.playerStrumline.x = FlxG.width / 2 + Constants.STRUMLINE_X_OFFSET; // Resets the player strumline to its default position
+      if (PlayState.instance.opponentStrumline.x != Constants.STRUMLINE_X_OFFSET) PlayState.instance.opponentStrumline.x = Constants.STRUMLINE_X_OFFSET; // same for opponent strumline
+    }
+  }
+
   public override function getTitle() {
     return eventTitle;
   }
-  
+
   public override function getIconPath(){
     return 'ui/chart-editor/events/extra-events-movePlayerStrumlineEvent';
   }

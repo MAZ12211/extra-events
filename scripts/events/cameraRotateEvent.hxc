@@ -20,26 +20,6 @@ import funkin.data.event.SongEventRegistry;
 import funkin.play.event.ScriptedSongEvent;
 import funkin.save.Save;
 
-class CameraRotateFixes extends ScriptedModule {
-  var shouldFixRotateEvent:Bool = true;
-
-  public function new(){
-    super('extra-events-cameraRotateFixes');
-  }
-
-  function onGameOver(event:ScriptEvent){
-    super.onGameOver(event);
-    if (PlayState.instance.camGame != null && PlayState.instance.camGame.angle != 0 && shouldFixRotateEvent) PlayState.instance.camGame.angle = 0;
-    if (PlayState.instance.camHUD != null && PlayState.instance.camHUD.angle != 0 && shouldFixRotateEvent) PlayState.instance.camHUD.angle = 0;
-  }
-
-  function onSongRetry(event:ScriptEvent){
-    super.onSongRetry(event);
-    if (PlayState.instance.camGame != null && PlayState.instance.camGame.angle != 0 && shouldFixRotateEvent) PlayState.instance.camGame.angle = 0;
-    if (PlayState.instance.camHUD != null && PlayState.instance.camHUD.angle != 0 && shouldFixRotateEvent) PlayState.instance.camHUD.angle = 0;
-  }
-}
-
 class CameraRotateEvent extends ScriptedSongEvent {
   function new() {
     super("extra-events-cameraRotateEvent");
@@ -59,6 +39,8 @@ class CameraRotateEvent extends ScriptedSongEvent {
 
   public var camGameRotateTween:FlxTween = null;
   public var camHUDRotateTween:FlxTween = null;
+
+  public var shouldFixRotateEvent:Bool = true;
 
   override function handleEvent(data):Void {
     if (PlayState.instance == null || PlayState.instance.currentStage == null) return;
@@ -117,6 +99,18 @@ class CameraRotateEvent extends ScriptedSongEvent {
 
   public function cancelCamHUDRotation() {
     if (camHUDRotateTween != null) camHUDRotateTween.cancel();
+  }
+
+  public override function onGameOver(event:ScriptEvent){
+    super.onGameOver(event);
+    if (PlayState.instance.camGame != null && PlayState.instance.camGame.angle != 0 && shouldFixRotateEvent) PlayState.instance.camGame.angle = 0;
+    if (PlayState.instance.camHUD != null && PlayState.instance.camHUD.angle != 0 && shouldFixRotateEvent) PlayState.instance.camHUD.angle = 0;
+  }
+
+  public override function onSongRetry(event:ScriptEvent){
+    super.onSongRetry(event);
+    if (PlayState.instance.camGame != null && PlayState.instance.camGame.angle != 0 && shouldFixRotateEvent) PlayState.instance.camGame.angle = 0;
+    if (PlayState.instance.camHUD != null && PlayState.instance.camHUD.angle != 0 && shouldFixRotateEvent) PlayState.instance.camHUD.angle = 0;
   }
 
   public override function getIconPath(){
