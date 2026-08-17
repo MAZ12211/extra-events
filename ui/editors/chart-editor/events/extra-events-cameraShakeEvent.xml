@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+Created with Funkin Packer v0.1.3 https://neeeoo.github.io/funkin-packer/
+-->
+<TextureAtlas imagePath="extra-events-cameraShakeEvent.png" width="2232" height="259">
+	<SubTexture name="extra-events-cameraShakeEvent0001" x="1" y="1" width="316" height="257" frameX="-0" frameY="-0" frameWidth="316" frameHeight="257"/>
+	<SubTexture name="extra-events-cameraShakeEvent0002" x="320" y="1" width="316" height="257" frameX="-0" frameY="-0" frameWidth="316" frameHeight="257"/>
+	<SubTexture name="extra-events-cameraShakeEvent0003" x="639" y="1" width="316" height="257" frameX="-0" frameY="-0" frameWidth="316" frameHeight="257"/>
+	<SubTexture name="extra-events-cameraShakeEvent0004" x="958" y="1" width="316" height="257" frameX="-0" frameY="-0" frameWidth="316" frameHeight="257"/>
+	<SubTexture name="extra-events-cameraShakeEvent0005" x="1277" y="1" width="316" height="257" frameX="-0" frameY="-0" frameWidth="316" frameHeight="257"/>
+	<SubTexture name="extra-events-cameraShakeEvent0006" x="1596" y="1" width="316" height="257" frameX="-0" frameY="-0" frameWidth="316" frameHeight="257"/>
+	<SubTexture name="extra-events-cameraShakeEvent0007" x="1915" y="1" width="316" height="257" frameX="-0" frameY="-0" frameWidth="316" frameHeight="257"/>
+	<SubTexture name="extra-events-cameraShakeEvent0008" x="1" y="1" width="316" height="257" frameX="-0" frameY="-0" frameWidth="316" frameHeight="257"/>
+</TextureAtlas>

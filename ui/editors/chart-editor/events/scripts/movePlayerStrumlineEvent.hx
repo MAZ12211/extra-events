@@ -1,0 +1,197 @@
+import funkin.play.PlayState;
+import funkin.Conductor;
+import flixel.FlxG;
+
+import funkin.play.event.SongEvent;
+import funkin.data.event.SongEventSchema;
+
+import flixel.tweens.FlxTween;
+import flixel.tweens.FlxEase;
+import funkin.util.ReflectUtil;
+
+import funkin.modding.PolymodErrorHandler;
+import funkin.play.event.ScriptedSongEvent;
+
+import funkin.modding.module.ModuleHandler;
+import funkin.modding.module.ScriptedModule;
+import funkin.data.event.SongEventRegistry;
+import funkin.util.Constants;
+import funkin.Preferences;
+
+class MovePlayerStrumlineEvent extends ScriptedSongEvent {
+  function new() {
+    super("extra-events-movePlayerStrumlineEvent");
+  }
+
+  /**
+  * Moves the Player Strumline with easings and being able to move in/out the opponent's strumline
+  **/
+
+  public var eventTitle:String = "Extra Events | Move Player Strumline";
+
+  public var DEFAULT_DIRECTION:String = "center";
+  public var DEFAULT_DURATION:Float = 4.0;
+  public var DEFAULT_HIDEOPPONENT_SL:Bool = true; // To avoid strumline overlapping
+  public var DEFAULT_OFFSETX:Float = 0.0; // Extra option beyond direction
+
+  public var playerSLTwn:FlxTween = null;
+  public var opponentSLTwn:FlxTween = null;
+
+  public var shouldFix_MPSLEvent:Bool = true;
+
+  override function handleEvent(data) {
+    if (PlayState.instance == null || PlayState.instance.currentStage == null) return;
+    if (PlayState.instance.isMinimalMode) return;
+    if (FlxG.onMobile) return;
+
+    var duration:Float = data.getFloat('duration') != null ? data.getFloat('duration') : DEFAULT_DURATION;
+    var hideOpponentSL:Bool = data.getBool('hideOpponentSL') != null ? data.getBool('hideOpponentSL') : DEFAULT_HIDEOPPONENT_SL;
+    var direction:String = data.getString('direction') != null ? data.getString('direction') : DEFAULT_DIRECTION;
+    var offSetX:Float = data.getFloat('offSetX') != null ? data.getFloat('offSetX') : DEFAULT_OFFSETX;
+
+    var ease:String = data.getString('ease') != null ? data.getString('ease') : SongEvent.DEFAULT_EASE;
+    var easeDir:String = data.getString('easeDir') ?? SongEvent.DEFAULT_EASE_DIR;
+
+    if (SongEvent.EASE_TYPE_DIR_REGEX.match(ease) || ease == "linear") easeDir = "";
+
+    var durSeconds = Conductor.instance.stepLengthMs * duration / 1000;
+    var easeFunction:Null<Float->Float>;
+    var opponentTargetX:Float = hideOpponentSL ? -PlayState.instance.opponentStrumline.width - 100 : Constants.STRUMLINE_X_OFFSET;
+
+    if (duration < 0) {
+      PolymodErrorHandler.showAlert('Event executing event | ${eventTitle}, Duration cannot be less or equal to 0.\nDuration must be greater than 0.');
+      return;
+    }
+
+    switch (ease) {
+      case 'INSTANT':
+        cancelSLTween();
+        cancelOpponentSLTween();
+        PlayState.instance.playerStrumline.x = playerTargetX;
+        PlayState.instance.opponentStrumline?.x = opponentTargetX;
+      default:
+        easeFunction = ReflectUtil.getAnonymousField(FlxEase, ease + easeDir);
+        if (easeFunction == null){
+          // trace("Invalid easing function: " + ease);
+        }
+
+        cancelSLTween();
+        cancelOpponentSLTween();
+        opponentSLTwn = FlxTween.tween(PlayState.instance.opponentStrumline, {x: opponentTargetX}, durSeconds / PlayState.instance.playbackRate, {ease: easeFunction});
+
+        var targetX:Float;
+        var currentPSLPosX = PlayState.instance.playerStrumline.x;
+
+        switch (direction) {
+          case "center":
+            targetX = FlxG.width / 2 - PlayState.instance.playerStrumline.width / 2 + offSetX;
+            PlayState.instance?.comboPopUps?.offsets =  [400 + offSetX, 0];
+          case "left":
+            targetX = Constants.STRUMLINE_X_OFFSET + offSetX; // two offsets bruh
+            PlayState.instance?.comboPopUps?.offsets =  [400 + offSetX, 0];
+          case "right":
+            targetX = FlxG.width / 2 + Constants.STRUMLINE_X_OFFSET + offSetX;
+            PlayState.instance?.comboPopUps?.offsets =  [0, 0];
+          default:
+            targetX = FlxG.width / 2 - PlayState.instance.playerStrumline.width / 2 + offSetX;
+          }
+
+        if (targetX != currentPSLPosX) {
+          playerSLTwn = FlxTween.tween(PlayState.instance.playerStrumline, {x: targetX}, durSeconds / PlayState.instance.playbackRate, {ease: easeFunction});
+        }
+    }
+
+  }
+
+  public function cancelSLTween() {
+    if (playerSLTwn != null) playerSLTwn.cancel();
+  }
+
+  public function cancelOpponentSLTween() {
+    if (opponentSLTwn != null) opponentSLTwn.cancel();
+  }
+
+  public override function onSongRetry(event:ScriptEvent){
+    super.onSongRetry(event);
+    if (FlxG.onMobile) return;
+    if (PlayState.instance.camHUD != null && shouldFix_MPSLEvent) {
+      PlayState.instance.comboPopUps?.offsets =  [0, 0];
+      PlayState.instance.playerStrumline.x = FlxG.width / 2 + Constants.STRUMLINE_X_OFFSET; // Resets the player strumline to its default position
+      if (PlayState.instance.opponentStrumline.x != Constants.STRUMLINE_X_OFFSET) PlayState.instance.opponentStrumline.x = Constants.STRUMLINE_X_OFFSET; // same for opponent strumline
+    }
+  }
+
+  public override function getTitle() {
+    return eventTitle;
+  }
+
+  override function getEventSchema(){
+    return [
+      {
+        name: 'direction',
+        title: 'Direction',
+        defaultValue: 'center',
+        type: "enum",
+        keys: [
+          'Left' => 'left',
+          'Center' => 'center',
+          'Right' => 'right'
+        ]
+      },
+      {
+        name: 'duration',
+        title: 'Duration',
+        defaultValue: 4.0,
+        step: 0.5,
+        min: 0.5,
+        type: "float",
+        units: 'steps'
+      },
+      {
+        name: 'ease',
+        title: 'Easing Type',
+        defaultValue: 'linear',
+        type: "enum",
+        keys: [
+          'Linear' => 'linear',
+          'Instant (Ignores duration)' => 'INSTANT',
+          'Sine' => 'sine',
+          'Quad' => 'quad',
+          'Cube' => 'cube',
+          'Quart' => 'quart',
+          'Quint' => 'quint',
+          'Expo' => 'expo',
+          'Smooth Step' => 'smoothStep',
+          'Smoother Step' => 'smootherStep',
+          'Elastic' => 'elastic',
+          'Back' => 'back',
+          'Bounce' => 'bounce',
+          'Circ' => 'circ',
+        ]
+      },
+      {
+        name: 'easeDir',
+        title: 'Easing Direction',
+        defaultValue: 'In',
+        type: "enum",
+        keys: ['In' => 'In', 'Out' => 'Out', 'In/Out' => 'InOut']
+      },
+      {
+        name: 'hideOpponentSL',
+        title: 'Move Opponent\nStrumline Offscreen',
+        defaultValue: true,
+        type: "bool"
+      },
+      {
+        name: 'offSetX',
+        title: 'Offset X',
+        defaultValue: 0.0,
+        step: 0.1,
+        max: 100,
+        min: -100,
+        type: "float",
+        units: 'px'
+      }
+    ];
+  }
+}

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+Created with Funkin Packer v0.1.3 https://neeeoo.github.io/funkin-packer/
+-->
+<TextureAtlas imagePath="extra-events-cameraFadeEvent.png" width="322" height="7751">
+	<SubTexture name="extra-events-cameraFadeEvent0001" x="1" y="1" width="320" height="320" frameX="-0" frameY="-0" frameWidth="320" frameHeight="320"/>
+	<SubTexture name="extra-events-cameraFadeEvent0002" x="1" y="324" width="320" height="320" frameX="-0" frameY="-0" frameWidth="320" frameHeight="320"/>
+	<SubTexture name="extra-events-cameraFadeEvent0003" x="1" y="647" width="320" height="320" frameX="-0" frameY="-0" frameWidth="320" frameHeight="320"/>
+	<SubTexture name="extra-events-cameraFadeEvent0004" x="1" y="970" width="320" height="320" frameX="-0" frameY="-0" frameWidth="320" frameHeight="320"/>
+	<SubTexture name="extra-events-cameraFadeEvent0005" x="1" y="1293" width="320" height="320" frameX="-0" frameY="-0" frameWidth="320" frameHeight="320"/>
+	<SubTexture name="extra-events-cameraFadeEvent0006" x="1" y="1616" width="320" height="320" frameX="-0" frameY="-0" frameWidth="320" frameHeight="320"/>
+	<SubTexture name="extra-events-cameraFadeEvent0007" x="1" y="1939" width="320" height="320" frameX="-0" frameY="-0" frameWidth="320" frameHeight="320"/>
+	<SubTexture name="extra-events-cameraFadeEvent0008" x="1" y="2262" width="320" height="320" frameX="-0" frameY="-0" frameWidth="320" frameHeight="320"/>
+	<SubTexture name="extra-events-cameraFadeEvent0009" x="1" y="2585" width="320" height="320" frameX="-0" frameY="-0" frameWidth="320" frameHeight="320"/>
+	<SubTexture name="extra-events-cameraFadeEvent0010" x="1" y="2908" width="320" height="320" frameX="-0" frameY="-0" frameWidth="320" frameHeight="320"/>
+	<SubTexture name="extra-events-cameraFadeEvent0011" x="1" y="3231" width="320" height="320" frameX="-0" frameY="-0" frameWidth="320" frameHeight="320"/>
+	<SubTexture name="extra-events-cameraFadeEvent0012" x="1" y="3554" width="320" height="320" frameX="-0" frameY="-0" frameWidth="320" frameHeight="320"/>
+	<SubTexture name="extra-events-cameraFadeEvent0013" x="1" y="3877" width="320" height="320" frameX="-0" frameY="-0" frameWidth="320" frameHeight="320"/>
+	<SubTexture name="extra-events-cameraFadeEvent0014" x="1" y="4200" width="320" height="320" frameX="-0" frameY="-0" frameWidth="320" frameHeight="320"/>
+	<SubTexture name="extra-events-cameraFadeEvent0015" x="1" y="4523" width="320" height="320" frameX="-0" frameY="-0" frameWidth="320" frameHeight="320"/>
+	<SubTexture name="extra-events-cameraFadeEvent0016" x="1" y="4846" width="320" height="320" frameX="-0" frameY="-0" frameWidth="320" frameHeight="320"/>
+	<SubTexture name="extra-events-cameraFadeEvent0017" x="1" y="5169" width="320" height="320" frameX="-0" frameY="-0" frameWidth="320" frameHeight="320"/>
+	<SubTexture name="extra-events-cameraFadeEvent0018" x="1" y="5492" width="320" height="320" frameX="-0" frameY="-0" frameWidth="320" frameHeight="320"/>
+	<SubTexture name="extra-events-cameraFadeEvent0019" x="1" y="5815" width="320" height="320" frameX="-0" frameY="-0" frameWidth="320" frameHeight="320"/>
+	<SubTexture name="extra-events-cameraFadeEvent0020" x="1" y="6138" width="320" height="320" frameX="-0" frameY="-0" frameWidth="320" frameHeight="320"/>
+	<SubTexture name="extra-events-cameraFadeEvent0021" x="1" y="6461" width="320" height="320" frameX="-0" frameY="-0" frameWidth="320" frameHeight="320"/>
+	<SubTexture name="extra-events-cameraFadeEvent0022" x="1" y="6784" width="320" height="320" frameX="-0" frameY="-0" frameWidth="320" frameHeight="320"/>
+	<SubTexture name="extra-events-cameraFadeEvent0023" x="1" y="7107" width="320" height="320" frameX="-0" frameY="-0" frameWidth="320" frameHeight="320"/>
+	<SubTexture name="extra-events-cameraFadeEvent0024" x="1" y="7430" width="320" height="320" frameX="-0" frameY="-0" frameWidth="320" frameHeight="320"/>
+</TextureAtlas>

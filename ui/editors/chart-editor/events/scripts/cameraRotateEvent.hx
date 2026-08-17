@@ -1,0 +1,178 @@
+import funkin.play.PlayState;
+import funkin.Conductor;
+import funkin.modding.module.Module;
+import flixel.FlxG;
+import flixel.tweens.FlxTween;
+import flixel.tweens.FlxEase;
+import flixel.FlxCamera;
+import funkin.graphics.FunkinSprite;
+import funkin.util.ReflectUtil;
+
+import funkin.play.event.SongEvent;
+import funkin.data.event.SongEventSchema;
+
+import funkin.modding.PolymodErrorHandler;
+
+import funkin.ui.options.OptionsState;
+import funkin.modding.module.ModuleHandler;
+import funkin.modding.module.ScriptedModule;
+import funkin.data.event.SongEventRegistry;
+import funkin.play.event.ScriptedSongEvent;
+import funkin.save.Save;
+
+class CameraRotateEvent extends ScriptedSongEvent {
+  function new() {
+    super("extra-events-cameraRotateEvent");
+  }
+
+  /**
+  * Rotates the camera by a specified angle with easings
+  **/
+
+  public var eventTitle:String = "Extra Events | Camera Rotate";
+  public var isEnabled = null;
+
+  // best if we could change both without placing two separate events
+  public var DEFAULT_CAMGAME_ANGLE:Float = 10.0;
+  public var DEFAULT_CAMHUD_ANGLE:Float = 10.0;
+  public var DEFAULT_DURATION:Float = 4.0;
+
+  public var camGameRotateTween:FlxTween = null;
+  public var camHUDRotateTween:FlxTween = null;
+
+  public var shouldFixRotateEvent:Bool = true;
+
+  override function handleEvent(data):Void {
+    if (PlayState.instance == null || PlayState.instance.currentStage == null) return;
+    if (PlayState.instance.isMinimalMode) return;
+
+    // Save Stuff
+    isEnabled = Save.instance.modOptions.get('extra-events').isRotateEnabled;
+    if (!isEnabled) return; // Check if the option is enabled/disabled every time the event is called
+
+    var toAngle_camGame:Float = data.getFloat('angleCamGame') != null ? data.getFloat('angleCamGame') : DEFAULT_CAMGAME_ANGLE;
+    var toAngle_camHUD:Float = data.getFloat('angleCamHUD') != null ? data.getFloat('angleCamHUD') : DEFAULT_CAMHUD_ANGLE;
+    var duration:Float = data.getFloat('duration') != null ? data.getFloat('duration') : DEFAULT_DURATION;
+    var ease:String = data.getString('ease') != null ? data.getString('ease') : SongEvent.DEFAULT_EASE;
+    var easeDir:String = data.getString('easeDir') ?? SongEvent.DEFAULT_EASE_DIR;
+
+    if (SongEvent.EASE_TYPE_DIR_REGEX.match(ease) || ease == "linear") easeDir = "";
+
+    var durSeconds = Conductor.instance.stepLengthMs * duration / 1000;
+    var easeFunction:Null<Float->Float>;
+
+    if (duration < 0) {
+      PolymodErrorHandler.showAlert('Event executing event | ${eventTitle}, Duration cannot be less than 0.');
+      return;
+    }
+
+    switch (ease) {
+        case 'INSTANT':
+          cancelCamGameRotation();
+          cancelCamHUDRotation();
+          PlayState.instance.camGame.angle = toAngle_camGame;
+          if (Save.instance.modOptions.get('extra-events').iscamHUDRotateEnabled) PlayState.instance.camHUD.angle = toAngle_camHUD;
+        default:
+          easeFunction = ReflectUtil.getAnonymousField(FlxEase, ease + easeDir);
+          if (easeFunction == null){
+            // trace("Invalid easing function: " + ease);
+          }
+          rotateCamGame(toAngle_camGame, durSeconds / PlayState.instance.playbackRate, easeFunction);
+          if (Save.instance.modOptions.get('extra-events').iscamHUDRotateEnabled) rotateCamHUD(toAngle_camHUD, durSeconds / PlayState.instance.playbackRate, easeFunction);
+    }
+    // trace("Angle: " + toAngle + " | Duration: " + duration + " | Easing: " + ease + " | Ease Function: " + easeFunction);
+  }
+
+  public function rotateCamGame(?toAngle:Float, ?duration:Float, ?ease:Null<Float->Float>) {
+    cancelCamGameRotation();
+    if (PlayState.instance.camGame != null) camGameRotateTween = FlxTween.tween(PlayState.instance.camGame, {angle: toAngle}, duration, {ease: ease});
+  }
+
+  public function rotateCamHUD(?toAngle:Float, ?duration:Float, ?ease:Null<Float->Float>) {
+    cancelCamHUDRotation();
+    if (PlayState.instance.camHUD != null) camHUDRotateTween = FlxTween.tween(PlayState.instance.camHUD, {angle: toAngle}, duration, {ease: ease});
+  }
+
+  public function cancelCamGameRotation() {
+    if (camGameRotateTween != null) camGameRotateTween.cancel();
+  }
+
+  public function cancelCamHUDRotation() {
+    if (camHUDRotateTween != null) camHUDRotateTween.cancel();
+  }
+
+  public override function onGameOver(event:ScriptEvent){
+    super.onGameOver(event);
+    if (PlayState.instance.camGame != null && PlayState.instance.camGame.angle != 0 && shouldFixRotateEvent) PlayState.instance.camGame.angle = 0;
+    if (PlayState.instance.camHUD != null && PlayState.instance.camHUD.angle != 0 && shouldFixRotateEvent) PlayState.instance.camHUD.angle = 0;
+  }
+
+  public override function onSongRetry(event:ScriptEvent){
+    super.onSongRetry(event);
+    if (PlayState.instance.camGame != null && PlayState.instance.camGame.angle != 0 && shouldFixRotateEvent) PlayState.instance.camGame.angle = 0;
+    if (PlayState.instance.camHUD != null && PlayState.instance.camHUD.angle != 0 && shouldFixRotateEvent) PlayState.instance.camHUD.angle = 0;
+  }
+
+  public override function getTitle() {
+    return eventTitle;
+  }
+
+  override function getEventSchema() {
+    return [
+      {
+        name: 'angleCamGame',
+        title: 'CamGame Angle',
+        defaultValue: 10.0,
+        step: 0.5,
+        type: "float",
+        units: '°'
+      },
+      {
+        name: 'angleCamHUD',
+        title: 'CamHUD Angle',
+        defaultValue: 10.0,
+        step: 0.5,
+        type: "float",
+        units: '°'
+      },
+      {
+        name: 'duration',
+        title: 'Duration',
+        defaultValue: 4.0,
+        step: 0.5,
+        min: 0.5,
+        type: "float",
+        units: 'steps'
+      },
+      {
+        name: 'ease',
+        title: 'Easing Type',
+        defaultValue: 'linear',
+        type: "enum",
+        keys: [
+          'Linear' => 'linear',
+          'Instant (Ignores duration)' => 'INSTANT',
+          'Sine' => 'sine',
+          'Quad' => 'quad',
+          'Cube' => 'cube',
+          'Quart' => 'quart',
+          'Quint' => 'quint',
+          'Expo' => 'expo',
+          'Smooth Step' => 'smoothStep',
+          'Smoother Step' => 'smootherStep',
+          'Elastic' => 'elastic',
+          'Back' => 'back',
+          'Bounce' => 'bounce',
+          'Circ' => 'circ',
+        ]
+      },
+      {
+        name: 'easeDir',
+        title: 'Easing Direction',
+        defaultValue: 'In',
+        type: "enum",
+        keys: ['In' => 'In', 'Out' => 'Out', 'In/Out' => 'InOut']
+      }
+    ];
+  }
+}

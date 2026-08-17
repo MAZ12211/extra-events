@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+Created with Funkin Packer v0.1.3 https://neeeoo.github.io/funkin-packer/
+-->
+<TextureAtlas imagePath="extra-events-cameraRotateEvent.png" width="7655" height="280">
+	<SubTexture name="extra-events-cameraRotateEvent0001" x="1" y="1" width="316" height="278" frameX="-0" frameY="-0" frameWidth="316" frameHeight="278"/>
+	<SubTexture name="extra-events-cameraRotateEvent0002" x="320" y="1" width="316" height="278" frameX="-0" frameY="-0" frameWidth="316" frameHeight="278"/>
+	<SubTexture name="extra-events-cameraRotateEvent0003" x="639" y="1" width="316" height="278" frameX="-0" frameY="-0" frameWidth="316" frameHeight="278"/>
+	<SubTexture name="extra-events-cameraRotateEvent0004" x="958" y="1" width="316" height="278" frameX="-0" frameY="-0" frameWidth="316" frameHeight="278"/>
+	<SubTexture name="extra-events-cameraRotateEvent0005" x="1277" y="1" width="316" height="278" frameX="-0" frameY="-0" frameWidth="316" frameHeight="278"/>
+	<SubTexture name="extra-events-cameraRotateEvent0006" x="1596" y="1" width="316" height="278" frameX="-0" frameY="-0" frameWidth="316" frameHeight="278"/>
+	<SubTexture name="extra-events-cameraRotateEvent0007" x="1915" y="1" width="316" height="278" frameX="-0" frameY="-0" frameWidth="316" frameHeight="278"/>
+	<SubTexture name="extra-events-cameraRotateEvent0008" x="2234" y="1" width="316" height="278" frameX="-0" frameY="-0" frameWidth="316" frameHeight="278"/>
+	<SubTexture name="extra-events-cameraRotateEvent0009" x="2553" y="1" width="316" height="278" frameX="-0" frameY="-0" frameWidth="316" frameHeight="278"/>
+	<SubTexture name="extra-events-cameraRotateEvent0010" x="2872" y="1" width="316" height="278" frameX="-0" frameY="-0" frameWidth="316" frameHeight="278"/>
+	<SubTexture name="extra-events-cameraRotateEvent0011" x="3191" y="1" width="316" height="278" frameX="-0" frameY="-0" frameWidth="316" frameHeight="278"/>
+	<SubTexture name="extra-events-cameraRotateEvent0012" x="3510" y="1" width="316" height="278" frameX="-0" frameY="-0" frameWidth="316" frameHeight="278"/>
+	<SubTexture name="extra-events-cameraRotateEvent0013" x="3829" y="1" width="316" height="278" frameX="-0" frameY="-0" frameWidth="316" frameHeight="278"/>
+	<SubTexture name="extra-events-cameraRotateEvent0014" x="4148" y="1" width="316" height="278" frameX="-0" frameY="-0" frameWidth="316" frameHeight="278"/>
+	<SubTexture name="extra-events-cameraRotateEvent0015" x="4467" y="1" width="316" height="278" frameX="-0" frameY="-0" frameWidth="316" frameHeight="278"/>
+	<SubTexture name="extra-events-cameraRotateEvent0016" x="4786" y="1" width="316" height="278" frameX="-0" frameY="-0" frameWidth="316" frameHeight="278"/>
+	<SubTexture name="extra-events-cameraRotateEvent0017" x="5105" y="1" width="316" height="278" frameX="-0" frameY="-0" frameWidth="316" frameHeight="278"/>
+	<SubTexture name="extra-events-cameraRotateEvent0018" x="5424" y="1" width="316" height="278" frameX="-0" frameY="-0" frameWidth="316" frameHeight="278"/>
+	<SubTexture name="extra-events-cameraRotateEvent0019" x="5743" y="1" width="316" height="278" frameX="-0" frameY="-0" frameWidth="316" frameHeight="278"/>
+	<SubTexture name="extra-events-cameraRotateEvent0020" x="6062" y="1" width="316" height="278" frameX="-0" frameY="-0" frameWidth="316" frameHeight="278"/>
+	<SubTexture name="extra-events-cameraRotateEvent0021" x="6381" y="1" width="316" height="278" frameX="-0" frameY="-0" frameWidth="316" frameHeight="278"/>
+	<SubTexture name="extra-events-cameraRotateEvent0022" x="6700" y="1" width="316" height="278" frameX="-0" frameY="-0" frameWidth="316" frameHeight="278"/>
+	<SubTexture name="extra-events-cameraRotateEvent0023" x="7019" y="1" width="316" height="278" frameX="-0" frameY="-0" frameWidth="316" frameHeight="278"/>
+	<SubTexture name="extra-events-cameraRotateEvent0024" x="7338" y="1" width="316" height="278" frameX="-0" frameY="-0" frameWidth="316" frameHeight="278"/>
+</TextureAtlas>

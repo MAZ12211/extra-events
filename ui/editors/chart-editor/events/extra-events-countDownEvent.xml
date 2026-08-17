@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+Created with Tex-Packer-EX v0.6.8 https://strawberrysage.github.io/tex-packer-ex
+-->
+<TextureAtlas imagePath="extra-events-countDownEvent.png" width="129" height="394">
+  <SubTexture name="extra-events-countDownEvent0000.png" x="0" y="0"  width="129" height="132" frameX="-0" frameY="-0" frameWidth="129" frameHeight="133"/>
+  <SubTexture name="extra-events-countDownEvent0001.png" x="0" y="0"  width="129" height="132" frameX="-0" frameY="-0" frameWidth="129" frameHeight="133"/>
+  <SubTexture name="extra-events-countDownEvent0002.png" x="0" y="0"  width="129" height="132" frameX="-0" frameY="-0" frameWidth="129" frameHeight="133"/>
+  <SubTexture name="extra-events-countDownEvent0003.png" x="0" y="0"  width="129" height="132" frameX="-0" frameY="-0" frameWidth="129" frameHeight="133"/>
+  <SubTexture name="extra-events-countDownEvent0004.png" x="0" y="0"  width="129" height="132" frameX="-0" frameY="-0" frameWidth="129" frameHeight="133"/>
+  <SubTexture name="extra-events-countDownEvent0005.png" x="0" y="0"  width="129" height="132" frameX="-0" frameY="-0" frameWidth="129" frameHeight="133"/>
+  <SubTexture name="extra-events-countDownEvent0006.png" x="0" y="0"  width="129" height="132" frameX="-0" frameY="-0" frameWidth="129" frameHeight="133"/>
+  <SubTexture name="extra-events-countDownEvent0007.png" x="0" y="0"  width="129" height="132" frameX="-0" frameY="-0" frameWidth="129" frameHeight="133"/>
+  <SubTexture name="extra-events-countDownEvent0008.png" x="0" y="132"  width="103" height="132" frameX="-0" frameY="-0" frameWidth="129" frameHeight="133"/>
+  <SubTexture name="extra-events-countDownEvent0009.png" x="0" y="132"  width="103" height="132" frameX="-0" frameY="-0" frameWidth="129" frameHeight="133"/>
+  <SubTexture name="extra-events-countDownEvent0010.png" x="0" y="132"  width="103" height="132" frameX="-0" frameY="-0" frameWidth="129" frameHeight="133"/>
+  <SubTexture name="extra-events-countDownEvent0011.png" x="0" y="132"  width="103" height="132" frameX="-0" frameY="-0" frameWidth="129" frameHeight="133"/>
+  <SubTexture name="extra-events-countDownEvent0012.png" x="0" y="132"  width="103" height="132" frameX="-0" frameY="-0" frameWidth="129" frameHeight="133"/>
+  <SubTexture name="extra-events-countDownEvent0013.png" x="0" y="132"  width="103" height="132" frameX="-0" frameY="-0" frameWidth="129" frameHeight="133"/>
+  <SubTexture name="extra-events-countDownEvent0014.png" x="0" y="132"  width="103" height="132" frameX="-0" frameY="-0" frameWidth="129" frameHeight="133"/>
+  <SubTexture name="extra-events-countDownEvent0015.png" x="0" y="132"  width="103" height="132" frameX="-0" frameY="-0" frameWidth="129" frameHeight="133"/>
+  <SubTexture name="extra-events-countDownEvent0016.png" x="0" y="264"  width="103" height="130" frameX="-0" frameY="-2" frameWidth="129" frameHeight="133"/>
+  <SubTexture name="extra-events-countDownEvent0017.png" x="0" y="264"  width="103" height="130" frameX="-0" frameY="-2" frameWidth="129" frameHeight="133"/>
+  <SubTexture name="extra-events-countDownEvent0018.png" x="0" y="264"  width="103" height="130" frameX="-0" frameY="-2" frameWidth="129" frameHeight="133"/>
+  <SubTexture name="extra-events-countDownEvent0019.png" x="0" y="264"  width="103" height="130" frameX="-0" frameY="-2" frameWidth="129" frameHeight="133"/>
+  <SubTexture name="extra-events-countDownEvent0020.png" x="0" y="264"  width="103" height="130" frameX="-0" frameY="-2" frameWidth="129" frameHeight="133"/>
+  <SubTexture name="extra-events-countDownEvent0021.png" x="0" y="264"  width="103" height="130" frameX="-0" frameY="-2" frameWidth="129" frameHeight="133"/>
+  <SubTexture name="extra-events-countDownEvent0022.png" x="0" y="264"  width="103" height="130" frameX="-0" frameY="-2" frameWidth="129" frameHeight="133"/>
+  <SubTexture name="extra-events-countDownEvent0023.png" x="0" y="264"  width="103" height="130" frameX="-0" frameY="-2" frameWidth="129" frameHeight="133"/>
+  <SubTexture name="extra-events-countDownEvent0024.png" x="0" y="264"  width="103" height="130" frameX="-0" frameY="-2" frameWidth="129" frameHeight="133"/>
+</TextureAtlas>

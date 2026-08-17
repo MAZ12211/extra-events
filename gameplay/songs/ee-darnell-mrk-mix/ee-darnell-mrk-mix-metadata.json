@@ -1,0 +1,62 @@
+{
+  "version": "2.2.4",
+  "songName": "Darnell [MRK mix]",
+  "artist": "MarkedAman + LeChadeur",
+  "charter": "MAZ",
+  "divisions": 96,
+  "looped": false,
+  "offsets": {
+    "instrumental": 0,
+    "altInstrumentals": {    },
+    "vocals": {    },
+    "altVocals": {    }
+  },
+  "playData": {
+    "album": "mrk-mixes-vol-one",
+    "songVariations": [    ],
+    "difficulties": [
+      "easy",
+      "normal",
+      "hard"
+    ],
+    "characters": {
+      "player": "pico-playable",
+      "girlfriend": "nene",
+      "opponent": "darnell",
+      "instrumental": "",
+      "altInstrumentals": [      ],
+      "opponentVocals": [
+        "darnell"
+      ],
+      "playerVocals": [
+        "pico-playable"
+      ]
+    },
+    "stage": "phillyStreetsErect",
+    "noteStyle": "funkin",
+    "ratings": {
+      "easy": 3,
+      "hard": 5,
+      "normal": 4
+    },
+    "previewStart": 0.0815810405661724,
+    "previewEnd": 0.163162081132345
+  },
+  "generatedBy": "Friday Night Funkin' - v0.7.5",
+  "timeFormat": "ms",
+  "timeChanges": [
+    {
+      "t": 0,
+      "b": 0,
+      "bpm": 160,
+      "n": 4,
+      "d": 4,
+      "bt": [
+        4,
+        4,
+        4,
+        4
+      ]
+    }
+  ]
+}

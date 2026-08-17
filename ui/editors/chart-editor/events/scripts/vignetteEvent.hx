@@ -1,0 +1,200 @@
+import funkin.play.PlayState;
+import funkin.Conductor;
+import funkin.modding.events.ScriptEvent;
+import funkin.modding.module.Module;
+import flixel.tweens.FlxEase;
+import funkin.util.ReflectUtil;
+import funkin.play.event.SongEvent;
+import funkin.play.event.ScriptedSongEvent;
+import funkin.data.event.SongEventSchema;
+import funkin.modding.PolymodErrorHandler;
+import funkin.modding.module.ModuleHandler;
+import funkin.modding.module.ScriptedModule;
+import funkin.data.event.SongEventRegistry;
+import funkin.save.Save;
+import flixel.tweens.FlxTween;
+import openfl.filters.ShaderFilter;
+import funkin.modding.base.ScriptedFlxRuntimeShader;
+import flixel.addons.display.FlxRuntimeShader;
+import flixel.FlxG;
+import funkin.util.FlxTweenUtil;
+
+class VignEvent extends ScriptedSongEvent {
+  function new() {
+    super("extra-events-vignEvent");
+  }
+
+  /**
+  * Applies a vignette effect over camGame with easings
+  **/
+
+  public var vignHandler = null;
+  public var eventTitle:String = "Extra Events | Add Vignette Effect";
+
+  public var DEFAULT_INTENSITY:Float = 1.0; // min = 1.0, max = 10
+
+  public var DEFAULT_DURATION:Float = 4.0;
+
+  override function handleEvent(data:SongEventData) {
+    vignHandler = ModuleHandler.getModule('extra-events-vignHandler');
+
+    if (PlayState.instance == null || PlayState.instance.isMinimalMode) return;
+    if (!Save.instance.modOptions.get('extra-events').isVignEnabled) return;
+
+    var intensity:Float = data.getFloat('intensity') != null ? data.getFloat('intensity') : DEFAULT_INTENSITY;
+    var duration:Float = data.getFloat('duration') != null ? data.getFloat('duration') : DEFAULT_DURATION;
+    var ease:String = data.getString('ease') != null ? data.getString('ease') : SongEvent.DEFAULT_EASE;
+    var easeDir:String = data.getString('easeDir') ?? SongEvent.DEFAULT_EASE_DIR;
+
+    if (SongEvent.EASE_TYPE_DIR_REGEX.match(ease) || ease == "linear") easeDir = "";
+
+    var durSeconds = Conductor.instance.stepLengthMs * duration / 1000;
+    var easeFunction:Null<Float->Float>;
+
+    if (duration <= 0) {
+      PolymodErrorHandler.showAlert('Error executing event | ${eventTitle}, Duration cannot be less or equal to 0.\nDuration must be greater than 0.');
+      return;
+    }
+
+    switch (ease) {
+        case 'INSTANT': // Cancel the tween here.
+          if (vignHandler?.scriptGet("intensity_tween") != null || vignHandler?.scriptGet("vignShader") != null) vignHandler?.scriptGet("intensity_tween")?.cancel();
+          vignHandler?.scriptGet("vignShader")?.scriptCall("setIntensity", [intensity]);
+        default:
+          easeFunction = ReflectUtil.getAnonymousField(FlxEase, ease + easeDir);
+          if (easeFunction == null){
+            trace("Invalid easing function: " + ease);
+          }
+          vignHandler?.scriptCall("createVig", [intensity, durSeconds / PlayState.instance.playbackRate, easeFunction]);
+    }
+
+  }
+
+  public override function getTitle() {
+    return eventTitle;
+  }
+
+  public override function getEventSchema(){
+    return [
+      {
+        name: 'intensity',
+        title: 'Intensity',
+        defaultValue: 1.0,
+        step: 0.5,
+        max: 10.0,
+        min: 0.0,
+        type: "float",
+        units: 'value'
+      },
+      {
+        name: 'duration',
+        title: 'Duration',
+        defaultValue: 4.0,
+        step: 0.5,
+        min: 0.5,
+        type: "float",
+        units: 'steps'
+      },
+      {
+        name: 'ease',
+        title: 'Easing Type',
+        defaultValue: 'linear',
+        type: "enum",
+        keys: [
+          'Linear' => 'linear',
+          'Instant (Ignores duration)' => 'INSTANT',
+          'Sine' => 'sine',
+          'Quad' => 'quad',
+          'Cube' => 'cube',
+          'Quart' => 'quart',
+          'Quint' => 'quint',
+          'Expo' => 'expo',
+          'Smooth Step' => 'smoothStep',
+          'Smoother Step' => 'smootherStep',
+          'Elastic' => 'elastic',
+          'Back' => 'back',
+          'Bounce' => 'bounce',
+          'Circ ' => 'circ',
+        ]
+      },
+      {
+        name: 'easeDir',
+        title: 'Easing Direction',
+        defaultValue: 'In',
+        type: "enum",
+        keys: ['In' => 'In', 'Out' => 'Out', 'In/Out' => 'InOut']
+      }
+    ];
+  }
+}
+
+class VignHandler extends ScriptedModule {
+    public var vignShader:FlxRuntimeShader;
+    public var vignFilter:ShaderFilter;
+
+    public var intensity_tween:FlxTween = null;
+
+    public function new() {
+        super("extra-events-vignHandler", 2);
+        this.active = Save.instance?.modOptions?.get('extra-events')?.isVignEnabled;
+    }
+
+    override function onSongStart(e) {
+        super.onSongStart(e);
+
+        vignShader = ScriptedFlxRuntimeShader.init('VignEffect');
+        vignFilter = new ShaderFilter(vignShader);
+        vignShader?.scriptCall("setIntensity", [0.0]);
+        if (FlxG.camera.filters == null) FlxG.camera.filters = [vignFilter];
+        else FlxG.camera.filters.push(vignFilter);
+        // if (!FlxG.camera.filters?.contains(vignFilter)) FlxG.camera.filters?.push(vignFilter);
+    }
+
+    override function onSongRetry(e) {
+        super.onSongRetry(e);
+
+        if (vignShader != null) {
+            // if (FlxG.camera.filters?.contains(vignFilter)) FlxG.camera.filters?.remove(vignFilter);
+            FlxG.camera.filters?.remove(vignFilter); // Remove the shader when retrying the song (via gameover or pause menu) to avoid stacking
+            vignShader = null;
+        }
+    }
+
+    override function onSongEnd(e) {
+        super.onSongEnd(e);
+
+        if (vignShader != null) {
+            // if (FlxG.camera.filters?.contains(vignFilter)) FlxG.camera.filters?.remove(vignFilter);
+            FlxG.camera.filters?.remove(vignFilter); // Remove the shader when retrying the song (via gameover or pause menu) to avoid stacking
+            vignShader = null;
+        }
+    }
+
+    public function createVig(?intensity:Float, ?duration:Float, ?ease:Null<Float->Float>) {
+        cancelCurrentVigTween();
+
+        var intensityArg = intensity ?? 0.0;
+        var durationArg = duration ?? 0.0;
+        var easeArg = ease ?? "linear";
+
+        intensity_tween = FlxTween.num(vignShader?.scriptGet("uIntensity"), intensity, duration, {ease: ease}, function(value:Float) {
+            vignShader?.scriptCall("setIntensity", [value]);
+        });
+
+    }
+
+    public function cancelCurrentVigTween(){
+        if (vignShader != null){
+            if (intensity_tween != null) intensity_tween.cancel();
+        }
+    }
+
+    override function onPause(e) {
+        FlxTweenUtil?.pauseTween(intensity_tween);
+    }
+
+
+    override function onResume(e) {
+        FlxTweenUtil?.resumeTween(intensity_tween);
+    }
+}
