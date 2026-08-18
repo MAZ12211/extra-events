@@ -16,7 +16,6 @@ class ExtraEventsSaveHandler extends ScriptedModule {
         isRotateEnabled: true,
         iscamHUDRotateEnabled: true,
         isShakeEnabled: true,
-        isLyricsEnabled: true,
         isVignEnabled: true,
         isMidSongCountDownEnabled: true
     };
@@ -34,7 +33,7 @@ class ExtraEventsSaveHandler extends ScriptedModule {
     override function onStateChangeEnd(e) {
         super.onStateChangeEnd(e);
         if (Std.isOfType(e.targetState, OptionsState)) {
-            var prefs = e.targetState.optionsCodex.pages.get('preferences'); 
+            var prefs = e.targetState.optionsCodex.pages.get('preferences');
             if (prefs != null) {
                 prefs.createPrefItemCheckbox("Rotate Screen Effects", "If disabled, charts with placed rotational screen effects will be ignored.", (value:Bool) -> {
                     options.isRotateEnabled = value;
@@ -47,10 +46,6 @@ class ExtraEventsSaveHandler extends ScriptedModule {
                 prefs.createPrefItemCheckbox("Shake Screen Effects", "If disabled, charts with placed shake screen effects will be ignored.", (value:Bool) -> {
                     options.isShakeEnabled = value;
                 }, options.isShakeEnabled);
-
-                prefs.createPrefItemCheckbox("Show Lyrics", "If disabled, charts with placed lyrics will be ignored.", (value:Bool) -> {
-                    options.isLyricsEnabled = value;
-                }, options.isLyricsEnabled);
 
                 prefs.createPrefItemCheckbox("Vignette Effects", "If disabled, charts with placed vignette effects will be ignored.", (value:Bool) -> {
                     options.isVignEnabled = value;

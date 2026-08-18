@@ -25,7 +25,6 @@ class AddLyricsEvent extends ScriptedSongEvent {
   **/
 
   public var eventTitle:String = "Extra Events | Add Lyrics";
-  public var isEnabled = null;
 
   public var DEFAULT_TEXT:String = "";
   public var DEFAULT_TEXT_2ND:String = "";
@@ -54,9 +53,8 @@ class AddLyricsEvent extends ScriptedSongEvent {
   override function handleEvent(data) {
     if (PlayState.instance == null || PlayState.instance.currentStage == null) return;
 
-    // Save Stuff
-    isEnabled = Save.instance.modOptions.get('extra-events').isLyricsEnabled;
-    if (!isEnabled) return;
+    // Disabled when subtitles is well... disabled
+    if (!Preferences.subtitles) return;
 
     var text:String = data.getString('text') != null ? data.getString('text') : DEFAULT_TEXT;
     var text2nd:String = data.getString('text2nd') != null ? data.getString('text2nd') : DEFAULT_TEXT_2ND;
