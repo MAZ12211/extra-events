@@ -14,7 +14,7 @@ class ExtraEventsWaterMark extends ScriptedModule {
         });
     }
     var leftWatermarkText:FlxText;
-    var versionText:Float = "1.3.6";
+    var versionText:Float = "1.3.7";
 
 
     override function onStateChangeEnd(e) {

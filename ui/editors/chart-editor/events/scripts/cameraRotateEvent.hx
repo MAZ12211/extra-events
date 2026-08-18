@@ -70,7 +70,7 @@ class CameraRotateEvent extends ScriptedSongEvent {
         case 'INSTANT':
           cancelCamGameRotation();
           cancelCamHUDRotation();
-          PlayState.instance.camGame.angle = toAngle_camGame;
+          PlayState.instance.camGame.scrollAngle = toAngle_camGame;
           if (Save.instance.modOptions.get('extra-events').iscamHUDRotateEnabled) PlayState.instance.camHUD.angle = toAngle_camHUD;
         default:
           easeFunction = ReflectUtil.getAnonymousField(FlxEase, ease + easeDir);
@@ -85,7 +85,7 @@ class CameraRotateEvent extends ScriptedSongEvent {
 
   public function rotateCamGame(?toAngle:Float, ?duration:Float, ?ease:Null<Float->Float>) {
     cancelCamGameRotation();
-    if (PlayState.instance.camGame != null) camGameRotateTween = FlxTween.tween(PlayState.instance.camGame, {angle: toAngle}, duration, {ease: ease});
+    if (PlayState.instance.camGame != null) camGameRotateTween = FlxTween.tween(PlayState.instance.camGame, {scrollAngle: toAngle}, duration, {ease: ease});
   }
 
   public function rotateCamHUD(?toAngle:Float, ?duration:Float, ?ease:Null<Float->Float>) {
@@ -103,13 +103,13 @@ class CameraRotateEvent extends ScriptedSongEvent {
 
   public override function onGameOver(event:ScriptEvent){
     super.onGameOver(event);
-    if (PlayState.instance.camGame != null && PlayState.instance.camGame.angle != 0 && shouldFixRotateEvent) PlayState.instance.camGame.angle = 0;
+    if (PlayState.instance.camGame != null && PlayState.instance.camGame.scrollAngle != 0 && shouldFixRotateEvent) PlayState.instance.camGame.scrollAngle = 0;
     if (PlayState.instance.camHUD != null && PlayState.instance.camHUD.angle != 0 && shouldFixRotateEvent) PlayState.instance.camHUD.angle = 0;
   }
 
   public override function onSongRetry(event:ScriptEvent){
     super.onSongRetry(event);
-    if (PlayState.instance.camGame != null && PlayState.instance.camGame.angle != 0 && shouldFixRotateEvent) PlayState.instance.camGame.angle = 0;
+    if (PlayState.instance.camGame != null && PlayState.instance.camGame.scrollAngle != 0 && shouldFixRotateEvent) PlayState.instance.camGame.scrollAngle = 0;
     if (PlayState.instance.camHUD != null && PlayState.instance.camHUD.angle != 0 && shouldFixRotateEvent) PlayState.instance.camHUD.angle = 0;
   }
 
